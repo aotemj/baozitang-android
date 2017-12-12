@@ -1,0 +1,203 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+/* 选课 */
+body{
+	/*父容器*/
+	.container{
+		// background-color: pink;
+		width:10rem;
+		/*顶部轮播*/
+		.top{
+			width:10rem;
+			height:240/75rem;
+			background-color: @bgColor;
+			// position: relative;
+			.swiper-container {
+			    width: 750/75rem;
+			    height: 240/75rem;
+			    img{
+			    	width:10rem;
+			    	height:240/75rem;
+			    }
+			    /*导航圆点样式*/
+			    .swiper-pagination{
+			    	bottom:15/75rem;
+			    	.swiper-pagination-bullet{
+			    		background-color:rgba(0,0,0,1);
+							width:15/75rem;
+							height:10/75rem;
+							border-radius:30/75rem;
+			    	}
+			    	.swiper-pagination-bullet-active{
+			    		background-color: @activeColor;
+			    		width:20/75rem;
+			    	}
+
+			    }
+			}
+		}
+		/*搜索框*/
+		.search-box{
+			width:10rem;
+   		height:133/75rem;
+   		background-color: #F5F5F5;
+   		padding:30/75rem 40/75rem;
+   		box-sizing: border-box;
+   		.search{
+   			width:670/75rem;
+   			height:72/75rem;
+   			text-align: center;
+   		}
+		}
+		/*选课容器*/
+		.choose-box{
+			overflow: hidden;
+			padding-bottom:116/75rem;
+			/*顶部按钮*/
+			.choose-btn{
+				width:10rem;
+				// height:84/75rem;
+				background-color: #fff;
+				margin-bottom:30/75rem;
+				ul{
+					li{
+						width:5rem;
+						text-align: center;
+						font-size: 18px;
+						span{
+							display:inline-block;
+							height:120/75rem;
+							line-height: 120/75rem;
+							color:@secondFontColor;
+							// background-color: green;
+							// padding:10px;
+							box-sizing: border-box;
+						}
+						&.active{
+							span{
+								color:@fontColor;
+								border-bottom:4px solid @activeColor;
+							}
+						}
+					}
+				}
+			}
+			/*内容*/
+			.content{
+				width:10rem;
+				height:10rem;
+				background-color: #fff;
+				ul{
+					li{
+						margin-bottom:40/75rem;
+						width:316/75rem;
+						margin-left:40/75rem;
+						/*课程图片*/
+						.img{
+							width:316/75rem;
+							height:230/75rem;
+							background:url('../images/courseBg.jpg') no-repeat center center;
+							position: relative;
+							//播放按钮、收听按钮：
+							&:before,&:after {
+								content:"";
+								display:inline-block;
+								width:56/75rem;
+								height:56/75rem;
+								background-color:#fff;
+								border-radius:50%;
+								position: absolute;
+								left: 50%;
+								top: 50%;
+								transform:translate(-50%,-50%);
+							}
+							&:after{
+								width:40/75rem;
+								height:40/75rem;
+								top:100%;
+								left:100%;
+								border:1px solid #fff;
+								transform:translate(-128%,-128%);
+								background-color: #fff;
+							}
+						}
+						/*课程描述*/
+						.desc{
+							width:316/75rem;
+							// height:134/75rem;
+
+							background-color: #fff;
+							.title{
+								font-size: 18px;
+								padding:10px 0;
+								/*文字溢出隐藏*/
+								white-space: nowrap;
+								text-overflow:ellipsis;
+								overflow: hidden;
+							}
+							.author{
+								float: left;
+								color:@secondFontColor;
+							}
+							.learn-count{
+								float: right;
+								.learn-percent{
+									color:#FF4C3B;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/*底部导航*/
+		.footer{
+			position: fixed;
+			bottom:0;
+			width:10rem;
+			height:116/75rem;
+			background-color: #fff;
+			border-top:1px solid #E6E6E6;
+			box-sizing: border-box;
+			ul{
+				li{
+					width:2.5rem;
+					height:96/75rem;
+
+					text-align: center;
+					&.active{
+						a{
+							color:@fontColor;
+						}
+					}
+					a{
+						padding:5/75rem;
+						box-sizing: border-box;
+						display:block;
+						width:2.5rem;
+						height:96/75rem;
+						color:@secondFontColor;
+						i{
+							margin:5/75rem auto;
+							display:block;
+							width:44/75rem;
+							height:44/75rem;
+							background-color: red;
+						}
+					}
+				}
+			}
+		}
+	}
+}
