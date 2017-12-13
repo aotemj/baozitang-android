@@ -1,9 +1,14 @@
-body,h1,h2,h3,h4,h5,h6,div,input,button,ul,li,p {
+html{
+	font-size: 14px;
+}
+html,body,h1,h2,h3,h4,h5,h6,div,input,button,ul,li,p {
 	padding: 0;
 	margin: 0;
 	border:none;
 	outline:none;
 	font-size:14px;
+	background-color: transparent;
+	font-weight: normal;
 }
 ul,li{
 	list-style: none;
@@ -26,9 +31,15 @@ a {
 	color:#000;
 }
 .clearfix:before {
-	content:'';
+	content:" ";
 	display:block;
-	visibility:none;
 	height:0;
 	clear:both;
+	// visibility:hidden
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
 }
