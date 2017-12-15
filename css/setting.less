@@ -1,0 +1,152 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		box-sizing: border-box;
+		font-family:"sans-serif";
+		// height: 15rem;
+		/*顶部导航*/
+		.top{
+			padding:0 40/75rem;
+			height:88/75rem;
+			line-height: 88/75rem;
+			background-color: #fff;
+			border-bottom:1px solid @borderColor;
+			.back,.save{
+				width:88/75rem;
+				text-align: right;
+				font-size:28/75rem;
+			}
+			.back{
+				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+				background-size: 40/75rem 40/75rem;
+				color:transparent;
+			}
+			.save{
+				color:@activeColor;
+			}
+			.title{
+				font-size: 36/75rem;
+				width:494/75rem;
+				text-align: center;
+			}
+		}
+		/*个人信息内容*/
+		.content{
+			ul{
+				overflow:hidden;
+				padding-left:40/75rem;
+				margin-bottom:20/75rem;
+				// height:480/75rem;
+				background-color: #fff;
+
+				li{
+					height:96/75rem;
+					line-height:96/75rem;
+					border-bottom: 1px solid @borderColor;
+					width:100%;
+					padding-right:40/75rem;
+					box-sizing:border-box;
+					span{
+						font-size: 28/75rem;
+						font-family:"sans-serif";
+					}
+					/*除了头像的其他li*/
+					&:nth-of-type(n+2){
+						.change-pho{
+							width:300/75rem;
+							div{
+								// background-color: pink;
+								width:288/75rem;
+								text-align: right;
+								span{
+									color:@secondFontColor;
+								}
+								&.photo{
+										height:0;
+										/*右侧箭头*/
+									&:before{
+										right:-6/75rem;
+									}
+								}
+							}
+						}
+					}
+					/*清除缓存li标签*/
+					&:nth-last-of-type(2){
+						.change-pho{
+							// background-color: pink;
+							div{
+								&:first-of-type{
+								padding-right:70/75rem;
+								span{
+									color:@fontColor;
+								}
+								}
+							}
+							.photo{
+								&:before{
+									// background-color: red;
+									top:-112/75rem;
+								}
+							}
+						}
+					}
+					.change-pho{
+						font-size:24/75rem;
+						width:276/75rem;
+						height:96/75rem;
+						box-sizing: border-box;
+						color:@secondFontColor;
+						div{
+							&:first-of-type{
+								padding:0 30/75rem;
+								box-sizing: border-box;
+								span{
+									font-size:24/75rem;
+								}
+							}
+						}
+						.photo{
+							margin-top:12/75rem;
+							width:72/75rem;
+							height:72/75rem;
+							border-radius:50%;
+							background-color: green;
+							position: relative;
+							&:before{
+								content:'';
+								position: absolute;
+								right: -42/75rem;
+								top:-12/75rem;
+								display:block;
+								width:42/75rem;
+								height:96/75rem;
+								background:url('../images/mine-arrow_icon.png') no-repeat 10/75rem center;
+								background-size: 30/75rem 30/75rem;
+
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
