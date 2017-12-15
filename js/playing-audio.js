@@ -1,5 +1,6 @@
 (function($){
 
+  //播放列表逻辑
   var pluginName = "jAudio",
       defaults = {
         playlist: [],
@@ -114,6 +115,7 @@
     {
       var self  = this,
           track;
+          $('#btn-prev').toggleClass('fadeIn');
 
       (self.currentTrack === 0)
         ? track = self.settings.playlist.length - 1
@@ -125,6 +127,7 @@
     {
       var self = this,
           track;
+          $('#btn-next').toggleClass('fadeIn');
 
       (self.currentTrack === self.settings.playlist.length - 1)
         ? track = 0
@@ -344,6 +347,7 @@
       self.$domProgressBar.children().eq(0).css(styles);
     },
 
+    /*手动点击改变播放位置*/
     updateProgressBar: function(e)
     {
       var self = this,
@@ -372,7 +376,6 @@
 
       self.$domElapsedTime.text( audioTime );
     },
-
     updateTotalTime: function()
     {
       var self      = this,
@@ -414,6 +417,33 @@
 
     $(this).each(instantiate);
   }
+//播放逻辑结束
+//前进15s
+function next15s (){
+  var audio = $('#audio')[0],
+ duration = audio.duration,
+                currentTime,
+                 targetTime,
+                 fastSeek ;
+      // console.log(duration);
+      // console.log(fastSeek);
+
+  $('#btn-next15s').on('click',function(){
+    fastSeek = audio.seekable;
+      currentTime = audio.currentTime;
+
+      // if(Math.abs(duration-currentTime)>15){
+        targetTime = currentTime+15-0;
+        audio.currentTime = targetTime;
+      // }
+      console.log(fastSeek.start);
+      console.log(audio.currentTime);
+
+  });
+
+  console.log(audio.currentTime);
+}
+next15s();
 
 })($)
 
