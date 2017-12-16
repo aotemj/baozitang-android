@@ -1,0 +1,148 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		box-sizing: border-box;
+		font-family:"sans-serif";
+		// height: 15rem;
+		/*顶部导航*/
+		.top{
+			padding:0 40/75rem;
+			height:88/75rem;
+			line-height: 88/75rem;
+			background-color: #fff;
+			border-bottom:1px solid @borderColor;
+			.back,.save{
+				width:88/75rem;
+				text-align: right;
+				font-size:28/75rem;
+			}
+			.back{
+				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+				background-size: 40/75rem 40/75rem;
+				color:transparent;
+			}
+			.title{
+				font-size: 36/75rem;
+				width:494/75rem;
+				text-align: center;
+			}
+		}
+		/*个人信息内容*/
+		.content{
+			ul{
+				overflow:hidden;
+				background-color: #fff;
+				li{
+					display:block;
+					line-height:96/75rem;
+					width:100%;
+					box-sizing:border-box;
+					/*班级名称*/
+					.class-title{
+						border-bottom: 1px solid @bgColor;
+						height:96/75rem;
+						// background-color: green;
+						position: relative;
+						padding-left:40/75rem;
+						span{
+							font-size: 36/75rem;
+							font-family:"sans-serif";
+						}
+						/*小图标*/
+						i{
+							position: absolute;
+							width:40/75rem;
+							height:40/75rem;
+							background-color: blue;
+							top:28/75rem;
+							right:40/75rem;
+							background:url('../images/up-arrow_icon.png') no-repeat center center;
+							background-size: 30/75rem 30/75rem;
+							&.active{
+								background-image: url('../images/down-arrow_icon.png');
+							}
+						}
+					}
+					/*班级成员*/
+					.class-list{
+						// height:500px;
+						// background-color: yellow;
+						display:none;
+						ul{
+							li{
+
+								height:96/75rem;
+								padding-left:40/75rem;
+
+								a{
+									display:block;
+									height:95/75rem;
+									// background-color: pink;
+									border-bottom:1px solid @bgColor;
+									overflow: hidden;
+									/*编号*/
+									i{
+										display:block;
+										width:40/75rem;
+										height:40/75rem;
+										// background-color: green;
+										margin:27.5/75rem 20/75rem 0 0;
+										position: relative;
+										span{
+											position: absolute;
+											width:40/75rem;
+											height:40/75rem;
+											text-align: center;
+											font-size:36/75rem;
+											font-family:"sans-serif";
+											color:@secondFontColor;
+											line-height: 40/75rem;
+										}
+									}
+									/*头像*/
+									.photo{
+										margin:12/75rem 28/75rem 0 0;
+										width:72/75rem;
+										height:72/75rem;
+										background-color:blue;
+										border-radius: 50%;
+									}
+									/*昵称*/
+									.nickname{
+										font-size: 32/75rem;
+										display:inline-block;
+										margin-right:20/75rem;
+									}
+									/*行业*/
+									.job{
+										font-size: 28/75rem;
+										color:@secondFontColor;
+										// display:inline-block;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
