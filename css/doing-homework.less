@@ -1,0 +1,176 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		box-sizing: border-box;
+		overflow: hidden;
+		/*轮播盒子*/
+		.swiper-container{
+			/*ul*/
+			.swiper-wrapper{
+				position: relative;
+				width:30rem;
+				// height:1206/75rem;
+				/*li*/
+				.swiper-slide{
+					/*顶部导航*/
+					.top{
+						box-sizing: border-box;
+						width:10rem;
+						padding:0 40/75rem;
+						height:88/75rem;
+						line-height: 88/75rem;
+						background-color: #fff;
+						position: relative;
+						border-bottom:1px solid @borderColor;
+						.back,.submit{
+							width:88/75rem;
+							text-align: right;
+							font-size:28/75rem;
+						}
+						/*保存按钮*/
+						.save{
+							background:url('../images/baocun_icon.png') no-repeat center center;
+							background-size: 40/75rem 38/75rem;
+							position: absolute;
+							left: 114/75rem;
+							top: 24/75rem;
+							width:40/75rem;
+							height:40/75rem;
+						}
+						.back{
+							background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+							background-size: 40/75rem 40/75rem;
+							color:transparent;
+						}
+						.submit{
+							background-color:@activeColor;
+							color:@fontColor;
+							width:136/75rem;
+							height:58/75rem;
+							margin-top:15/75rem;
+							text-align: center;
+							line-height: 58/75rem;
+							border-radius:3px;
+						}
+						.title{
+							font-size: 36/75rem;
+							width:446/75rem;
+							text-align: center;
+						}
+					}
+					/*作业内容*/
+					.content{
+						width:10rem;
+						height:1206/75rem;
+						box-sizing:border-box;
+						background-color: pink;
+						/*作业题目*/
+						.title{
+							box-sizing: border-box;
+							padding:40/75rem;
+							background-color: #fff;
+							p{
+								font-size: 32/75rem;
+								line-height: 50/75rem;
+							}
+						}
+						/*作业答案*/
+						.inner-content{
+							position: relative;
+							i{
+								top:40/75rem;
+								left:40/75rem;
+								position: absolute;
+								width:40/75rem;
+								height:40/75rem;
+								background: url('../images/tishi-write_icon.png') no-repeat center center;
+								background-size: 32/75rem 32/75rem;
+								&.active{
+									display:none;
+								}
+							}
+							textarea{
+								box-sizing: border-box;
+								padding:40/75rem 40/75rem 40/75rem 80/75rem;
+								width:10rem;
+								height:1206/75rem;
+								outline:none;
+								border:none;
+								border-radius:0;
+								resize:none;
+								background-color: @bgColor;
+								color:#000;
+								font-family:"sans-serif";
+								font-size: 28/75rem;
+							}
+						}
+					}
+
+
+				}
+			}
+			/*选择题目*/
+			.choose-topic{
+				position: fixed;
+				z-index: 999;
+				bottom:40/75rem;
+				left:40/75rem;
+				width:670/75rem;
+				height:100/75rem;
+				background-color: @fontColor;
+				border-radius: 3px;
+				/*页码*/
+				.page-number{
+					width:100/75rem;
+					height:100/75rem;
+					line-height: 100/75rem;
+					position: absolute;
+					left:40/75rem;
+					bottom:0/75rem;
+					font-size: 32/75rem;
+					font-family:"sans-serif";
+					color:#fff;
+					.current{
+						color:@activeColor;
+					}
+				}
+				.choose{
+					position: relative;
+					height:100/75rem;
+					width:245/75rem;
+					float: right;
+					.swiper-button-next,.swiper-button-prev{
+						width:33/75rem;
+						background-size: 33/75rem 33/75rem;
+					}
+					.swiper-button-next{
+						right:40/75rem;
+						background-image: url('../images/r-arrow_icon.png');
+					}
+					.swiper-button-prev{
+						left:40/75rem;
+						background-image: url('../images/l-arrow_icon.png');
+					}
+				}
+			}
+		}
+	}
+}
+
