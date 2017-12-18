@@ -13,8 +13,12 @@
 <body>
 	<!-- 父容器 -->
 	<div class="container">
-		<!-- 顶部轮播图 -->
-		<div class="top">
+    <!-- 顶部头 -->
+			<div class="top">
+				<div class="title">选课</div>
+			</div>
+		<!-- 轮播图 -->
+		<div class="slider">
 			<!--使用swiper实现的轮播图-->
       <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -34,59 +38,85 @@
       </div>
 		</div>
 		<!-- 搜索框 -->
-		<div class="search-box">
-			<form>
-				<input type="text" class="search" placeholder="搜索课程、主讲老师">
-			</form>
-		</div>
+	<!-- 	<div class="search-box">
+		<form>
+			<input type="text" class="search" placeholder="搜索课程、主讲老师">
+		</form>
+	</div> -->
 		<!-- 选课容器 -->
 		<div class="choose-box">
 			<div class="choose-btn">
-				<!-- <ul>
-					<li class="course class active" id="class-course"><span>班级课</span></li>
-				</ul> -->
+				<ul>
+					<li class="course class" id="class-course"><span>班级课</span></li>
+				</ul>
 			</div>
 			<!-- 课程内容 -->
 			<div class="content">
 				<ul>
 					<li>
-						<div class="img"></div>
+						<div class="img">
+							<!-- 图片 -->
+							<img src="" alt="">
+							<i class="play"></i>
+							<i class="listen"></i>
+						</div>
+
 						<div class="desc">
 							<p class="title">第15周 班级课程：卓有成效的卓有成效的卓有成效的</p>
 							<span class="author">包政</span>
 							<span class="learn-count"><span class="learn-percent">78%</span>已学</span>
 						</div>
 					</li>
-
 					<li>
-						<div class="img"></div>
+						<div class="img">
+							<!-- 图片 -->
+							<img src="" alt="">
+							<i class="play"></i>
+							<i class="listen"></i>
+						</div>
+
 						<div class="desc">
 							<p class="title">第15周 班级课程：卓有成效的卓有成效的卓有成效的</p>
 							<span class="author">包政</span>
 							<span class="learn-count"><span class="learn-percent">78%</span>已学</span>
 						</div>
 					</li>
-
 					<li>
-						<div class="img"></div>
+						<div class="img">
+							<!-- 图片 -->
+							<img src="" alt="">
+							<i class="play"></i>
+							<i class="listen"></i>
+						</div>
+
 						<div class="desc">
 							<p class="title">第15周 班级课程：卓有成效的卓有成效的卓有成效的</p>
 							<span class="author">包政</span>
 							<span class="learn-count"><span class="learn-percent">78%</span>已学</span>
 						</div>
 					</li>
-
 					<li>
-						<div class="img"></div>
+						<div class="img">
+							<!-- 图片 -->
+							<img src="" alt="">
+							<i class="play"></i>
+							<i class="listen"></i>
+						</div>
+
 						<div class="desc">
 							<p class="title">第15周 班级课程：卓有成效的卓有成效的卓有成效的</p>
 							<span class="author">包政</span>
 							<span class="learn-count"><span class="learn-percent">78%</span>已学</span>
 						</div>
 					</li>
-
 					<li>
-						<div class="img"></div>
+						<div class="img">
+							<!-- 图片 -->
+							<img src="" alt="">
+							<i class="play"></i>
+							<i class="listen"></i>
+						</div>
+
 						<div class="desc">
 							<p class="title">第15周 班级课程：卓有成效的卓有成效的卓有成效的</p>
 							<span class="author">包政</span>
@@ -96,13 +126,12 @@
 				</ul>
 			</div>
 		</div>
-		<div class="footer">
-			<ul>
-				<li class="active"><a href="#" ><i></i>课桌</a></li>
-				<li><a href="#"><i></i>选课</a></li>
-				<li><a href="#"><i></i>班级</a></li>
-				<li><a href="#"><i></i>我的</a></li>
-			</ul>
+			<!-- 底部 -->
+			<div class="footer">
+				<a class="active" href="#"><i></i><span>课桌</span></a>
+				<a href="#"><i></i><span>选课</span></a>
+				<a href="#"><i></i><span>班级</span></a>
+				<a href="#"><i></i><span>我的</span></a>
 		</div>
 	</div>
 
@@ -112,7 +141,7 @@
 	<script src="./js/zepto1.2.0dev.js"></script>
 	<!-- swiper -->
 	<script src="./js/swiper.js"></script>
-	<script src="./js/index.js"></script>
+	<!-- <script src="./js/index.js"></script> -->
 	<script src="./js/course-selection.js"></script>
 </body>
 </html>

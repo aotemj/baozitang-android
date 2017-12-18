@@ -17,14 +17,19 @@ li{
 }
 // 修改搜索框提示颜色
 input:-moz-placeholder,textarea:-moz-placeholder{
-color: #b5b5b5;
+	color: #b5b5b5;
+	font-family:"sans-serif";
 }
+
 input:-ms-input-placeholder,textarea:-ms-input-placeholder{
-color: #b5b5b5;
+	color: #b5b5b5;
+	font-family:"sans-serif";
 }
 input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
-color: #b5b5b5;
+	color: #b5b5b5;
+	font-family:"sans-serif";
 }
+
 a {
 	text-decoration: none;
 	color:#000;
