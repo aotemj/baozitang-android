@@ -16,4 +16,10 @@ $(function(){
 		$(this).siblings().removeClass('active').find('i').removeClass('active');
 		$(this).addClass('active').find('i').addClass('active');
 	});
+
+	//点击切换播放文件：
+	$('.content-list ul li').on('click',function(){
+		$(this).find('button').toggleClass('active');
+		$(this).siblings().find('button').removeClass('active');
+	});
 })

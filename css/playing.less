@@ -20,10 +20,10 @@ body{
 		/*顶部视频播放区*/
 		.top{
 			width:10rem;
-			height:450/75rem;
+			height:460/75rem;
 			// background-color: pink;
 			.nav{
-				height:70/75rem;
+				height:88/75rem;
 				// line-height: 70/75rem;
 				width: 10rem;
 				color:#fff;
@@ -34,10 +34,10 @@ body{
 						color:#fff;
 						display:block;
 						width:40/75rem;
-						height:34/75rem;
-						line-height: 34/75rem;
-						background-color: red;
-						margin-top:18/75rem;
+						height:40/75rem;
+						background:url('../images/white-back_icon.png') no-repeat center center;
+						background-size: 40/75rem 40/75rem;
+						margin-top:24/75rem;
 					}
 				}
 				/*右侧*/
@@ -45,21 +45,23 @@ body{
 					box-sizing: border-box;
 					width:170/75rem;
 					padding-right:40/75rem;
-					height:70/75rem;
-					line-height: 70/75rem;
+					height:88/75rem;
+					line-height: 88/75rem;
 					/*收听*/
 					&:before,&:after{
 						content:'';
-						margin-top:18/75rem;
+						margin-top:24/75rem;
 						display:block;
 						width:40/75rem;
-						height:34/75rem;
-						background-color: red;
+						height:40/75rem;
+						background:url('../images/b-yinpin_icon.png') no-repeat center center;
+						background-size: 40/75rem 40/75rem;
 						float: left;
 					}
 					/*more*/
 					&:after{
 						float: right;
+						background-image: url('../images/white-more_icon.png') ;
 					}
 				}
 			}
@@ -68,11 +70,13 @@ body{
 				width:10rem;
 				height:468/75rem;
 				overflow: hidden;
+				background-color: #000;
 				/*控制按钮*/
 				.play-btn{
 					width:96/75rem;
 					height:96/75rem;
-					background-color: red;
+					background: url('../images/shipin_icon.png') no-repeat center center;
+					background-size: 96/75rem 96/75rem;
 					margin:142/75rem auto;
 				}
 			}
@@ -88,27 +92,45 @@ body{
 				line-height: 88/75rem;
 				// width:10rem;
 				background-color: @fontColor;
-				padding:0 40/75rem;
+				padding-left:40/75rem;
 				color:#ccc;
 				.left{
-					font-size: 36/75rem;
+					font-size: 32/75rem;
 					span{
 						color:@activeColor;
+						font-family:"sans-serif";
 					}
 				}
 				.right{
 					width:320/75rem;
-					font-size: 36/75rem;
+					font-size: 32/75rem;
 					span{
-						display:inline-block;
-						width:160/75rem;
-						text-align: center;
-					}
-					.detail{
+						// display:inline-block;
+						// width:160/75rem;
 
+					}
+					/*详情图标*/
+					.detail,.download{
+						height:88/75rem;
+						display:block;
+						width:160/75rem;
+						// position: relative;
+						text-align: center;
+						color:@secondFontColor;
+						&:before{
+							content:'';
+							display:inline-block;
+							width:44/75rem;
+							height:88/75rem;
+							vertical-align: top;
+							background: url('../images/xiangqing_icon.png') no-repeat center center;
+							background-size: 32/75rem 32/75rem;
+						}
 					}
 					.download{
-
+						&:before{
+							background-image: url('../images/hrey-xiazai_icon.png');
+						}
 					}
 				}
 			}
@@ -158,6 +180,31 @@ body{
 						button{
 							font-size:28/75rem;
 							color:@secondFontColor;
+							font-family:"sans-serif";
+						}
+					}
+
+					/*倒序*/
+					.left,.right{
+						&:before{
+							display:inline-block;
+							content:'';
+							width:40/75rem;
+							height:88/75rem;
+							vertical-align: top;
+							background: url('../images/daoxu_icon.png') no-repeat center center;
+							background-size: 35/75rem 35/75rem;
+						}
+					}
+					/*播放全部*/
+					.left{
+						&:before{
+							width:60/75rem;
+							// height:44/75rem;
+							// background-color: pink;
+							background-image: url('../images/s-bofang_icon.png');
+							background-size:44/75rem 44/75rem ;
+							background-position: left center;
 						}
 					}
 				}
@@ -186,6 +233,11 @@ body{
 									height:44/75rem;
 									background-color: red;
 									border-radius:50%;
+									background: url('../images/q-bofang_icon.png') no-repeat center center;
+									background-size: 44/75rem 44/75rem;
+									&.active{
+										background-image: url('../images/z-bofang_icon.png');
+									}
 								}
 							}
 							/*课程详细内容*/
@@ -196,6 +248,7 @@ body{
 								width:450/75rem;
 								box-sizing: border-box;
 								padding-top:10/75rem;
+
 								h4{
 									font-size:36/75rem;
 									text-overflow:ellipsis;
@@ -206,6 +259,7 @@ body{
 									line-height: 40/75rem;
 									color:@secondFontColor;
 									font-size: 28/75rem;
+									font-family:"sans-serif";
 									.length{
 										margin-left:20/75rem;
 									}
@@ -219,16 +273,21 @@ body{
 								.ask-ques,.do-homework{
 									width:60/75rem;
 									height: 127/75rem;
-									button{
+									a{
+										display:inline-block;
 										margin-top:(127-35)/2/75rem;
 										width: 35/75rem;
 										height:35/75rem;
-										background-color: blue;
+										background: url('../images/wengao_icon.png') no-repeat center center;
+										background-size: 35/75rem 35/75rem;
 									}
 								}
 								/*写作业*/
 								.do-homework{
 									text-align: right;
+									a{
+										background-image: url('../images/xiezuoye_icon.png');
+									}
 								}
 							}
 						}
