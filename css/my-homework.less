@@ -1,0 +1,163 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		height:20rem;
+		box-sizing: border-box;
+		font-family:"sans-serif";
+		// height: 15rem;
+		/*顶部导航*/
+		.top{
+			padding:0 40/75rem;
+			height:88/75rem;
+			line-height: 88/75rem;
+			background-color: #fff;
+			border-bottom:1px solid @borderColor;
+			.back,.save{
+				width:88/75rem;
+				text-align: right;
+				font-size:28/75rem;
+			}
+			.back{
+				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+				background-size: 40/75rem 40/75rem;
+				color:transparent;
+			}
+			.save{
+				color:@activeColor;
+			}
+			.title{
+				font-size: 36/75rem;
+				width:494/75rem;
+				text-align: center;
+			}
+		}
+		/*个人信息内容*/
+		.content{
+			/*当前作业*/
+			.current-homework{
+				// height:330/75rem;
+				box-sizing: border-box;
+				width:10rem;
+				padding:40/75rem;
+				background-color: #fff;
+				/*作业标题 */
+				h4{
+					font-size:36/75rem;
+					line-height: 60/75rem;
+				}
+				p{
+					line-height: 70/75rem;
+					color:@secondFontColor;
+					font-size: 28/75rem;
+				}
+				/*写作业链接*/
+				.jump{
+					display:block;
+					width:320/75rem;
+					height:80/75rem;
+					text-align: center;
+					line-height:80/75rem;
+					background-color: @activeColor;
+					font-size: 32/75rem;
+					border-radius:3px;
+					margin:20/75rem auto;
+				}
+			}
+			/*ul*/
+			.history-home{
+				display:block;
+				width:10rem;
+				// height:20rem;
+				background-color:@bgColor;
+ 				position: relative;
+				&:before{
+					position: absolute;
+					content:'';
+					height:100%;
+					width:1px;
+					background-color: #d5d5d5;
+					left:54/75rem;
+					top:0;
+				}
+				li{
+					a{
+						/*历史作业*/
+						.content{
+							height:216/75rem;
+							width:10rem;
+							/*时间*/
+							.time{
+								height:88/75rem;
+								line-height: 110/75rem;
+								width:10rem;
+								// background-color: @bgColor;
+								position: relative;
+								padding-left:80/75rem;
+								box-sizing: border-box;
+								color:@secondFontColor;
+								font-family: 'sans-serif';
+								&:after{
+									content:'';
+									position: absolute;
+									box-sizing: border-box;
+									width:28/75rem;
+									height:28/75rem;
+									border-radius:50%;
+									background-color: #F5F5F5;
+									left:40/75rem;
+									bottom:20/75rem;
+									border:3/75rem solid #D5D5D5;
+								}
+							}
+							.homework-desc{
+								width:10rem;
+								height:128/75rem;
+								background-color: #fff;
+								padding:30/75rem 40/75rem;
+								box-sizing: border-box;
+								position: relative;
+								h4{
+									font-size: 32/75rem;
+									font-family: 'sans-serif';
+								}
+								p{
+									font-size: 28/75rem;
+									color:@secondFontColor;
+								}
+							i{
+									display:block;
+									content:'';
+									width:64/75rem;
+									height:64/75rem;
+									background:url('../images/y-write_icon.png') no-repeat center center;
+									background-size: 64/75rem 64/75rem;
+									position: absolute;
+									right:40/75rem;
+									top:32/75rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -31,5 +31,8 @@ $((function(){
 	$('.swiper-pagination span').css({
 		"backgroundColor":"#fff"
 	})
+
+	//获取收藏课程：
+
 })());
 
