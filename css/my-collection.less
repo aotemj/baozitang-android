@@ -12,6 +12,8 @@
 @descColor:#858585;
 // 边框颜色
 @borderColor:#e8e8e8;
+//醒目颜色
+@red:#FF4C3B;
 /* 选课 */
 body{
 	/*父容器*/
@@ -22,6 +24,10 @@ body{
 			// padding:0 40/74rem;
 		/*顶部轮播*/
 		.top{
+			width:10rem;
+			position: fixed;
+			top:0;
+			z-index: 999;
 			padding:0 40/75rem;
 			height:88/75rem;
 			line-height: 88/75rem;
@@ -47,100 +53,139 @@ body{
 
 		/*收藏内容*/
 		.choose-box{
+			margin-top:184/75rem;
 			overflow: hidden;
 			padding-bottom:116/75rem;
-			/*顶部按钮*/
-			.choose-btn{
-				width:10rem;
-				height:96/75rem;
-				line-height: 96/75rem;
-				background-color: #fff;
-				margin-bottom:30/75rem;
-				color:@secondFontColor;
-				ul{
-					li{
-						width:187.5/75rem;
-						text-align: center;
-						font-size: 32/75rem;
-						position: relative;
-						&.active{
-							color:@fontColor;
-							i{
-								position: absolute;
-								width:42/75rem;
-								height:4/75rem;
-								background-color: @activeColor;
-								bottom:0;
-								left:50%;
-								transform:translateX(-21/75rem);
-							}
-						}
-					}
-				}
-			}
 			/*内容*/
 			.content{
 				width:10rem;
 				height:10rem;
 				background-color: @bgColor;
-				ul{
-					li{
-						margin-bottom:40/75rem;
-						width:316/75rem;
-						margin-left:40/75rem;
-						/*课程图片*/
-						.img{
-							width:316/75rem;
-							height:230/75rem;
-							background:url('../images/courseBg.jpg') no-repeat center center;
-							position: relative;
-							//播放按钮、收听按钮：
-							&:before,&:after {
-								content:"";
-								display:inline-block;
-								width:56/75rem;
-								height:56/75rem;
-								background-color:#fff;
-								border-radius:50%;
-								position: absolute;
-								left: 50%;
-								top: 50%;
-								transform:translate(-50%,-50%);
-							}
-							&:after{
-								width:40/75rem;
-								height:40/75rem;
-								top:100%;
-								left:100%;
-								border:1px solid #fff;
-								transform:translate(-128%,-128%);
-								background-color: #fff;
-							}
-						}
-						/*课程描述*/
-						.desc{
-							width:316/75rem;
-							font-family:"sans-serif";
-							.title{
-								font-family:"sans-serif";
-								font-size: 18px;
-								padding:10px 0;
-								/*文字溢出隐藏*/
-								white-space: nowrap;
-								text-overflow:ellipsis;
-								overflow: hidden;
-							}
-							.author{
-								float: left;
-								color:@secondFontColor;
-							}
-							.learn-count{
-								float: right;
-								.learn-percent{
-									color:#FF4C3B;
+				/*轮播盒子*/
+				.swiper-container{
+					margin: 0 auto;
+					position: static;
+					/*ul*/
+					.swiper-wrapper{
+						position: relative;
+						width:30rem;
+						/*li*/
+						.swiper-slide{
+							/*内容*/
+							.inner-content{
+								padding-top:40/75rem;
+								ul{
+									li{
+										margin-bottom:40/75rem;
+										width:316/75rem;
+										margin-left:40/75rem;
+										/*课程图片*/
+										.img{
+											width:316/75rem;
+											height:230/75rem;
+											background-color: rgba(0,0,0,.6);
+											position: relative;
+											//播放按钮、收听按钮：
+											.play,.listen {
+												display:block;
+												width:56/75rem;
+												height:56/75rem;
+												background:url('../images/big-shipin_icon.png') no-repeat center center;
+												background-size: 56/75rem 56/75rem;
+												border-radius:50%;
+												position: absolute;
+												left: 50%;
+												top: 50%;
+												transform:translate(-50%,-50%);
+											}
+											.listen{
+												width:40/75rem;
+												height:40/75rem;
+												top:100%;
+												left:100%;
+												background-image: url('../images/yinpin_icon.png') ;
+												background-size: 40/75rem 40/75rem;
+												transform:translate(-128%,-128%);
+											}
+										}
+
+										/*课程描述*/
+										.desc{
+											width:316/75rem;
+											.title{
+												font-size: 36/75rem;
+												padding:10/75rem 0;
+												/*文字溢出隐藏*/
+												white-space: nowrap;
+												text-overflow:ellipsis;
+												overflow: hidden;
+												font-family: "sans-serif";
+											}
+											.author{
+												float: left;
+												color:@secondFontColor;
+												font-size: 28/75rem;
+											}
+											.learn-count{
+												float: right;
+												font-size: 28/75rem;
+												span{
+												font-size: 28/75rem;
+											}
+												.learn-percent{
+													color:@red;
+													font-family: "sans-serif";
+													font-size: 28/75rem;
+												}
+											}
+										}
+									}
 								}
 							}
 						}
+					}
+					/*分页器*/
+					.swiper-pagination{
+						background-color: #fff;
+						top:88/75rem;
+						height:96/75rem;
+						width:10rem;
+						position: fixed;
+						box-sizing: border-box;
+						padding:0 40/75rem;
+
+						.swiper-pagination-bullet{
+							display:block;
+							float: left;
+							width:167.5/75rem;
+							height:96/75rem;
+							line-height: 96/75rem;
+							border-radius:0;
+							margin:0;
+							opacity:1;
+							color:@secondFontColor;
+							font-size:32/75rem;
+							text-align: center;
+							&.swiper-pagination-bullet-active{
+								color:@fontColor;
+							}
+							/*点击状态*/
+							&:focus{
+								outline:none;
+								background-color:transparent;
+							}
+						}
+					}
+					/*激活边框*/
+					.active-border{
+						display:block;
+						position: fixed;
+						top:180/75rem;
+						width:42/75rem;
+						height:4/75rem;
+						z-index: 999;
+						background-color: @activeColor;
+						left:105/75rem;
 					}
 				}
 			}
