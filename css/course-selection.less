@@ -135,62 +135,66 @@ body{
 						margin-bottom:40/75rem;
 						width:316/75rem;
 						margin-left:40/75rem;
-						/*课程图片*/
-						.img{
-							width:316/75rem;
-							height:230/75rem;
-							background-color: rgba(0,0,0,.6);
-							position: relative;
-							//播放按钮、收听按钮：
-							.play,.listen {
-								display:block;
-								width:56/75rem;
-								height:56/75rem;
-								background:url('../images/big-shipin_icon.png') no-repeat center center;
-								background-size: 56/75rem 56/75rem;
-								border-radius:50%;
-								position: absolute;
-								left: 50%;
-								top: 50%;
-								transform:translate(-50%,-50%);
+						a{
+							/*课程图片*/
+							.img{
+								width:316/75rem;
+								height:230/75rem;
+								background-color: rgba(0,0,0,.6);
+								position: relative;
+								//播放按钮、收听按钮：
+								.play,.listen {
+									display:block;
+									width:56/75rem;
+									height:56/75rem;
+									background:url('../images/big-shipin_icon.png') no-repeat center center;
+									background-size: 56/75rem 56/75rem;
+									border-radius:50%;
+									position: absolute;
+									left: 50%;
+									top: 50%;
+									transform:translate(-50%,-50%);
+								}
+								.listen{
+									width:40/75rem;
+									height:40/75rem;
+									top:100%;
+									left:100%;
+									background-image: url('../images/yinpin_icon.png') ;
+									background-size: 40/75rem 40/75rem;
+									transform:translate(-128%,-128%);
+								}
 							}
-							.listen{
-								width:40/75rem;
-								height:40/75rem;
-								top:100%;
-								left:100%;
-								background-image: url('../images/yinpin_icon.png') ;
-								background-size: 40/75rem 40/75rem;
-								transform:translate(-128%,-128%);
-							}
-						}
 
-						/*课程描述*/
-						.desc{
-							width:316/75rem;
-							// height:134/75rem;
+							/*课程描述*/
+							.desc{
+								width:316/75rem;
+								// height:134/75rem;
 
-							background-color: #fff;
-							.title{
-								font-size: 36/75rem;
-								padding:10/75rem 0;
-								/*文字溢出隐藏*/
-								white-space: nowrap;
-								text-overflow:ellipsis;
-								overflow: hidden;
-								font-family: "sans-serif";
-							}
-							.author{
-								float: left;
-								color:@secondFontColor;
-								font-size: 28/75rem;
-							}
-							.learn-count{
-								float: right;
-								.learn-percent{
-									color:@red;
+								background-color: #fff;
+								.title{
+									font-size: 36/75rem;
+									padding:10/75rem 0;
+									/*文字溢出隐藏*/
+									white-space: nowrap;
+									text-overflow:ellipsis;
+									overflow: hidden;
 									font-family: "sans-serif";
+								}
+								.author{
+									float: left;
+									color:@secondFontColor;
 									font-size: 28/75rem;
+								}
+								.learn-count{
+									float: right;
+									font-size: 28/75rem;
+									color:@secondFontColor;
+									.learn-percent{
+										color:@red;
+										font-family: "sans-serif";
+										font-size: 28/75rem;
+									}
 								}
 							}
 						}
@@ -200,52 +204,52 @@ body{
 		}
 
 		/*底部*/
-				.footer{
-					border-top:1px solid @bgColor;
-					// box-shadow: 0 -1px 1px @bgColor;
-					height:96/75rem;
-					width: 100%;
-					background-color: #fff;
-					position: fixed;
-					bottom:0;
-					text-align: center;
-					a{
-						display:block;
-						float: left;
-						width:187.5/75rem;
-						color:@secondFontColor;
-						&.active{
-							color:@fontColor;
-						i{
-							opacity:1;
-						}
-						}
-						&:nth-of-type(2){
-							i{
-							background-image: url('../images/xz-xuanke_icon.png');
-							}
-						}
-						&:nth-of-type(3){
-							i{
-							background-image: url('../images/xz-banji_icon.png');
-							}
-						}
-						&:nth-of-type(4){
-							i{
-							background-image: url('../images/xz-mine_icon.png');
-							}
-						}
-
-						i{
-							display:block;
-							width:44/75rem;
-							height:44/75rem;
-							margin:10/75rem auto 5/75rem;
-							background:url('../images/xz-kezhuo_icon-.png') no-repeat center center;
-							background-size: 40/75rem 40/75rem;
-							opacity:.4;
-						}
+		.footer{
+			border-top:1px solid @bgColor;
+			// box-shadow: 0 -1px 1px @bgColor;
+			height:96/75rem;
+			width: 100%;
+			background-color: #fff;
+			position: fixed;
+			bottom:0;
+			text-align: center;
+			a{
+				display:block;
+				float: left;
+				width:187.5/75rem;
+				color:@secondFontColor;
+				&.active{
+					color:@fontColor;
+				i{
+					opacity:1;
+				}
+				}
+				&:nth-of-type(2){
+					i{
+					background-image: url('../images/xz-xuanke_icon.png');
 					}
 				}
+				&:nth-of-type(3){
+					i{
+					background-image: url('../images/xz-banji_icon.png');
+					}
+				}
+				&:nth-of-type(4){
+					i{
+					background-image: url('../images/xz-mine_icon.png');
+					}
+				}
+
+				i{
+					display:block;
+					width:44/75rem;
+					height:44/75rem;
+					margin:10/75rem auto 5/75rem;
+					background:url('../images/xz-kezhuo_icon-.png') no-repeat center center;
+					background-size: 40/75rem 40/75rem;
+					opacity:.4;
+				}
+			}
+		}
 	}
 }
