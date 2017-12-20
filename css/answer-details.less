@@ -1,0 +1,320 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	width:10rem;
+	box-sizing: border-box;
+	// overflow: hidden;
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		// height:20rem;
+		box-sizing: border-box;
+		font-family:"sans-serif";
+		background-color: red;
+		// overflow: hidden;
+		// height: 15rem;
+		/*顶部导航*/
+		.top{
+			width:10rem;
+			padding:0 40/75rem;
+			height:88/75rem;
+			box-sizing: border-box;
+			line-height: 88/75rem;
+			background-color: #fff;
+			text-align: center;
+			border-bottom:1px solid @borderColor;
+			position: fixed;
+			z-index: 999;
+			.title{
+				font-size: 36/75rem;
+				text-align: center;
+				font-weight: 700;
+			}
+		}
+		/*问题内容*/
+		.ques-cont{
+			width:10rem;
+			padding:124/75rem 40/75rem 40/75rem 40/75rem ;
+			background-color:#fff;
+			box-sizing: border-box;
+			border-bottom:1px solid @borderColor;
+			/*提问者*/
+			.author{
+				height:72/75rem;
+				background-color: #fff;
+				margin-bottom:40/75rem;
+				.photo{
+					height:72/75rem;
+					width:72/75rem;
+					background-color: green;
+					border-radius:50%;
+					margin-right:20/75rem;
+				}
+				/*昵称、班级*/
+				.nickname,.class{
+					font-size: 32/75rem;
+					line-height: 40/75rem;
+				}
+				.class{
+					font-size: 28/75rem;
+					font-family: 'sans-serif';
+					color:@secondFontColor;
+				}
+				/*添加答案*/
+				.answer{
+					width:88/75rem;
+					height:56/75rem;
+					background: url('../images/like_bj.png') no-repeat center center;
+					background-size: 88/75rem 56/75rem;
+					margin-top:8/75rem;
+				}
+				/*编辑回答*/
+				.edit{
+					position: fixed;
+					z-index: 999;
+					// border:1px solid #000;
+					height:88/75rem;
+					background-color: pink;
+					font-size: 40/75rem;
+					bottom:88/75rem;
+					// display:none;
+					width:10rem;
+					left:0;
+					/*填写文本框*/
+					.content{
+						height:88/75rem;
+						width:(750-180)/75rem;
+						resize:none;
+						border:none;
+						outline:none;
+						border:1px solid @bgColor;
+						box-sizing: border-box;
+						padding:0;
+					}
+					/*发送按钮*/
+					.send{
+						height:88/75rem;
+						width:180/75rem;
+					}
+				}
+			}
+			/*问题标题*/
+			.content{
+				/*标题*/
+				.topic{
+					font-size:36/75rem;
+					line-height: 60/75rem;
+					font-family: 'sans-serif';
+					// font-weight: 700;
+				}
+				/*描述*/
+				.desc{
+					margin-top:20/75rem;
+					font-size: 32/75rem;
+					font-family: 'sans-serif';
+					color:@descColor;
+				}
+			}
+			/*发表时间*/
+			.time{
+				margin-top:20/75rem;
+				font-size: 28/75rem;
+				color:@secondFontColor;
+			}
+		}
+		/*问题回复*/
+		.ques-reply{
+			margin-bottom:1000/75rem;
+			.title{
+				height:72/75rem;
+				line-height:72/75rem;
+				background-color: @bgColor;
+				padding:0 40/75rem;
+				font-size: 28/75rem;
+			}
+			/*回复内容*/
+			.content{
+				ul{
+					li{
+						&:last-of-type{
+							margin-bottom:96/75rem;
+						};
+						/*父容器*/
+						.reply{
+							width:10rem;
+							padding:40/75rem;
+							box-sizing: border-box;
+							background-color: #fff;
+							border-bottom:1px solid @borderColor;
+							/*回答者*/
+							.author{
+								height:72/75rem;
+								background-color: #fff;
+								margin-bottom:40/75rem;
+								background-color: #fff;
+								.photo{
+									height:72/75rem;
+									width:72/75rem;
+									background-color: green;
+									border-radius:50%;
+									margin-right:20/75rem;
+								}
+								/*昵称、班级*/
+								.nickname,.class{
+									font-size: 32/75rem;
+									line-height: 40/75rem;
+								}
+								.class{
+									font-size: 28/75rem;
+									font-family: 'sans-serif';
+									color:@secondFontColor;
+								}
+								/*点赞*/
+								.like{
+									width:88/75rem;
+									height:72/75rem;
+									line-height:72/75rem;
+									font-size: 28/75rem;
+									color:@secondFontColor;
+									/*图标*/
+									&:before{
+										content:'';
+										display:inline-block;
+										width:30/75rem;
+										height:72/75rem;
+										vertical-align: middle;
+										margin-right:16/75rem;
+										background:url('../images/dianzan_icon.png') no-repeat center 20/75rem;
+										background-size: 30/75rem 30/75rem;
+									}
+								}
+							}
+							/*回复内容*/
+							.cont{
+								p{
+									font-size: 28/75rem;
+								}
+							}
+							/*发表时间*/
+							.time{
+								margin-top:20/75rem;
+								font-size: 28/75rem;
+								color:@secondFontColor;
+							}
+							/*回复的回复*/
+							.second-reply{
+								margin-top:30/75rem;
+								padding:32/75rem 22/75rem;
+								background-color: @bgColor;
+								border-radius:3px;
+								position: relative;
+								/*小箭头*/
+								&:before{
+									content:'';
+									background:url('../images/class-triangle_icon.png') no-repeat center center ;
+									background-size: 18/75rem 10/75rem;
+									width:18/75rem;
+									height:10/75rem;
+									position: absolute;
+									left:20/75rem;
+									top:-10/75rem;
+								}
+								/*回复目标*/
+								.target{
+									.reply-author{
+										color:#3B80CE;
+									}
+								}
+								/*回复的回复内容*/
+								.cont{
+									margin-top:20/75rem;
+									color:@contentColor;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/**/
+		/**/
+		/**/
+	}
+	/*问题操作*/
+	.todos{
+		height:96/75rem;
+		width:10rem;
+		position: fixed;
+		bottom:0;
+		box-sizing: border-box;
+		ul{
+			li{
+				width:187.5/75rem;
+				height:96/75rem;
+				background-color: green;
+				/*回复小图标*/
+				&:nth-of-type(2){
+					button{
+						&:before{
+							background-image: url('../images/class-reply_icon.png');
+						}
+					}
+				}
+				/*收藏小图标*/
+				&:nth-of-type(3){
+					button{
+						&:before{
+							background-image: url('../images/class-shoucang_icon.png');
+						}
+					}
+				}
+				/*分享小图标*/
+				&:nth-of-type(4){
+					button{
+						&:before{
+							background-image: url('../images/class-fenxiang_icon.png');
+						}
+					}
+				}
+
+				button{
+					width:187.5/75rem;
+					height:96/75rem;
+					background-color: #fff;
+					text-align: center;
+					&:before{
+						content:'';
+						display:inline-block;
+						width:32/75rem;
+						height:96/75rem;
+						background: url('../images/class-dianzan_icon.png') no-repeat center center ;
+						background-size: 32/75rem 32/75rem;
+						vertical-align: middle;
+						margin-right:20/75rem;
+					}
+					span{
+						color:@secondFontColor;
+						font-family: 'sans-serif';
+						font-size: 28/75rem;
+					}
+				}
+			}
+		}
+	}
+}
+
