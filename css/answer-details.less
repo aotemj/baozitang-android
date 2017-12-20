@@ -74,43 +74,15 @@ body{
 					font-family: 'sans-serif';
 					color:@secondFontColor;
 				}
-				/*添加答案*/
-				.answer{
+				/*添加关注*/
+				.focus{
 					width:88/75rem;
 					height:56/75rem;
 					background: url('../images/like_bj.png') no-repeat center center;
 					background-size: 88/75rem 56/75rem;
 					margin-top:8/75rem;
 				}
-				/*编辑回答*/
-				.edit{
-					position: fixed;
-					z-index: 999;
-					// border:1px solid #000;
-					height:88/75rem;
-					background-color: pink;
-					font-size: 40/75rem;
-					bottom:88/75rem;
-					// display:none;
-					width:10rem;
-					left:0;
-					/*填写文本框*/
-					.content{
-						height:88/75rem;
-						width:(750-180)/75rem;
-						resize:none;
-						border:none;
-						outline:none;
-						border:1px solid @bgColor;
-						box-sizing: border-box;
-						padding:0;
-					}
-					/*发送按钮*/
-					.send{
-						height:88/75rem;
-						width:180/75rem;
-					}
-				}
+
 			}
 			/*问题标题*/
 			.content{
@@ -254,6 +226,36 @@ body{
 		/**/
 		/**/
 		/**/
+	}
+	/*编辑回答*/
+	.edit{
+		position: fixed;
+		z-index: 999;
+		width:10rem;
+		// border:1px solid #000;
+		height:88/75rem;
+		background-color: pink;
+		font-size: 40/75rem;
+		bottom:88/75rem;
+		display:none;
+		width:10rem;
+		left:0;
+		/*填写文本框*/
+		.content{
+			height:88/75rem;
+			width:(750-180)/75rem;
+			resize:none;
+			border:none;
+			outline:none;
+			border:1px solid @bgColor;
+			box-sizing: border-box;
+			padding:0;
+		}
+		/*发送按钮*/
+		.send{
+			height:88/75rem;
+			width:180/75rem;
+		}
 	}
 	/*问题操作*/
 	.todos{
