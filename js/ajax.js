@@ -111,12 +111,7 @@
 
 	//封装获取课程列表方法
 	function getCourseList(callback){
-		  getToken({
-		  	loginType : 'PASSWORD',
-		  	username : '13639753981',
-		  	password : '123456',
-		  	code : '',
-		  },function(res){
+		  getToken(data,function(res){
 				// console.log(res);
 				//获取到的token
 				var token = 'Bearer '+res.token;
@@ -144,26 +139,31 @@
 		        request.setRequestHeader("Authorization",token);
 		     	},
 					success:function(res){
+						// console.log(res);
 						// 错误处理：
 						if(res.code!==200){
 							alert(res.msg);
 							return;
 						}
-						var courseObj = {
-							auther :res.data[0].auther,
-							category :res.data[0].category,
-							courseId :res.data[0].courseId,
-							image :res.data[0].image,
-							name :res.data[0].name,
-							price :res.data[0].price,
-							progress :res.data[0].progress,
-							quantity :res.data[0].quantity,
-							studentId :res.data[0].studentId
+						var courseList=[];
+						for(var i =0;i<res.data.length;i++){
+							var courseObj = {
+								auther :res.data[i].auther,
+								category :res.data[i].category,
+								courseId :res.data[i].courseId,
+								image :res.data[i].image,
+								name :res.data[i].name,
+								price :res.data[i].price,
+								progress :res.data[i].progress,
+								quantity :res.data[i].quantity,
+								studentId :res.data[i].studentId
+							}
+							courseList.push(courseObj);
 						}
 						//本地存储课程列表：
-						window.localStorage.setItem('courseObj',JSON.stringify(courseObj));
+						window.localStorage.setItem('courseList',JSON.stringify(courseList));
 						//执行回调
-						callback(courseObj);
+						callback(courseList);
 					}
 				});
 		  });
@@ -230,12 +230,7 @@
 			callback(homeworkList);
 			return;
 		}
-		getToken({
-			loginType : 'PASSWORD',
-			username : '13639753981',
-			password : '123456',
-			code : ''
-		},function(res){
+		getToken(data,function(res){
 			var data1 = {
 				"sectionId" : sectionId,
 				"studentId" : res.userId

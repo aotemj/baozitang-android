@@ -20,8 +20,8 @@ $(function(){
   	getCourseList(function(res){
   		console.log(res);
   		//渲染页面
-  		for(var i =0;i<res.data.length;i++){
-  			var course = res.data[i];
+  		for(var i =0;i<res.length;i++){
+  			var course = res[i];
   			$('.choose-box .content ul').append(
   				'<li>'
   				+'<a href="../playing.html">'
