@@ -169,7 +169,7 @@
 		  });
 	};
 
-	//封装获取课程目录查询 方法 ：
+	//封装获取课程目录方法 ：
 	function getCourseDirectory(callback){
 		//本地有课程目录
 		var courseDir = JSON.parse(window.localStorage.getItem('courseDir'));
