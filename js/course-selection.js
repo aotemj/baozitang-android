@@ -24,7 +24,7 @@ $(function(){
   			var course = res.data[i];
   			$('.choose-box .content ul').append(
   				'<li>'
-  				+'<a href="#">'
+  				+'<a href="../playing.html">'
   				+'	<div class="img">'
   				+'		<img src="" alt="">'
   				+'		<i class="play"></i>'

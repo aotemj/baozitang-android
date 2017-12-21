@@ -42,67 +42,179 @@ body{
 						width:30rem;
 						/*li*/
 						.swiper-slide{
-							/*内容*/
-							.inner-content{
-								padding-top:40/75rem;
-								ul{
-									li{
-										margin-bottom:40/75rem;
-										width:315/75rem;
-										margin-left:40/75rem;
-										/*班级图片*/
-										.img{
+							/*第一屏(我的班级)*/
+							&:nth-of-type(1){
+								/*内容*/
+								.inner-content{
+									padding-top:40/75rem;
+									ul{
+										li{
+											margin-bottom:40/75rem;
 											width:315/75rem;
-											height:315/75rem;
-											background-color: rgba(0,0,0,.6);
-											position: relative;
-											border-top-left-radius: 3px;
-											border-top-right-radius: 3px;
-										}
+											margin-left:40/75rem;
+											/*班级图片*/
+											.img{
+												width:315/75rem;
+												height:315/75rem;
+												background-color: rgba(0,0,0,.6);
+												position: relative;
+												border-top-left-radius: 3px;
+												border-top-right-radius: 3px;
+											}
 
-										/*班级描述*/
-										.desc{
-											width:315/75rem;
-											height:136/75rem;
-											background-color: #fff;
-											padding:10/75rem 20/75rem;
-											box-sizing: border-box;
-											.class-name{
-												font-size: 36/75rem;
-												/*文字溢出隐藏*/
-												white-space: nowrap;
-												text-overflow:ellipsis;
-												overflow: hidden;
-												font-family: "sans-serif";
-												margin-bottom:10/75rem;
-											}
-											/*班级人数*/
-											.class-num{
-												float: left;
-												color:@secondFontColor;
-												font-size: 28/75rem;
-											}
-											/*班级活跃度*/
-											.active-count{
-												float: right;
-												font-size: 28/75rem;
-												/*活跃度图标*/
-												&:before{
-													content:'';
-													width:32/75rem;
-													height:32/75rem;
-													background-color: pink;
-													vertical-align: top;
-													margin-right:15/75rem;
-													display:inline-block;
-												}
-												span{
-												font-size: 28/75rem;
-											}
-												.active-percent{
-													color:@red;
+											/*班级描述*/
+											.desc{
+												width:315/75rem;
+												height:136/75rem;
+												background-color: #fff;
+												padding:10/75rem 20/75rem;
+												box-sizing: border-box;
+												.class-name{
+													font-size: 36/75rem;
+													/*文字溢出隐藏*/
+													white-space: nowrap;
+													text-overflow:ellipsis;
+													overflow: hidden;
 													font-family: "sans-serif";
+													margin-bottom:10/75rem;
+												}
+												/*班级人数*/
+												.class-num{
+													float: left;
+													color:@secondFontColor;
 													font-size: 28/75rem;
+												}
+												/*班级活跃度*/
+												.active-count{
+													float: right;
+													font-size: 28/75rem;
+													/*活跃度图标*/
+													&:before{
+														content:'';
+														width:32/75rem;
+														height:32/75rem;
+														background-color: pink;
+														vertical-align: top;
+														margin-right:15/75rem;
+														display:inline-block;
+													}
+													span{
+													font-size: 28/75rem;
+												}
+													.active-percent{
+														color:@red;
+														font-family: "sans-serif";
+														font-size: 28/75rem;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							/*第二屏（精华）*/
+							&:nth-of-type(2){
+								/*精华问题*/
+								.best-ques{
+									/*问题内容*/
+									.content{
+										ul{
+											li{
+												&:last-of-type{
+													margin-bottom:96/75rem;
+												};
+												/*问题容器*/
+												.ques{
+													width:10rem;
+													padding:40/75rem;
+													box-sizing: border-box;
+													background-color: #fff;
+													border-bottom:1px solid @borderColor;
+													/*回答者*/
+													.author{
+														height:72/75rem;
+														background-color: #fff;
+														margin-bottom:40/75rem;
+														background-color: #fff;
+														.photo{
+															height:72/75rem;
+															width:72/75rem;
+															background-color: green;
+															border-radius:50%;
+															margin-right:20/75rem;
+														}
+														/*昵称、班级*/
+														.nickname,.class{
+															font-size: 32/75rem;
+															line-height: 40/75rem;
+														}
+														.class{
+															font-size: 28/75rem;
+															font-family: 'sans-serif';
+															color:@secondFontColor;
+														}
+														/*点赞*/
+														.like{
+															width:88/75rem;
+															height:72/75rem;
+															line-height:72/75rem;
+															font-size: 28/75rem;
+															color:@secondFontColor;
+															/*图标*/
+															&:before{
+																content:'';
+																display:inline-block;
+																width:30/75rem;
+																height:72/75rem;
+																vertical-align: middle;
+																margin-right:16/75rem;
+																background:url('../images/dianzan_icon.png') no-repeat center 20/75rem;
+																background-size: 30/75rem 30/75rem;
+															}
+														}
+													}
+													/*回复内容*/
+													.cont{
+														p{
+															font-size: 28/75rem;
+														}
+													}
+													/*发表时间*/
+													.time{
+														margin-top:20/75rem;
+														font-size: 28/75rem;
+														color:@secondFontColor;
+													}
+													/*回复的回复*/
+													.second-reply{
+														margin-top:30/75rem;
+														padding:32/75rem 22/75rem;
+														background-color: @bgColor;
+														border-radius:3px;
+														position: relative;
+														/*小箭头*/
+														&:before{
+															content:'';
+															background:url('../images/class-triangle_icon.png') no-repeat center center ;
+															background-size: 18/75rem 10/75rem;
+															width:18/75rem;
+															height:10/75rem;
+															position: absolute;
+															left:20/75rem;
+															top:-10/75rem;
+														}
+														/*回复目标*/
+														.target{
+															.reply-author{
+																color:#3B80CE;
+															}
+														}
+														/*回复的回复内容*/
+														.cont{
+															margin-top:20/75rem;
+															color:@contentColor;
+														}
+													}
 												}
 											}
 										}
@@ -120,14 +232,18 @@ body{
 						position: fixed;
 						box-sizing: border-box;
 						padding:0 40/75rem;
-
+						transform:none;
+						z-index: 999;
+						border-bottom:1px solid @bgColor;
 						.swiper-pagination-bullet{
+							background-color: transparent;
 							display:block;
 							float: left;
 							width:167.5/75rem;
 							height:96/75rem;
 							line-height: 96/75rem;
 							border-radius:0;
+							bottom:0;
 							margin:0;
 							opacity:1;
 							color:@secondFontColor;
@@ -147,7 +263,7 @@ body{
 					.active-border{
 						display:block;
 						position: fixed;
-						top:96/75rem;
+						top:92/75rem;
 						width:42/75rem;
 						height:4/75rem;
 						z-index: 999;

@@ -1,4 +1,5 @@
 $((function(){
+
 	// 轮播图初始化
 	var mySwiper = new Swiper ('.swiper-container', {
 	  pagination: '.swiper-pagination',
@@ -10,6 +11,7 @@ $((function(){
     autoplayDisableOnInteraction: false,
     //当前页面
     onSlideChangeEnd : function(swiperHere) {
+
       //swiperHere.activeIndex 为当前页面所在索引
 			let index = swiperHere.activeIndex;
 
@@ -22,17 +24,22 @@ $((function(){
 			$('.active-border').css({"left":left+"rem"});
      }
 	 })
+	$('.swiper-pagination span').eq(0).html("班级");
+	$('.swiper-pagination span').eq(1).html("精华");
+	$('.swiper-pagination span').eq(2).html("作业");
+	$('.swiper-pagination span').eq(3).html("问题");
 
-	$('.swiper-pagination span').eq(0).text("班级");
-	$('.swiper-pagination span').eq(1).text("精华");
-	$('.swiper-pagination span').eq(2).text("作业");
-	$('.swiper-pagination span').eq(3).text("问题");
 
-	$('.swiper-pagination span').css({
-		"backgroundColor":"#fff"
-	})
 
-	//获取收藏课程：
+	// $('.swiper-pagination span').css({
+	// 	"backgroundColor":"#fff"
+	// })
+	$(window).on('scroll',function(){
+		$('.swiper-pagination span').eq(0).html("班级");
+		$('.swiper-pagination span').eq(1).html("精华");
+		$('.swiper-pagination span').eq(2).html("作业");
+		$('.swiper-pagination span').eq(3).html("问题");
+	});
 
 })());
 
