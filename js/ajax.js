@@ -180,12 +180,13 @@
 		//本地无课程目录
 		//通过课程列表获取courseId
 		getCourseList(function(res){
+
 			//本地存储课程列表
-			var courseObj = res;
+			var courseObj = res[0];
 			window.localStorage.setItem('courseObj',JSON.stringify(courseObj));
 			//获取课程id（courseId）
 			var courseId = courseObj.courseId;
-
+			console.log(courseObj);
 			//获取学员id（studentId）
 			var studentId = courseObj.studentId;
 

@@ -1,4 +1,9 @@
 $(function(){
+	//点击返回上一层目录
+	$('.back').on('click',function(){
+	  window.history.back();
+	});
+
 	/*点击显示隐藏班级里列表*/
 	$('.class-title').on('click',function(){
 		$(this).next('div').slideToggle();
@@ -13,9 +18,9 @@ $(function(){
 			var content = res.exerciseList[i];
 			$('.content ul').append(
 				'<li>'
-				+'<a href="#">'
+				+'<a href="http://192.168.10.13:3000/doing-homework.html">'
 					+'<div class="ques-title">'
-						+'<span>问题'+content.exerciseId+'</span>'
+						+'<span>问题 '+content.exerciseId+'</span>'
 						+'<i></i>'
 					+'</div>'
 					+'<!-- 问题内容 -->'

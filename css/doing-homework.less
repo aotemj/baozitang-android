@@ -20,6 +20,61 @@ body{
 		width:10rem;
 		box-sizing: border-box;
 		overflow: hidden;
+		/*顶部导航*/
+		.top{
+			box-sizing: border-box;
+			width:10rem;
+			padding:0 40/75rem;
+			height:88/75rem;
+			line-height: 88/75rem;
+			background-color: #fff;
+			position: relative;
+			border-bottom:1px solid @borderColor;
+			.back,.submit{
+				width:68/75rem;
+				text-align: right;
+				font-size:28/75rem;
+			}
+			/*保存按钮*/
+			.save{
+				background:url('../images/baocun_icon.png') no-repeat center center;
+				background-size: 40/75rem 38/75rem;
+				position: absolute;
+				left: 114/75rem;
+				top: 24/75rem;
+				width:40/75rem;
+				height:40/75rem;
+			}
+			.back{
+				background: url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+				background-size: 40/75rem 40/75rem;
+				color:transparent;
+				position: relative;
+				margin-right:20/75rem;
+				a{
+					// background-color: green;
+					position: absolute;
+					width:68/75rem;
+					height:88/75rem;
+					left:0;
+				}
+			}
+			.submit{
+				background-color:@activeColor;
+				color:@fontColor;
+				width:136/75rem;
+				height:58/75rem;
+				margin-top:15/75rem;
+				text-align: center;
+				line-height: 58/75rem;
+				border-radius:3px;
+			}
+			.title{
+				font-size: 36/75rem;
+				width:446/75rem;
+				text-align: center;
+			}
+		}
 		/*轮播盒子*/
 		.swiper-container{
 			/*ul*/
@@ -29,52 +84,7 @@ body{
 				// height:1206/75rem;
 				/*li*/
 				.swiper-slide{
-					/*顶部导航*/
-					.top{
-						box-sizing: border-box;
-						width:10rem;
-						padding:0 40/75rem;
-						height:88/75rem;
-						line-height: 88/75rem;
-						background-color: #fff;
-						position: relative;
-						border-bottom:1px solid @borderColor;
-						.back,.submit{
-							width:88/75rem;
-							text-align: right;
-							font-size:28/75rem;
-						}
-						/*保存按钮*/
-						.save{
-							background:url('../images/baocun_icon.png') no-repeat center center;
-							background-size: 40/75rem 38/75rem;
-							position: absolute;
-							left: 114/75rem;
-							top: 24/75rem;
-							width:40/75rem;
-							height:40/75rem;
-						}
-						.back{
-							background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
-							background-size: 40/75rem 40/75rem;
-							color:transparent;
-						}
-						.submit{
-							background-color:@activeColor;
-							color:@fontColor;
-							width:136/75rem;
-							height:58/75rem;
-							margin-top:15/75rem;
-							text-align: center;
-							line-height: 58/75rem;
-							border-radius:3px;
-						}
-						.title{
-							font-size: 36/75rem;
-							width:446/75rem;
-							text-align: center;
-						}
-					}
+
 					/*作业内容*/
 					.content{
 						width:10rem;

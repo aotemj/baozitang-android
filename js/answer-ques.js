@@ -1,4 +1,8 @@
 $(function(){
+	//点击返回上一层目录
+	$('.back').on('click',function(){
+	  window.history.back();
+	});
 	//动态设置历史作业高度
 	// var liLength = $('.history-home li').length;
 	// var liHeight = $('.history-home li').height();
