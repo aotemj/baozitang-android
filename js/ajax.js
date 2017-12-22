@@ -223,7 +223,7 @@
 		});
 	}
 
-	//封装获取课程章节作业习题及回答查询 方法
+	//封装 获取课程章节作业习题及回答查询 方法
 	function getHomeworkList(sectionId,callback){
 		var homeworkList = JSON.parse(window.localStorage.getItem('homeworkList'));
 		//本地存有作业习题及答案
@@ -269,6 +269,56 @@
 			});
 		})
 	}
+
+	//封装 获取问题列表方法：
+	function getAnswerList(sectionId,callback){
+		getToken(data,function(res){
+			console.log(res);
+			//获取token:
+			var token = 'Bearer ' +res.token;
+			//获取studentId(学员id)
+			var studentId = res.userId;
+
+			var data = {
+				sectionId : sectionId,
+				studentId : studentId
+			}
+			var url = 'http://192.168.10.15:8081/api/app/listQuestion';
+			$.ajax({
+				type:'post',
+				data:data,
+				dataType:'json',
+				beforeSend:function(res){
+					res.setRequestHeader('Authorization',token);
+				},
+				success:function(res){
+					console.log(res);
+				}
+			});
+		});
+	}
+
+	//封装保存作业接口
+	function saveHomework(callback){
+		getToken(function(res){
+			var url  = 'http://192.168.10.15:8081/api/app/saveWorkAnswer';
+			var data = {
+
+			}
+			$.ajax({
+				type:'post',
+				data:data,
+				url:url,
+				beforeSend:function(res){
+					request.setRequestHeader("Authorization",token);
+				},
+				success:function(res){
+					callback(res);
+				}
+			});
+		})
+	}
+
 	//封装 查询已完成次节课程作业的学员
 	// function getCompetedStu(){
 

@@ -49,18 +49,24 @@ $(function(){
   let total = $('.swiper-wrapper li').length;
   $('.choose-topic .page-number .total').text(total);
 
-
-  /*
-  '<li class="swiper-slide">'
-  +'  <div class="content">'
-  +'    <div class="title">'
-  +'      <p>1.请结合上节课所将知识，解释供求关系一体化</p>'
-  +'    </div>'
-  +'    <div class="inner-content">'
-  +'      <i class=""></i>'
-  +'      <textarea placeholder="请在此书写答案~"></textarea>'
-  +'    </div>'
-  +'  </div>'
-  +'</li>'
-   */
+  //点击保存
+  $('.save').on('click',function(){
+    console.log('111');
+    saveHomework(function(res){
+      console.log(res);
+    });
+  });
 })
+/*
+'<li class="swiper-slide">'
++'  <div class="content">'
++'    <div class="title">'
++'      <p>1.请结合上节课所将知识，解释供求关系一体化</p>'
++'    </div>'
++'    <div class="inner-content">'
++'      <i class=""></i>'
++'      <textarea placeholder="请在此书写答案~"></textarea>'
++'    </div>'
++'  </div>'
++'</li>'
+ */
