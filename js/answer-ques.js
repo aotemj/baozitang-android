@@ -14,7 +14,7 @@ $(function(){
 		$('.ask-window').slideToggle().find('input').focus();
 	})
 
-	$('.close').on('click',function(){
+	$('.close,.send').on('click',function(){
 		$('.ask-window').slideUp();
 	})
 
