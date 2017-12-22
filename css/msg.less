@@ -1,0 +1,142 @@
+// 激活颜色
+@activeColor:#ffd100;
+// 背景色:
+@bgColor:#f5f5f5;
+// 主字体颜色:
+@fontColor:#2d2d2d;
+// 弱化字体颜色：
+@secondFontColor:#b5b5b5;
+//内容颜色：
+@contentColor:#505050;
+//说明性文字颜色：
+@descColor:#858585;
+// 边框颜色
+@borderColor:#e8e8e8;
+/* 选课 */
+body{
+	background-color: @bgColor;
+	/*父容器*/
+	.container{
+		width:10rem;
+		box-sizing: border-box;
+		font-family:"sans-serif";
+		// height: 15rem;
+		/*顶部导航*/
+		.top{
+			padding:0 40/75rem;
+			height:88/75rem;
+			width:100%;
+			line-height: 88/75rem;
+			background-color: #fff;
+			border-bottom:1px solid @borderColor;
+			position: fixed;
+			top:0;
+			.back,.save{
+				width:88/75rem;
+				text-align: right;
+				font-size:28/75rem;
+			}
+			.back{
+				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+				background-size: 40/75rem 40/75rem;
+				color:transparent;
+			}
+			.save{
+				color:@activeColor;
+			}
+			.title{
+				font-size: 36/75rem;
+				width:494/75rem;
+				text-align: center;
+			}
+		}
+		/*消息内容*/
+		.content{
+			/*子导航*/
+			.sub-nav{
+				height:96/75rem;
+				margin-bottom:20/75rem;
+				position: fixed;
+				top:89/75rem;
+				ul{
+					li{
+						width:5rem;
+						height:96/75rem;
+						line-height:96/75rem;
+						background-color: @bgColor;
+						text-align: center;
+						position: relative;
+						background:#fff url('../images/play_bj.png') no-repeat center bottom;
+						background-size: 42/75rem 4/75rem;
+						button{
+							color:@secondFontColor;
+							font-size: 32/75rem;
+						}
+						&.active {
+							background-image: url('../images/playing_bj.png');
+							button{
+								color:@fontColor;
+							}
+						}
+					}
+				}
+			}
+			/*主体内容*/
+			.inner-content{
+				width:10rem;
+				height:10rem;
+				margin-top:204/75rem;
+				background-color: @bgColor;
+				/*评论和赞内容*/
+				.comments-box{
+					width:10rem;
+
+				}
+				/*通知内容*/
+				.msg-box{
+					width:10rem;
+					ul{
+						li{
+							/*单个子项*/
+							.sub-item{
+								width:10rem;
+								height:280/75rem;
+								background-color: #fff;
+								box-sizing: border-box;
+								padding:40/75rem 0 0 40/75rem;
+								/*作业图标*/
+								.icon{
+									width:80/75rem;
+									height:200/75rem;
+									background:url('../images/mine-zuoye_icon.png') no-repeat center center;
+									background-size: 80/75rem 80/75rem;
+									// margin-right:20/75rem;
+								}
+								/*消息内容*/
+								.msg{
+									height:238/75rem;
+									background-color: #fff;
+									width:610/75rem;
+									border-bottom:1px solid @bgColor;
+									.title{
+										font-size: 32/75rem;
+									}
+									p{
+										margin-top:20/75rem;
+										font-size: 28/75rem;
+									}
+									.time{
+										margin-top:40/75rem;
+										font-size: 24/75rem;
+										color:@secondFontColor;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
