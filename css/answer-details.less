@@ -228,35 +228,81 @@ body{
 		/**/
 	}
 	/*编辑回答*/
-	.edit{
+	/*提问题弹窗 */
+	.ask-window{
 		position: fixed;
-		z-index: 999;
 		width:10rem;
-		// border:1px solid #000;
-		height:88/75rem;
-		background-color: pink;
-		font-size: 40/75rem;
-		bottom:88/75rem;
-		display:none;
-		width:10rem;
+		height:500/75rem;
+		background-color: #fff;
+		bottom:0;
 		left:0;
-		/*填写文本框*/
-		.content{
+		display:none;
+		padding:40/75rem;
+		box-sizing: border-box;
+		z-index: 999;
+		/*问题标题*/
+		input{
 			height:88/75rem;
-			width:(750-180)/75rem;
-			resize:none;
-			border:none;
-			outline:none;
+			font-size:36/75rem;
+			width:100%;
+			// background-color: green;
+		}
+		/*问题描述*/
+		textarea{
+			width:100%;
+			font-size: 28/75rem;
+		}
+		/*操作（表情，选择章节，发送）*/
+		.todos{
+			position: absolute;
+			left:0;
 			border:1px solid @bgColor;
 			box-sizing: border-box;
-			padding:0;
-		}
-		/*发送按钮*/
-		.send{
-			height:88/75rem;
-			width:180/75rem;
+			z-index: 999;
+			bottom:0/75rem;
+			height:96/75rem;
+			width:10rem;
+			background-color: #fff;
+			.close,.send{
+				height:96/75rem;
+				width:112/75rem;
+				background: url('../images/close_icon.png') no-repeat center center ;
+				background-size: 32/75rem 32/75rem;
+			}
+			.send{
+				background-image: url('../images/question-send_icon.png');
+			}
 		}
 	}
+	// .edit{
+	// 	position: fixed;
+	// 	z-index: 999;
+	// 	width:10rem;
+	// 	// border:1px solid #000;
+	// 	height:88/75rem;
+	// 	background-color: pink;
+	// 	font-size: 40/75rem;
+	// 	bottom:88/75rem;
+	// 	display:none;
+	// 	width:10rem;
+	// 	left:0;
+	// 	/*填写文本框*/
+	// 	.content{
+	// 		height:88/75rem;
+	// 		width:(750-180)/75rem;
+	// 		resize:none;
+	// 		border:none;
+	// 		outline:none;
+	// 		border:1px solid @bgColor;
+	// 		box-sizing: border-box;
+	// 		padding:0;
+	// 	}
+	// 	/*发送按钮*/
+	// 	.send{
+	// 		height:88/75rem;
+	// 		width:180/75rem;
+	// 	}
+	// }
 	/*问题操作*/
 	.todos{
 		height:96/75rem;
