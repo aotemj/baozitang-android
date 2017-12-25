@@ -4,18 +4,23 @@ $(function(){
 	  window.history.back();
 	});
 
-	/*点击显示隐藏班级里列表*/
-	$('.class-title').on('click',function(){
-		$(this).next('div').slideToggle();
-		$(this).find('i').toggleClass('active');
-});
 	//请求作业页表
-	getHomeworkList(1,function(res){
+	getHomeworkList(
+		{
+			'sectionId' : 3,
+			'studentId' : 3,
+			'classId':1,
+		},
+		function(res){
+			// 错误处理：
+			if(res.code!=200){
+				mui.toast(res.msg);
+			}
 		console.log(res);
 		//渲染页面：
-		$('.topic h4').text(res.content);
-		for(var i = 0;i<res.exerciseList.length;i++){
-			var content = res.exerciseList[i];
+		$('.topic h4').text(res.data.content);
+		for(var i = 0;i<res.data.exerciseList.length;i++){
+			var content = res.data.exerciseList[i];
 			$('.content ul').append(
 				'<li>'
 				+'<a href="http://192.168.10.13:3000/doing-homework.html">'

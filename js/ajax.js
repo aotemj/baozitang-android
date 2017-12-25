@@ -17,15 +17,6 @@
 	//url
 	var baseUrl = 'https://api.qingkequn.com/';
 
-	// var url = baseUrl + '/auth/sppLogin';
-
-	// var data = {
-	// 	loginType : 'PASSWORD',
-	// 	username : '13639753981',
-	// 	password : '123456',
-	// 	code : '',
-	// }
-
 	//封装获取token方法
 	function getToken(data,callback){
 		//判断本地是否存有tokenObj;
@@ -214,56 +205,31 @@
 	}
 
 	//封装 获取课程章节作业习题及回答查询 方法
-	function getHomeworkList(sectionId,callback){
-		var homeworkList = JSON.parse(window.localStorage.getItem('homeworkList'));
-		//本地存有作业习题及答案
-		if(homeworkList){
-			callback(homeworkList);
-			return;
-		}
-		// getToken(data,function(res){
-
-			var data1 = {
-				"sectionId" : sectionId,
-				"studentId" : studentId
-			}
-			var url = baseUrl + '/api/app/listworkPerSection';
-			// var token ='Bearer ' + res.token;
-			//没有存储作业习题及答案
-			$.ajax({
-				type:'post',
-				data:data1,
-				dataType:'json',
-				url:url,
-				//添加请求头
-				beforeSend: function(request) {
-	        request.setRequestHeader("Authorization",token);
-	     	},
-	     	success:function(res){
-	     		//错误处理：
-	     		if(res.code!==200){
-	     			mui.toast(res.msg);
-	     			return;
-	     		}
-
-	     		var homeworkList = {
-	     			content:res.data.content,
-	     			exerciseList:res.data.exerciseList,
-	     			sectionId:sectionId,
-	     			submitTime:res.data.submitTime,
-	     			workId:res.data.workId
-	     		}
-	     		//本地存储
-	     		window.localStorage.setItem('homeworkList',JSON.stringify(homeworkList));
-	     		callback(homeworkList);
-	     	}
-			});
-		// })
+	function getHomeworkList(data,callback){
+		var url = baseUrl + 'api/app/listworkPerSection';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			//添加请求头
+			beforeSend: function(request) {
+	      request.setRequestHeader("Authorization",token);
+	   	},
+	   	success:function(res){
+	   		//错误处理：
+	   		if(res.code!==200){
+	   			mui.toast(res.msg);
+	   			return;
+	   		}
+	   		callback(res);
+	   	}
+		});
 	}
 
 	//封装 获取问题列表方法：
 	function getAnswerList(data,callback){
-			var url = baseUrl+'/api/app/listQuestion';
+			var url = baseUrl+'api/app/listQuestion';
 			$.ajax({
 				type:'post',
 				data:data,
@@ -301,24 +267,21 @@
 	}
 
 	//封装保存作业接口
-	function saveHomework(callback){
-		getToken(function(res){
-			var url  = 'http://192.168.10.15:8081/api/app/saveWorkAnswer';
-			var data = {
-
-			}
+	function saveHomework(data,callback){
+		// getToken(function(res){
+			var url  = baseUrl + 'api/app/saveWorkAnswer';
 			$.ajax({
 				type:'post',
 				data:data,
 				url:url,
 				beforeSend:function(res){
-					request.setRequestHeader("Authorization",token);
+					res.setRequestHeader("Authorization",token);
 				},
 				success:function(res){
 					callback(res);
 				}
 			});
-		})
+		// })
 	}
 
 	//封装 查询已完成次节课程作业的学员
