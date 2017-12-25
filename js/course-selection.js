@@ -16,8 +16,8 @@ $(function(){
 	// 	$(this).addClass('active');
 	// });
 
-		//获取课程列表：
-  	getCourseList(function(res){
+		//获取课程列表：getCourseList(studentId,callback);
+  	getCourseList(3,function(res){
   		console.log(res);
   		//渲染页面
   		for(var i =0;i<res.length;i++){
