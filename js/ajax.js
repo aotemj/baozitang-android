@@ -51,7 +51,7 @@
 				// console.log(res);
 				//获取失败
 				if(res.code!==200){
-					alert(res.msg);
+					mui.toast(res.msg);
 					return;
 				}
 
@@ -140,7 +140,7 @@
 				// console.log(res);
 				// 错误处理：
 				if(res.code!==200){
-					alert(res.msg);
+					mui.toast(res.msg);
 					return;
 				}
 				var courseList=[];
@@ -203,7 +203,7 @@
 	     	success:function(res){
 	     		//失败处理：
 	     		if(res.code!==200){
-	     			alert(res.msg);
+	     			mui.toast(res.msg);
 	     			return;
 	     		}
 	     		var courseDir = res.data;
@@ -242,7 +242,7 @@
 	     	success:function(res){
 	     		//错误处理：
 	     		if(res.code!==200){
-	     			alert(res.msg);
+	     			mui.toast(res.msg);
 	     			return;
 	     		}
 
@@ -275,7 +275,7 @@
 				success:function(res){
 					//错误处理：
 					if(res.code!==200){
-						alert(res.msg);
+						mui.toast(res.msg);
 						return;
 					}
 					callback(res);

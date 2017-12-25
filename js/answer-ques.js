@@ -21,7 +21,7 @@ $(function(){
 		// 	console.log($(this).val());
 		// })
 		if($.trim($('.ask-window input').val())===""){
-			alert("请输入内容后提交！");
+			mui.toast('请输入内容后提交！');
 			return;
 		}
 		//获取问题标题和描述
@@ -38,9 +38,11 @@ $(function(){
 				category:'section',
 			},
 			function(res){
-				console.log(res);
-				alert(res.msg);
-				window.location.reload();
+				// console.log(res);
+				mui.toast(res.msg);
+				setTimeout(function(){
+					window.location.reload();
+				},4000);
 			});
 	});
 

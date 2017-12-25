@@ -57,3 +57,7 @@ textarea{
 	outline:none;
 	padding:0;
 }
+/*toast信息提示*/
+.mui-toast-container {
+	bottom: 50% !important;
+}
