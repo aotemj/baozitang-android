@@ -229,6 +229,27 @@
 		});
 	}
 
+	//封装 查询截止到当天，某个学员应该写的作业以及状态
+	function queryAllWorkFromToday(data,callback){
+		var url = baseUrl + 'api/app/queryAllWorkFromToday';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				//错误处理
+				if(res.code!=200){
+					mui.toast(res.msg);
+				}
+				callback(res);
+			}
+		});
+	}
+
 	//封装 获取问题列表方法：
 	function getAnswerList(data,callback){
 			var url = baseUrl+'api/app/listQuestion';
@@ -270,20 +291,18 @@
 
 	//封装保存作业接口
 	function saveHomework(data,callback){
-		// getToken(function(res){
-			var url  = baseUrl + 'api/app/saveWorkAnswer';
-			$.ajax({
-				type:'post',
-				data:data,
-				url:url,
-				beforeSend:function(res){
-					res.setRequestHeader("Authorization",token);
-				},
-				success:function(res){
-					callback(res);
-				}
-			});
-		// })
+		var url  = baseUrl + 'api/app/saveWorkAnswer';
+		$.ajax({
+			type:'post',
+			data:data,
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader("Authorization",token);
+			},
+			success:function(res){
+				callback(res);
+			}
+		});
 	}
 
 	//封装提交作业接口
@@ -306,7 +325,7 @@
 	// function getCompetedStu(){
 
 	// }
-	//封装获取获取个人信息方法：
+	//封装获取个人信息方法：
 	function getPersonInfo(data,callback){
 		var url = baseUrl + 'api/app/findByUsername';
 		$.ajax({
@@ -322,4 +341,26 @@
 			}
 		});
 	}
+
+	//封装查询学员参加班级方法：
+	function getClassList(data,callback){
+		var url = baseUrl +'api/app/classQryForStudent';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				if(res.code!=200){
+					mui.toast(res.msg);
+					return;
+				}
+				callback(res);
+			}
+		});
+	}
+
 // });
