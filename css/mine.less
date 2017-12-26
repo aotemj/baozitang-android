@@ -13,338 +13,296 @@
 // 边框颜色
 @borderColor:#e8e8e8;
 /* 选课 */
-body{
-	background-color: @bgColor;
-	/*父容器*/
-	.container{
-		width:10rem;
-		box-sizing: border-box;
-		font-family:"sans-serif";
-		/*顶部 消息、设置页面*/
-		.top{
-			padding:0 40/75rem;
-			height:88/75rem;
-			line-height: 88/75rem;
-			background-color: #fff;
-			/*消息、设置*/
-			.msg,.setting{
+html{
+	// height:100%;
+	background-color: pink;
+	body{
+		width:100%;
+		// height:100%;
+		background-color: @bgColor;
+		/*父容器*/
+		.container{
+			width:10rem;
+			background-color: @bgColor;
+			box-sizing: border-box;
+			font-family:"sans-serif";
+			/*顶部 消息、设置页面*/
+			.top{
+				padding:0 40/75rem;
 				height:88/75rem;
-				width:88/75rem;
-				a{
-					display:block;
-					width:88/75rem;
+				line-height: 88/75rem;
+				background-color: #fff;
+				/*消息、设置*/
+				.msg,.setting{
 					height:88/75rem;
-					background:url('../images/message_icon.png') no-repeat left center ;
-					background-size: 40/75rem 40/75rem;
-					position: relative;
-					/*消息提醒*/
-					i{
-						position: absolute;
-						width:20/75rem;
-						height:20/75rem;
-						background-color: #FF4C3B;
-						border-radius:50%;
-						left:20/75rem;
-						top:20/75rem;
+					width:88/75rem;
+					a{
+						display:block;
+						width:88/75rem;
+						height:88/75rem;
+						background:url('../images/message_icon.png') no-repeat left center ;
+						background-size: 40/75rem 40/75rem;
+						position: relative;
+						/*消息提醒*/
+						i{
+							position: absolute;
+							width:20/75rem;
+							height:20/75rem;
+							background-color: #FF4C3B;
+							border-radius:50%;
+							left:20/75rem;
+							top:20/75rem;
+						}
+					}
+				}
+				.setting{
+					a{
+						background-image: url('../images/settings_icon.png');
+						background-position: center right;
 					}
 				}
 			}
-			.setting{
+			/*编辑个人信息*/
+			.edit{
+				height:160/75rem;
 				a{
-					background-image: url('../images/settings_icon.png');
-					background-position: center right;
+					background-color: #fff;
+					display:block;
+					height:160/75rem;
+					padding:0 40/75rem;
+					.left,.right{
+						height:160/75rem;
+						width:300/75rem;
+					}
+					/*左侧*/
+					.left{
+						padding-top:30/75rem;
+						box-sizing: border-box;
+						p{
+							font-size: 40/75rem;
+							line-height: 60/75rem;
+						}
+						span{
+							font-size: 32/75rem;
+							color:@secondFontColor;
+						}
+					}
+					.right{
+						width:177/75rem;
+						.photo{
+							margin-top:16/75rem;
+							width:128/75rem;
+							height:128/75rem;
+							background-color: yellow;
+							border-radius:50%;
+							position: relative;
+							&:before{
+								content:'';
+								position: absolute;
+								top:0;
+								right:-50/75rem;
+								width:50/75rem;
+								height:128/75rem;
+								background:url('../images/mine-arrow_icon.png') no-repeat 25/75rem center;
+								background-size: 30/75rem;
+							}
+						}
+					}
 				}
 			}
-		}
-		/*编辑个人信息*/
-		.edit{
-			height:160/75rem;
-			a{
-				background-color: #fff;
-				display:block;
-				height:160/75rem;
-				padding:0 40/75rem;
-				.left,.right{
-					height:160/75rem;
-					width:300/75rem;
-				}
-				/*左侧*/
-				.left{
+			/*我的详情*/
+			.detail{
+				height:150/75rem;
+				overflow: hidden;
+				border-bottom:1px solid @borderColor;
+				a{
+					background-color: #fff;
 					padding-top:30/75rem;
 					box-sizing: border-box;
+					text-align: center;
+					display:block;
+					width:250/75rem;
+					height:150/75rem;
 					p{
-						font-size: 40/75rem;
-						line-height: 60/75rem;
+						font-family:"sans-serif";
+						font-size:32/75rem;
+						line-height: 50/75rem;
 					}
-					span{
-						font-size: 32/75rem;
+					>span{
 						color:@secondFontColor;
-					}
-				}
-				.right{
-					width:177/75rem;
-					.photo{
-						margin-top:16/75rem;
-						width:128/75rem;
-						height:128/75rem;
-						background-color: yellow;
-						border-radius:50%;
-						position: relative;
-						&:before{
-							content:'';
-							position: absolute;
-							top:0;
-							right:-50/75rem;
-							width:50/75rem;
-							height:128/75rem;
-							background:url('../images/mine-arrow_icon.png') no-repeat 25/75rem center;
-							background-size: 30/75rem;
-						}
+						font-size: 28/75rem;
 					}
 				}
 			}
-		}
-		/*我的详情*/
-		.detail{
-			height:150/75rem;
-			overflow: hidden;
-			border-bottom:1px solid @borderColor;
-			a{
+			/*我的 (课桌、作业、收藏、下载)*/
+			.mine{
+				padding:0 40/75rem;
+				height:162/75rem;
+				margin-bottom:20/75rem;
 				background-color: #fff;
-				padding-top:30/75rem;
-				box-sizing: border-box;
-				text-align: center;
-				display:block;
-				width:250/75rem;
-				height:150/75rem;
-				p{
-					font-family:"sans-serif";
-					font-size:32/75rem;
-					line-height: 50/75rem;
-				}
-				>span{
-					color:@secondFontColor;
-					font-size: 28/75rem;
-				}
-			}
-		}
-		/*我的 (课桌、作业、收藏、下载)*/
-		.mine{
-			padding:0 40/75rem;
-			height:162/75rem;
-			margin-bottom:20/75rem;
-			background-color: #fff;
-			ul{
-
-				li{
-					width:167.5/75rem;
-					height:162/75rem;
-					/*小图标*/
-						&:nth-of-type(2){
-							a{
-								i{
-									background-image: url('../images/mine-zuoye_icon.png');
-								}
-							}
-						}
-						&:nth-of-type(3){
-							a{
-								i{
-									background-image: url('../images/mine-shoucang_icon.png');
-								}
-							}
-						}
-						&:nth-of-type(4){
-							a{
-								i{
-									background-image: url('../images/mine-xiazai_icon-.png');
-								}
-							}
-						}
-					a{
-						overflow:hidden;
-						// box-sizing: border-box;
-						// background-color: yellow;
-						display:block;
-						width:167.5/75rem;
-						height:162/75rem;
-						text-align: center;
-						color:@secondFontColor;
-						i{
-							margin:40/75rem auto 20/75rem;
-							display:block;
-							width:44/75rem;
-							height:44/75rem;
-							background:url('../images/mine-kezhuo_icon-.png') no-repeat center center;
-							background-size: 40/75rem 40/75rem;
-						}
-					}
-				}
-			}
-		}
-		/*咨询*/
-		.consulting{
-			padding:0 40/75rem;
-			height:96/75rem;
-			margin-bottom:20/75rem;
-			background-color: #fff;
-			button{
-				display:block;
-				width:335/75rem;
-				height:96/75rem;
-				position: relative;
-				font-size:32/75rem;
-				&:nth-of-type(2){
-					&:before{
-						background-image: url('../images/phone_icon.png');
-					}
-				}
-				&:before{
-					content:'';
-					display:inline-block;
-					vertical-align: bottom;
-					width:60/75rem;
-					height:44/75rem;
-					background: url('../images/online-chat_icon.png') no-repeat center left;
-					background-size: 42/75rem 42/75rem;
-				}
-			}
-		}
-		/*列表*/
-		.list{
-			padding-left:110/75rem;
-			height:498/75rem;
-			background-color: @bgColor;
-			margin-bottom:96/75rem;
-			box-sizing: border-box;
-			ul{
-				&:nth-of-type(2){
+				ul{
 					li{
-						&:nth-of-type(1){
-							&:before{
-								background-image: url('../images/mine-learn_icon.png');
-							}
-						}
-						&:nth-of-type(2){
-							a{
-								span{
-									&:nth-of-type(2){
-										font-size: 28/75rem;
-										color:@secondFontColor;
-										float: right;
-										margin-right:45px;
+						width:670/3/75rem;
+						height:162/75rem;
+						/*小图标*/
+							&:nth-of-type(2){
+								a{
+									i{
+										background-image: url('../images/mine-zuoye_icon.png');
 									}
 								}
 							}
-							&:before{
-								background-image: url('../images/mine-qingke_icon.png');
+							&:nth-of-type(3){
+								a{
+									i{
+										background-image: url('../images/mine-shoucang_icon.png');
+									}
+								}
 							}
-						}
-					}
-				}
-				li{
-					height:96/75rem;
-					line-height: 96/75rem;
-					background-color: #fff;
-					width:100%;
-					font-size: 36/75rem;
-					border-bottom:1px solid @bgColor;
-					position: relative;
-					/*我的班级*/
-					&:nth-of-type(2){
-						&:before{
-							background-image: url('../images/mine-banji_icon.png');
-						}
-					}
-					/*我的关注*/
-					&:nth-of-type(3){
-						&:before{
-							background-image: url('../images/mine-eye_icon.png');
-						}
-						margin-bottom:20/75rem;
+							&:nth-of-type(4){
+								a{
+									i{
+										background-image: url('../images/mine-xiazai_icon-.png');
+									}
+								}
+							}
 						a{
-							position: relative;
-							&:before{
-								position: absolute;
-								content:'';
-								width:10rem;
-								height:20/75rem;
-								background-color: @bgColor;
-								bottom:-50/75rem;
-								left:-110/75rem;
+							overflow:hidden;
+							// box-sizing: border-box;
+							// background-color: yellow;
+							display:block;
+							width:100%;
+							height:162/75rem;
+							text-align: center;
+							color:@secondFontColor;
+							i{
+								margin:40/75rem auto 20/75rem;
+								display:block;
+								width:44/75rem;
+								height:44/75rem;
+								background:url('../images/mine-kezhuo_icon-.png') no-repeat center center;
+								background-size: 40/75rem 40/75rem;
 							}
 						}
-					}
-					&:before,&:after{
-						content:'';
-						position: absolute;
-						width:110/75rem;
-						height:98/75rem;
-						top:0/75rem;
-						background:#fff url('../images/mine-huangjinwu_icon.png') no-repeat center center;
-						background-size: 40/75rem 40/75rem;
-					}
-					&:before{
-						left:-110/75rem;
-					}
-					&:after{
-						height:96/75rem;
-						background-color: transparent;
-						background-image: url('../images/mine-arrow_icon.png');
-						background-size: 30/75rem 30/75rem;
-						right:0;
 					}
 				}
 			}
-		}
-		/*底部*/
-		.footer{
-			border-top:1px solid @bgColor;
-			// box-shadow: 0 -1px 10px @bgColor;
-			height:96/75rem;
-			width: 100%;
-			background-color: #fff;
-			position: fixed;
-			bottom:0;
-			text-align: center;
-			a{
-				display:block;
-				float: left;
-				width:187.5/75rem;
-				color:@secondFontColor;
-				&.active{
-					color:@fontColor;
-				i{
-					opacity:1;
-				}
-				}
-				&:nth-of-type(2){
-					i{
-					background-image: url('../images/xz-xuanke_icon.png');
-					}
-				}
-				&:nth-of-type(3){
-					i{
-					background-image: url('../images/xz-banji_icon.png');
-					}
-				}
-				&:nth-of-type(4){
-					i{
-					background-image: url('../images/xz-mine_icon.png');
-					}
-				}
-
-				i{
+			/*咨询*/
+			.consulting{
+				padding:0 40/75rem;
+				height:96/75rem;
+				margin-bottom:20/75rem;
+				background-color: #fff;
+				button{
 					display:block;
-					width:44/75rem;
-					height:44/75rem;
-					margin:10/75rem auto 5/75rem;
-					background:url('../images/xz-kezhuo_icon-.png') no-repeat center center;
-					background-size: 40/75rem 40/75rem;
-					opacity:.4;
+					width:335/75rem;
+					height:96/75rem;
+					position: relative;
+					font-size:32/75rem;
+					&:nth-of-type(2){
+						&:before{
+							background-image: url('../images/phone_icon.png');
+						}
+					}
+					&:before{
+						content:'';
+						display:inline-block;
+						vertical-align: bottom;
+						width:60/75rem;
+						height:44/75rem;
+						background: url('../images/online-chat_icon.png') no-repeat center left;
+						background-size: 42/75rem 42/75rem;
+					}
+				}
+			}
+			/*列表*/
+			.list{
+				padding-left:110/75rem;
+				// height:498/75rem;
+				background-color: @bgColor;
+				// margin-bottom:96/75rem;
+				box-sizing: border-box;
+				ul{
+					&:nth-of-type(2){
+						li{
+							&:nth-of-type(1){
+								&:before{
+									background-image: url('../images/mine-learn_icon.png');
+								}
+							}
+							&:nth-of-type(2){
+								a{
+									span{
+										&:nth-of-type(2){
+											font-size: 28/75rem;
+											color:@secondFontColor;
+											float: right;
+											margin-right:45px;
+										}
+									}
+								}
+								&:before{
+									background-image: url('../images/mine-qingke_icon.png');
+								}
+							}
+						}
+					}
+					li{
+						height:96/75rem;
+						line-height: 96/75rem;
+						background-color: #fff;
+						width:100%;
+						font-size: 36/75rem;
+						border-bottom:1px solid @bgColor;
+						position: relative;
+
+						/*我的班级*/
+						&:nth-of-type(2){
+							&:before{
+								background-image: url('../images/mine-banji_icon.png');
+							}
+						}
+						/*我的关注*/
+						&:nth-of-type(3){
+							&:before{
+								background-image: url('../images/mine-eye_icon.png');
+							}
+							margin-bottom:20/75rem;
+							a{
+								position: relative;
+								&:before{
+									position: absolute;
+									content:'';
+									width:10rem;
+									height:20/75rem;
+									background-color: @bgColor;
+									bottom:-50/75rem;
+									left:-110/75rem;
+								}
+							}
+						}
+						&:before,&:after{
+							content:'';
+							position: absolute;
+							width:110/75rem;
+							height:98/75rem;
+							top:0/75rem;
+							background:#fff url('../images/mine-huangjinwu_icon.png') no-repeat center center;
+							background-size: 40/75rem 40/75rem;
+						}
+						&:before{
+							left:-110/75rem;
+						}
+						&:after{
+							height:96/75rem;
+							background-color: transparent;
+							background-image: url('../images/mine-arrow_icon.png');
+							background-size: 30/75rem 30/75rem;
+							right:0;
+						}
+					}
 				}
 			}
 		}
 	}
 }
-

@@ -7,4 +7,8 @@ $(function(){
 	var ulHeight = liLength*liHeight+500;
 	console.log(ulHeight);
 	$('.history-home').height(ulHeight/75+'rem');
+
+
+
+
 });

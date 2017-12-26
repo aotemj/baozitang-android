@@ -15,6 +15,9 @@
 	//charset
 	// var  charset = 'utf-8';
 	//url
+
+
+	//请求公共头
 	var baseUrl = 'https://api.qingkequn.com/';
 
 	//封装获取token方法
@@ -303,4 +306,20 @@
 	// function getCompetedStu(){
 
 	// }
+	//封装获取获取个人信息方法：
+	function getPersonInfo(data,callback){
+		var url = baseUrl + 'api/app/findByUsername';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				callback(res);
+			}
+		});
+	}
 // });
