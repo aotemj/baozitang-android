@@ -25,7 +25,6 @@
 			callback(tokenObj);
 			return;
 		}
-		//本地无tokenObj;
 		 $.ajax({
 			type:'post',
 			url:url,
@@ -284,6 +283,22 @@
 		// })
 	}
 
+	//封装提交作业接口
+	function submitHomework(data,callback){
+		var url = baseUrl + 'api/app/submitWorks';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader("Authorization",token);
+			},
+			success:function(res){
+				callback(res);
+			}
+		});
+	}
 	//封装 查询已完成次节课程作业的学员
 	// function getCompetedStu(){
 
