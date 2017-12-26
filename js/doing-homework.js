@@ -112,7 +112,14 @@ $(function(){
       }
       console.log(data);
       submitHomework(data,function(res){
-        mui.toast(res.msg);
+        //错误处理
+        if(res.code!=200){
+          mui.toast(res.msg);
+          return;
+        }
+        $('.mask').css({
+          'display':'block'
+        });
       });
     });
 
@@ -175,6 +182,10 @@ $(function(){
       // console.log(answerContent);
       return answerContent;
     }
+  });
+  //提示框页面点击跳转
+  $('.mask').on('click',function(){
+    window.location.href='http://192.168.11.101:3000/homework-list.html';
   });
 })
 

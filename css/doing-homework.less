@@ -78,6 +78,61 @@ body{
 				text-align: center;
 			}
 		}
+		/*提示遮罩*/
+		.mask{
+			width:100%;
+			height:100%;
+			background-color: rgba(0,0,0,.5);
+			position: fixed;
+			top:0;
+			left:0;
+			z-index: 999;
+			display:none;
+			/*提交作业成功提示*/
+			.prompt{
+
+				width:600/75rem;
+				height:620/75rem;
+				background: #fff url('../images/successfully_bj.png') no-repeat center 50/75rem  ;
+				background-size: 268/75rem 244/75rem;
+				position: absolute;
+				left:50%;
+				top:50%;
+				transform:translate(-50%,-50%);
+				/*提示信息*/
+				.msg{
+					width:100%;
+					height:100/75rem;
+					line-height:100/75rem;
+					margin-top:300/75rem;
+					font-size: 32/75rem;
+					text-align: center;
+				}
+				/*预览作业，分享作业*/
+				.todos{
+					width:100%;
+					height:200/75rem;
+					box-sizing: border-box;
+					padding:0 80/75rem;
+					a{
+						display:block;
+						width:200/75rem;
+						height:80/75rem;
+						line-height:80/75rem;
+						text-align: center;
+						background-color: @activeColor;
+						border-radius:3px;
+						margin-top:60/75rem;
+						font-size: 28/75rem;
+						color:@fontColor;
+					}
+					.share{
+						color:#fff;
+						background-color: @fontColor;
+					}
+				}
+			}
+		}
 		/*轮播盒子*/
 		.swiper-container{
 			/*ul*/
