@@ -11,6 +11,12 @@ $(function(){
 			$('.nickname').text(res.data.nickname);
 			//
 		});
+	//个人信息跳转
+	jump('.msg','msg.html');
+
+	//设置页面跳转
+	jump('.setting','setting.html');
+
 	//编辑个人信息跳转
 	jump('.edit','personal-info.html');
 
@@ -22,5 +28,6 @@ $(function(){
 
 	//学习记录跳转
 	jump('.learn-record','learn-record.html');
+
 
 });

@@ -5,7 +5,7 @@
 	});
 	//封装安卓跳转方法：
 	function jump(selector,target){
-		var baseUrl = 'http://192.168.11.101:3000/';
+		var baseUrl = 'http://192.168.0.101:3000/';
 		$(selector).on('click',function(){
 			window.baozitang.open(baseUrl+target);
 		});
