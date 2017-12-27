@@ -280,3 +280,20 @@
 			}
 		});
 	}
+
+	//封装 获取学员学习记录方法：
+	function getLearnRecord(data,callback){
+		var url = baseUrl + '/api/app/qryMyStudyRecords';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				callback(res);
+			}
+		});
+	}
