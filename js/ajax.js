@@ -1,106 +1,6 @@
-// $(function(){
-	//使用用户注册的账号密码获取token（token是用户进行下一步操作的秘钥）
-
-	//获取token所需参数
-	// 登录类型(POSSWORD、CODE)
-	// var  loginType = 'PASSWORD';
-	//用户名
-	// var  username = '13639753981';
-	//密码（loginType为POSSWORD时可为空）
-	// var  password = '123456';
-	//验证码（loginType为CODE时可为空）
-	// var  code = '';
-	//字段类型（默认值）
-	// var  contentType = 'application/json';
-	//charset
-	// var  charset = 'utf-8';
-	//url
-
-
 	//请求公共头
 	var baseUrl = 'https://api.qingkequn.com/';
 
-	//封装获取token方法
-	function getToken(data,callback){
-		//判断本地是否存有tokenObj;
-		var tokenObj = JSON.parse(window.localStorage.getItem('tokenObj'));
-		if(tokenObj){
-			callback(tokenObj);
-			return;
-		}
-		 $.ajax({
-			type:'post',
-			url:url,
-			data:{
-				loginType:data.loginType,
-				username:data.username,
-				password:data.password,
-				code:data.code,
-				"Content-type":contentType,
-				charset:charset
-			},
-			dataType:'json',
-			success:function(res){
-				// console.log(res);
-				//获取失败
-				if(res.code!==200){
-					mui.toast(res.msg);
-					return;
-				}
-
-				//token
-				var tokenObj = {
-					token:res.data.token,//token
-					username:res.data.username,//用户名
-					userId:res.data.userId,//用户id
-					expirationDate:res.data.expirationDate,//token过期时间
-					isBindUsername:res.data.isBindUsername,//是否绑定用户名
-					isLogin:res.data.isLogin,//是否登录
-				}
-				//判断token是否过期
-				var nowTime = new Date().getTime();
-				var difTime = nowTime-tokenObj.expirationDate;
-
-				//token过期，刷新
-				if(difTime>0){
-					var refreshUrl = baseUrl + '/auth/refresh';
-					var refreshToken = 'Bearer '+ tokenObj.token;//旧token
-					$.ajax({
-						url:refreshUrl,
-						type:'get',
-						dataType:'json',
-						data:{
-							"Accept": "application/json",
-						  "charset": "utf-8"
-						},
-						//添加请求头
-						beforeSend: function(request) {
-			        request.setRequestHeader("Authorization",refreshToken);
-			     	},
-			     	success:function(res){
-			     		//token
-			     		var tokenObj = {
-			     			token:res.data.token,//token
-			     			username:res.data.username,//用户名
-			     			userId:res.data.userId,//用户id
-			     			expirationDate:res.data.expirationDate,//token过期时间
-			     			isBindUsername:res.data.isBindUsername,//是否绑定用户名
-			     			isLogin:res.data.isLogin,//是否登录
-			     		}
-			     		//本地存储：
-			     		window.localStorage.setItem('tokenObj',JSON.stringify(tokenObj));
-			     		//执行回调
-			     		callback(tokenObj);
-			     	}
-					});
-				}
-				//本地存储：
-				window.localStorage.setItem('tokenObj',JSON.stringify(tokenObj));
-				//执行回调
-				callback(tokenObj);
-	    }
-		});
-	}
 
 	// token 和 userId 由android 提供
 	 var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQxNzcwOTc3OTEsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTQ3ODE4OTd9.xmIkRXt9cBt0yzfnEdtkbughGtCkXWF_2hPX-v8zmMOMvwzdbjSCWWJxTp4U6tdownmdDziULA_41XvrR5gByQ';
@@ -321,10 +221,28 @@
 			}
 		});
 	}
-	//封装 查询已完成次节课程作业的学员
-	// function getCompetedStu(){
 
-	// }
+	//封装 查询已完成此节课程作业的学员
+	function getCompetedStu(data,callback){
+		var url = baseUrl + 'api/app/listStudentCompletedWork';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				//错误处理
+				if(res.code!=200){
+					mui.toast(res.msg);
+				}
+				callback(res);
+			}
+		});
+	}
+
 	//封装获取个人信息方法：
 	function getPersonInfo(data,callback){
 		var url = baseUrl + 'api/app/findByUsername';
@@ -362,5 +280,3 @@
 			}
 		});
 	}
-
-// });

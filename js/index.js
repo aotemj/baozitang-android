@@ -1,4 +1,3 @@
-// $(function(){
 	//点击返回上一层目录
 	$('.back').on('click',function(){
 		//安卓返回上层方法
@@ -11,5 +10,3 @@
 			window.baozitang.open(baseUrl+target);
 		});
 	}
-
-// })

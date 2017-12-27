@@ -7,6 +7,7 @@ $(function(){
 		},
 		function(res){
 			console.log(res);
+			//添加班级列表
 			for(var i = 0 ; i < res.data.length;i++){
 				var data = res.data[i];
 				$('.content>ul').append(
@@ -42,7 +43,6 @@ $(function(){
 					);
 				}
 			}
-
 			/*点击显示隐藏班级里列表*/
 			$('.class-title').on('click',function(){
 				console.log('111');
