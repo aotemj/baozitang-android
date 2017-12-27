@@ -3,10 +3,11 @@
 		//安卓返回上层方法
 	  window.baozitang.close();
 	});
+	var jumpBaseUrl = 'http://192.168.11.104:3000/';
 	//封装安卓跳转方法：
 	function jump(selector,target){
-		var baseUrl = 'http://192.168.0.101:3000/';
+
 		$(selector).on('click',function(){
-			window.baozitang.open(baseUrl+target);
+			window.baozitang.open(jumpBaseUrl+target);
 		});
 	}

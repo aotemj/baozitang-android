@@ -97,61 +97,58 @@ body{
 					top:0;
 				}
 				li{
-					a{
-						/*历史作业*/
-						.content{
-							height:216/75rem;
+				/*历史作业*/
+					.content{
+						height:216/75rem;
+						width:10rem;
+						/*时间*/
+						.time{
+							height:88/75rem;
+							line-height: 110/75rem;
 							width:10rem;
-							/*时间*/
-							.time{
-								height:88/75rem;
-								line-height: 110/75rem;
-								width:10rem;
-								// background-color: @bgColor;
-								position: relative;
-								padding-left:80/75rem;
+							// background-color: @bgColor;
+							position: relative;
+							padding-left:80/75rem;
+							box-sizing: border-box;
+							color:@secondFontColor;
+							font-family: 'sans-serif';
+							&:after{
+								content:'';
+								position: absolute;
 								box-sizing: border-box;
-								color:@secondFontColor;
-								font-family: 'sans-serif';
-								&:after{
-									content:'';
-									position: absolute;
-									box-sizing: border-box;
-									width:28/75rem;
-									height:28/75rem;
-									border-radius:50%;
-									background-color: #F5F5F5;
-									left:40/75rem;
-									bottom:20/75rem;
-									border:3/75rem solid #D5D5D5;
-								}
+								width:28/75rem;
+								height:28/75rem;
+								border-radius:50%;
+								background-color: #F5F5F5;
+								left:40/75rem;
+								bottom:20/75rem;
+								border:3/75rem solid #D5D5D5;
 							}
-							.homework-desc{
-								width:10rem;
-								height:128/75rem;
-								background-color: #fff;
-								padding:30/75rem 40/75rem;
-								box-sizing: border-box;
-								position: relative;
-								h4{
-									font-size: 32/75rem;
-									font-family: 'sans-serif';
-								}
-								p{
-									font-size: 28/75rem;
-									color:@secondFontColor;
-								}
-							i{
-									display:block;
-									content:'';
-									width:64/75rem;
-									height:64/75rem;
-									background:url('../images/y-write_icon.png') no-repeat center center;
-									background-size: 64/75rem 64/75rem;
-									position: absolute;
-									right:40/75rem;
-									top:32/75rem;
-								}
+						}
+						.homework-desc{
+							width:10rem;
+							height:128/75rem;
+							background-color: #fff;
+							padding:30/75rem 40/75rem;
+							box-sizing: border-box;
+							position: relative;
+							h4{
+								font-size: 32/75rem;
+								font-family: 'sans-serif';
+							}
+							p{
+								font-size: 28/75rem;
+								color:@secondFontColor;
+							}
+						.doing-homework{
+								display:block;
+								width:64/75rem;
+								height:64/75rem;
+								background:url('../images/end_bj.png') no-repeat center center;
+								background-size: 64/75rem 64/75rem;
+								position: absolute;
+								right:40/75rem;
+								top:32/75rem;
 							}
 						}
 					}

@@ -13,7 +13,7 @@ ul,li{
 	list-style: none;
 }
 li{
-	float: left;
+	// float: left;
 }
 // 修改搜索框提示颜色
 input:-moz-placeholder,textarea:-moz-placeholder{
