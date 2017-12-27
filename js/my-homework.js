@@ -1,15 +1,14 @@
 $(function(){
 	//动态设置历史作业高度
-	var liLength = $('.history-home li').length;
-	var liHeight = $('.history-home li').height();
-	console.log(liLength);
-	console.log(liHeight);
-	var ulHeight = liLength*liHeight+500;
-	console.log(ulHeight);
-	$('.history-home').height(ulHeight/75+'rem');
+	var height = $(window).height();
+	console.log(height);
+	$('.container').height(height+'/75rem');
+	// var ulHeight = liLength*liHeight;
+	// console.log(ulHeight);
+	// $('.history-home').height(ulHeight/75+'rem');
 
 	//查询截止到当天，某个学员应该写的作业以及状态
-	queryAllWorkFromToday({studentId:3},function(res){
+	queryAllWorkFromToday({studentId:1},function(res){
 		console.log(res);
 		//今天要做的作业
 		var todayHomework = res.data.todayList;
@@ -49,21 +48,21 @@ $(function(){
 				+' </div>'
 				+'</li>'
 			);
-			//未完成的作业
 			var button = $('.history-home li').eq(i).find('.content .homework-desc>.doing-homework');
+			//当天作业未完成
 			if(data.workStatus=='INIT'){
 				button.css({
 					'backgroundImage':'url("../images/y-write_icon.png")'
-				}).prop('disabled',false).on('click',function(){
+				}).on('click',function(){
 					window.baozitang.open(jumpBaseUrl+'homework-list.html');
 				});
 			}else{
-				button.on('');
+				//当天作业以完成
+				button.on('click',function(){
+					window.baozitang.open(jumpBaseUrl+'homework-preview.html');
+				});
 			}
 		}
-
-
-
 	});
 	//点击写作业
 	jump('.jump','homework-list.html');
