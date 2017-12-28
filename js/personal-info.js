@@ -1,4 +1,6 @@
 $(function(){
+	//返回跳转
+	jump('.back','mine.html');
 	//获取个人信息
 	getPersonInfo(
 		{
@@ -8,7 +10,7 @@ $(function(){
 			console.log(res);
 			//渲染页面：
 			//用户头像：
-			$('.photo .content img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg');
+			$('.photo .content img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg').css({'animation':'none'});
 			//用户名：
 			$('.nickname .item-content').val(res.data.nickName);
 			//手机号：
@@ -18,6 +20,10 @@ $(function(){
 		//保存修改过的个人信息：
 		$('.save').on('click',function(){
 			var nickname = $('.nickname .item-content').val();
+			if($.trim(nickname)==''){
+				mui.toast('请输入内容后提交！');
+				return;
+			}
 			savePersonInfo(
 				{
 					'studentId':res.data.studentId,

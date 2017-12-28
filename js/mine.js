@@ -10,7 +10,11 @@ $(function(){
 			console.log(res);
 			//设置昵称
 			$('.nickname').text(res.data.nickName);
-			//
+			// $('.photo img').attr('src',res.data.headimgurl);
+
+			$('.photo img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg').css({
+				'animation':'none'
+			});
 		});
 	//个人信息跳转
 	jump('.msg','msg.html');
