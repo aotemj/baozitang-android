@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<div id="view"></div>
+	<script>
+		// window.onload=function(){
+			var btn = document.querySelector('#btn');
+			var view = document.querySelector('#view');
+			btn.onclick = function(){
+				// console.log('1111');
+				var res = window.baozitang.getAuth();
+				view.innerText = res;
+			}
+		// }
+	</script>
+</body>
+</html>

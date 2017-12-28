@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title></title>
+	<link rel="stylesheet" href="./css/mui-3.7.2.css">
 	<link rel="stylesheet" href="./css/reset.css">
 	<!-- 当前页css -->
 	<link rel="stylesheet" href="./css/personal-info.css">
@@ -20,133 +21,28 @@
 		</div>
 		<!-- 个人信息内容 -->
 		<div class="content">
-			<!-- 个人信息1 -->
-			<ul>
-				<!-- 头像 -->
-				<li class="clearfix">
-					<div class='fl'>
-						<span>头像</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>点击更换</span>
-							</div>
-							<div class="photo fl"></div>
-						</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media photo">
+					<div class="content">
+							<img class="mui-media-object mui-pull-right" src="./images/banzhang_icon.png">
+							<span class="item">头像</span>
 					</div>
 				</li>
-				<!-- 手机号 -->
-				<li>
-					<div class='fl'>
-						<span>手机号</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请输入您的手机号</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 姓名 -->
-				<li>
-					<div class='fl'>
-						<span>姓名</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>晴天小猪</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 微信号 -->
-				<li>
-					<div class='fl'>
-						<span>微信号</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请输入您的微信号</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 个人邮箱 -->
-				<li>
-					<div class='fl'>
-						<span>个人邮箱</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请输入您的邮箱账号</span>
-							</div>
-						</div>
-					</div>
-				</li>
-
 			</ul>
-			<!-- 工作信息 -->
-			<ul>
-				<!-- 行业 -->
-				<li>
-					<div class='fl'>
-						<span>行业</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请输入您的行业</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 职业 -->
-				<li>
-					<div class='fl'>
-						<span>职业</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请输入您的职业</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 城市 -->
-				<li>
-					<div class='fl'>
-						<span>城市</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请选择您当前所在的城市</span>
-							</div>
-						</div>
-					</div>
-				</li>
-				<!-- 公司 -->
-				<li>
-					<div class='fl'>
-						<span>公司</span>
-					</div>
-					<div class='fr'>
-						<div class="change-pho clearfix">
-							<div class='fl'>
-								<span>请填写您的公司名称</span>
-							</div>
-						</div>
-					</div>
-				</li>
-
-
-			</ul>
+			<ul class="mui-table-view">
+			 <li class="mui-table-view-cell nickname">
+				<div class="content">
+					<span class="item">姓名</span>
+					<input type="text"  class="item-content" placeholder="">
+				</div>
+			</li>
+			 <li class="mui-table-view-cell tel">
+				<div class="content">
+					<span class="item">手机号</span>
+					<input type="text" disabled class="item-content" placeholder="18625512982">
+				</div>
+			</li>
+		</ul>
 		</div>
 
 
@@ -156,6 +52,7 @@
 	<script src="./js/flexible.js"></script>
 	<!-- zepto -->
 	<script src="./js/zepto1.2.0dev.js"></script>
+	<script src="./js/mui-3.7.2.js"></script>
 	<script src="./js/jquery.js"></script>
 	<script src="./js/ajax.js"></script>
 	<script src="./js/index.js"></script>

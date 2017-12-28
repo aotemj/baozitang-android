@@ -248,7 +248,24 @@
 
 	//封装获取个人信息方法：
 	function getPersonInfo(data,callback){
-		var url = baseUrl + 'api/app/findByUsername';
+		var url = baseUrl + 'api/app/findByStudentId';
+		$.ajax({
+			type:'post',
+			data:data,
+			dataType:'json',
+			url:url,
+			beforeSend:function(res){
+				res.setRequestHeader('Authorization',token);
+			},
+			success:function(res){
+				callback(res);
+			}
+		});
+	}
+
+	//封装保存修改过的个人信息方法：
+	function savePersonInfo(data,callback){
+		var url = baseUrl+ 'api/app/modifyStudentInfo';
 		$.ajax({
 			type:'post',
 			data:data,

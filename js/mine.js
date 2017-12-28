@@ -1,14 +1,15 @@
 $(function(){
 
+
 	//获取个人信息方法
 	getPersonInfo(
 		{
-			username:'13639753981'
+			studentId:2
 		},
 		function(res){
 			console.log(res);
 			//设置昵称
-			$('.nickname').text(res.data.nickname);
+			$('.nickname').text(res.data.nickName);
 			//
 		});
 	//个人信息跳转
