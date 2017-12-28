@@ -10,7 +10,7 @@ $(function(){
 			'sectionId':3
 		},
 		function(res){
-			console.log(res);
+			// console.log(res);
 			for(var i =0;i<res.data.length;i++){
 				// 头像
 				$('.completed>ul').append(
@@ -29,6 +29,7 @@ $(function(){
 			'classId': 1,
 		},
 		function(res){
+			console.log(res);
 			// 错误处理：
 			if(res.code!=200){
 				mui.toast(res.msg);
@@ -37,21 +38,33 @@ $(function(){
 		//渲染页面：
 		$('.topic h4').text(res.data.content);
 		for(var i = 0;i<res.data.exerciseList.length;i++){
-			var content = res.data.exerciseList[i];
+			var data = res.data.exerciseList[i];
 			$('.content ul').append(
 				'<li>'
-				+'<a href="#">'
 					+'<div class="ques-title">'
-						+'<span>问题 '+content.exerciseId+'</span>'
-						+'<i></i>'
+						+'<span>问题 '+data.exerciseId+'</span>'
+						+'<button></button>'
 					+'</div>'
 					+'<!-- 问题内容 -->'
 					+'<div class="ques-content">'
-						+'<p class="">'+content.workTitle+'</p>'
+						+'<p class="">'+data.workTitle+'</p>'
 					+'</div>'
-				+'</a>'
 			+'</li>'
 			)
+			var button = $('.content ul>li').eq(i).find('.ques-title>button');
+			//作业已完成
+			if(res.data.sectionStatus=='COMPLETED'){
+				button.css({
+					'backgroundImage':'url("../images/end_bj.png")'
+				}).on('click',function(){
+					window.baozitang.open(jumpBaseUrl+'homework-preview.html');
+				});
+			}else{
+				//作业未完成
+				button.on('click',function(){
+					window.baozitang.open(jumpBaseUrl+'doing-homework.html');
+				});
+			}
 		}
 	});
 })

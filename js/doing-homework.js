@@ -184,8 +184,8 @@ $(function(){
     }
   });
   //提示框页面点击跳转
-  $('.mask').on('click',function(){
-    window.baozitang.open('http://192.168.11.101:3000/homework-list.html');
-  });
+  jump('.mask','homework-list.html');
+  //预览作业
+  jump('.preview','homework-preview.html');
 })
 

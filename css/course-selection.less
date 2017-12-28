@@ -134,6 +134,7 @@ html{
 					background-color: #fff;
 					ul{
 						li{
+							float: left;
 							margin-bottom:40/75rem;
 							width:315/75rem;
 							margin-left:40/75rem;
@@ -177,10 +178,13 @@ html{
 										font-size: 36/75rem;
 										padding:10/75rem 0;
 										/*文字溢出隐藏*/
-										white-space: nowrap;
+										// white-space: nowrap;
 										text-overflow:ellipsis;
-										overflow: hidden;
 										font-family: "sans-serif";
+										display: -webkit-box;
+						          -webkit-box-orient: vertical;
+						          -webkit-line-clamp: 2;
+						          overflow: hidden;
 									}
 									.author{
 										float: left;

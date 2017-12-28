@@ -30,7 +30,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
 	font-family:"sans-serif";
 }
 
-a {
+a,a:active {
 	text-decoration: none;
 	color:#000;
 }

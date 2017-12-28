@@ -1,6 +1,9 @@
 	//请求公共头
 	var baseUrl = 'https://api.qingkequn.com/';
 
+	//获取token:
+	// var getToken = window.baozitang.getAuth();
+	// mui.toast(getToken);
 
 	// token 和 userId 由android 提供
 	 var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQxNzcwOTc3OTEsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTQ3ODE4OTd9.xmIkRXt9cBt0yzfnEdtkbughGtCkXWF_2hPX-v8zmMOMvwzdbjSCWWJxTp4U6tdownmdDziULA_41XvrR5gByQ';
