@@ -5,6 +5,7 @@
 4. 	[(外网)选课页面    ](https://h5.qingkequn.com/course-selection.html)	----------  [(本地)选课页面    ](http://192.168.11.100:3000/course-selection.html) <br>
 5. 	[(外网)做作业页面  ](https://h5.qingkequn.com/doing-homework.html)		----------  [(本地)做作业页面  ](http://192.168.11.100:3000/doing-homework.html) <br>
 6. 	[(外网)作业列表页面](https://h5.qingkequn.com/homework-list.html)	  	----------  [(本地)作业列表页面](http://192.168.11.100:3000/homework-list.html) <br>
+6. 	[(外网)作业预览页面](https://h5.qingkequn.com/homework-preview.html)	----------  [(本地)作业预览页面](http://192.168.11.100:3000/homework-preview.html) <br>
 7. 	[(外网)学习记录页面](https://h5.qingkequn.com/learn-record.html) 			----------  [(本地)学习记录页面](http://192.168.11.100:3000/learn-record.html) <br>
 8. 	[(外网)我的页面    ](https://h5.qingkequn.com/mine.html)						  ----------  [(本地)我的页面    ](http://192.168.11.100:3000/mine.html) <br>
 9. 	[(外网)通知页面    ](https://h5.qingkequn.com/msg.html)						  	----------  [(本地)通知页面    ](http://192.168.11.100:3000/msg.html) <br>

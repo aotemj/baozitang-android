@@ -6,22 +6,16 @@
 	// mui.toast(getToken);
 
 	// token 和 userId 由android 提供
-	 var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQxNzcwOTc3OTEsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTQ3ODE4OTd9.xmIkRXt9cBt0yzfnEdtkbughGtCkXWF_2hPX-v8zmMOMvwzdbjSCWWJxTp4U6tdownmdDziULA_41XvrR5gByQ';
+	var token = window.baozitang.getAuth();
+	 // var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQxNzcwOTc3OTEsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTQ3ODE4OTd9.xmIkRXt9cBt0yzfnEdtkbughGtCkXWF_2hPX-v8zmMOMvwzdbjSCWWJxTp4U6tdownmdDziULA_41XvrR5gByQ';
 	 // var studentId = 3;
 
 	//封装获取课程列表方法
-	function getCourseList(studentId,callback){
+	function getCourseList(data,callback){
 		//课程开始页数
-		var page = 0;
+		// var page = 1;
 		//每页显示的数据数
-		var size =10;
-
-		var data = {
-			studentId:studentId,
-			page:page,
-			size:size
-		}
-
+		data.size = 4;
 		var url = baseUrl + '/api/app/listCourse';
 
 		$.ajax({

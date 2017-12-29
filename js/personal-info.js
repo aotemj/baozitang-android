@@ -10,7 +10,9 @@ $(function(){
 			console.log(res);
 			//渲染页面：
 			//用户头像：
-			$('.photo .content img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg').css({'animation':'none'});
+			$('.inner-photo').css({
+				'animation':'none'
+			}).append('<img src="https://api.qingkequn.com/student.png">');
 			//用户名：
 			$('.nickname .item-content').val(res.data.nickName);
 			//手机号：

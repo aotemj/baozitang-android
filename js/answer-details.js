@@ -10,7 +10,7 @@ $(function(){
 
 	//点击添加问题弹出输入问题框
 	$('.answer').on('click',function(){
-		console.log('111');
+		// console.log('111');
 		$('.ask-window').slideToggle().find('input').focus();
 	})
 	$('.close,.send').on('click',function(){

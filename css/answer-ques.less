@@ -64,6 +64,24 @@ body{
 			// background-color: pink;
 			overflow: scroll;
 			margin-bottom:100/75rem;
+			&.active{
+				background: url('../images/no-questions_bj.png') no-repeat center center ;
+				background-size: 300/75rem 300/75rem;
+			}
+			/*提示文字*/
+			>.no-con-prompt{
+				position: fixed;
+				top:63%;
+				width:10rem;
+				height:100/75rem;
+				// line-height: 500/75rem;
+				text-align: center;
+				font-size: 32/75rem;
+				display:none;
+				&.active{
+					display:block;
+				}
+			}
 			ul{
 				// height:2000/75rem;
 				margin-top:88/75rem;
@@ -193,9 +211,13 @@ body{
 				background-color: @fontColor;
 				border-radius:3px;
 				color:#fff;
-
+				&.active{
+					width:360/75rem;
+					left:196/75rem;
+					bottom:200/75rem;
+				}
 				button{
-					width:670/75rem;
+					width:100%;
 					height:100/75rem;
 					color:#fff;
 					font-size: 32/75rem;

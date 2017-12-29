@@ -11,10 +11,11 @@ $(function(){
 			//设置昵称
 			$('.nickname').text(res.data.nickName);
 			// $('.photo img').attr('src',res.data.headimgurl);
-
-			$('.photo img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg').css({
+			$('.photo').css({
 				'animation':'none'
 			});
+			$('.photo').append('<img src="" alt="">');
+			$('.photo img').attr('src','http://www.qqzhi.com/uploadpic/2015-02-02/211841154.jpg');
 		});
 	//个人信息跳转
 	jump('.msg','msg.html');
@@ -29,7 +30,8 @@ $(function(){
 	jump('.my-homework','my-homework.html');
 
 	//我的班级跳转：
-	jump('.my-class','my-class.html');
+	// jump('.my-class','my-class.html');
+	jump('.my-class','getTokenTest.html');
 
 	//学习记录跳转
 	jump('.learn-record','learn-record.html');

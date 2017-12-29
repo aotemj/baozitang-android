@@ -4,10 +4,6 @@ $(function(){
 	  window.history.back();
 	});
 
-	//动态获取问题盒子高度
-	// var height = $(document.body).height();
-	// $('.ques-list').height(height);
-
 	// //动态显示问题输入框
 	$('.ask-btn').on('click',function(){
 		$('.ask-window').slideToggle().find('input').focus();
@@ -15,11 +11,6 @@ $(function(){
 
 	//发送问题
 	$('.send').on('click',function(){
-
-		// $('.ask-window input').on('change',function(){
-		// 	console.log('123');
-		// 	console.log($(this).val());
-		// })
 		if($.trim($('.ask-window input').val())===""){
 			mui.toast('请输入内容后提交！');
 			return;
@@ -40,9 +31,9 @@ $(function(){
 			function(res){
 				// console.log(res);
 				mui.toast(res.msg);
-				setTimeout(function(){
-					window.location.reload();
-				},4000);
+				//重新加载页面
+				$('.ques-list ul').html('');
+				loadAnswerList();
 			});
 	});
 
@@ -54,39 +45,51 @@ $(function(){
 	$(window).on('scroll',function(){
 		$('.ask-window').slideUp();
 	});
+	//页面初始化
+	loadAnswerList();
 
-	//获取问题列表
-	getAnswerList(
-		//data
-		{
-			"studentId":"3",
-			"sectionId":"1",
-			"classId":"1"
-		},
-		//callback
-		function(res){
-			for(var i =0;i<res.data.length;i++){
-				var data = res.data[i];
-				//无描述处理
-				if(data.description==undefined){
-					data.description='';
+	// 封装渲染页面方法
+	function loadAnswerList(){
+		//获取问题列表
+		getAnswerList(
+			//data
+			{
+				"studentId":"3",
+				"sectionId":"1",
+				"classId":"1"
+			},
+			//callback
+			function(res){
+				console.log(res);
+				//没有问题处理
+				if(res.data.length == 0){
+					$('.ques-list').addClass('active').find('.no-con-prompt').addClass('active');
+					$('.answer').addClass('active').find('button').text('去提问');
+					return;
 				}
-				//问题创建时间处理
-				var date = timeFilter(data.createDate);
+				for(var i =0;i<res.data.length;i++){
+					var data = res.data[i];
+					//无描述处理
+					if(data.description == undefined){
+						data.description='';
+					}
+					//问题创建时间处理
+					var date = timeFilter(data.createDate);
 
-				$('.ques-list ul').append(
-					'<li>'
-					+'	<a href="#">'
-					+'		<h4>'+data.title+'</h4>'
-					+'		<p>'+data.description+'</p>'
-					+'	</a>'
-					+'	<div class="comments">'
-					+'		<span class="time">'+date+'</span>'
-					+'	</div>'
-					+'</li>'
-				);
-			}
-		});
+					$('.ques-list ul').append(
+						'<li>'
+						+'	<a href="#">'
+						+'		<h4>'+data.title+'</h4>'
+						+'		<p>'+data.description+'</p>'
+						+'	</a>'
+						+'	<div class="comments">'
+						+'		<span class="time">'+date+'</span>'
+						+'	</div>'
+						+'</li>'
+					);
+				}
+			});
+	}
 });
 
 

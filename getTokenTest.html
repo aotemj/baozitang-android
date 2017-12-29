@@ -23,21 +23,26 @@
 	<script src="./js/mui-3.7.2.js"></script>
 	<script>
 		// window.onload=function(){
-			var btn = document.querySelector('#btn');
+			// var btn = document.querySelector('#btn');
 			var view = document.querySelector('#view');
 			btn.onclick = function(){
 				console.log('1111');
 				mui.toast('111');
 				var res = window.baozitang.getAuth();
-					setTimeout(function(){
-						mui.toast(res);
-				},5000);
-				// console.log(res);
-				setTimeout(function(){
-					mui.toast('222');
-			},10000);
+			// 		setTimeout(function(){
+			// 			mui.toast(res);
+			// 	},5000);
+			// 	// console.log(res);
+			// 	setTimeout(function(){
+			// 		mui.toast('222');
+			// },10000);
 				view.innerText = res;
 			}
+
+			function getParams(data){
+				view.innerText = data;
+			}
+
 		// }
 		//
 	</script>
