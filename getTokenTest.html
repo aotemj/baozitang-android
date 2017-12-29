@@ -3,20 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="./css/mui-3.7.2.css">
+	<style>
+		#btn{
+			width:200px;
+			height:200px;
+			font-size: 50px;
+		}
+		#view{
+			width:200px;
+			height:200px;
+			border:1px solid #000;
+		}
+	</style>
 </head>
 <body>
 	<button id="btn">点击</button>
 	<div id="view"></div>
+	<script src="./js/mui-3.7.2.js"></script>
 	<script>
 		// window.onload=function(){
 			var btn = document.querySelector('#btn');
 			var view = document.querySelector('#view');
 			btn.onclick = function(){
-				// console.log('1111');
+				console.log('1111');
+				mui.toast('111');
 				var res = window.baozitang.getAuth();
+					setTimeout(function(){
+						mui.toast(res);
+				},5000);
+				// console.log(res);
+				setTimeout(function(){
+					mui.toast('222');
+			},10000);
 				view.innerText = res;
 			}
 		// }
+		//
 	</script>
+
 </body>
 </html>
