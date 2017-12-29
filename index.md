@@ -13,5 +13,6 @@
 12. [(外网)我的作业页面](https://h5.qingkequn.com/my-homework.html) 			----------  [(本地)我的作业页面](http://192.168.11.100:3000/my-homework.html) <br>
 13. [(外网)个人信息页面](https://h5.qingkequn.com/personal-info.html) 		----------  [(本地)个人信息页面](http://192.168.11.100:3000/personal-info.html) <br>
 14. [(外网)设置页面    ](https://h5.qingkequn.com/setting.html)						----------  [(本地)设置页面    ](http://192.168.11.100:3000/setting.html) <br>
+14. [(外网)获取token   ](https://h5.qingkequn.com/setting.html)						----------  [(本地)获取token    ](http://192.168.11.100:3000/getTokenTest.html) <br>
 
 
