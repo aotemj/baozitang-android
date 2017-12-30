@@ -26,9 +26,9 @@
 			// var btn = document.querySelector('#btn');
 			var view = document.querySelector('#view');
 			btn.onclick = function(){
-				console.log('1111');
-				mui.toast('111');
-				var res = window.baozitang.getAuth();
+				// console.log('1111');
+				// mui.toast('111');
+				// var res = window.baozitang.getAuth();
 			// 		setTimeout(function(){
 			// 			mui.toast(res);
 			// 	},5000);
@@ -36,12 +36,13 @@
 			// 	setTimeout(function(){
 			// 		mui.toast('222');
 			// },10000);
-				view.innerText = res;
+				var val = window.baozitang.getVal('zhaoxinlei');
+				view.innerText = val;
 			}
 
-			function getParams(data){
-				view.innerText = data;
-			}
+			// function getParams(data){
+				// view.innerText = data;
+			// }
 
 		// }
 		//
