@@ -1,13 +1,14 @@
 	//请求公共头
 	var baseUrl = 'https://api.qingkequn.com/';
+	// var baseUrl = 'http:192.168.10.15:8081/';
 
 	//获取token:
 	// var getToken = window.baozitang.getAuth();
 	// mui.toast(getToken);
 
 	// token 和 userId 由android 提供
-	var token = window.baozitang.getAuth();
-	 // var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQxNzcwOTc3OTEsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTQ3ODE4OTd9.xmIkRXt9cBt0yzfnEdtkbughGtCkXWF_2hPX-v8zmMOMvwzdbjSCWWJxTp4U6tdownmdDziULA_41XvrR5gByQ';
+	// var token = window.baozitang.getAuth();
+	 var token ='Bearer '+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQ2MDgwNTkyNTgsImNsaWVudCI6InpoYW94aW5sZWkiLCJleHAiOjE1MTUyMTI4NTl9.VgzjskPVlr2MVHerkzBaF_kfOVgTiYtuNMEnYbg8ItFfbZ0_AsVYwbFw2RSRn8ppxPyZFgFWYQU1k1NTOZdzYw';
 	 // var studentId = 3;
 
 	//封装获取课程列表方法

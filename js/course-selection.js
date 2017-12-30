@@ -30,7 +30,7 @@ $(function(){
   				 '<li>'
   				+'<a href="../playing.html">'
   				+'	<div class="img">'
-  				+'		<img src="" alt="">'
+  				+'		<img src="http://img1.imgtn.bdimg.com/it/u=3056542012,1156986207&fm=27&gp=0.jpg" alt="">'
   				+'		<i class="play"></i>'
   				+'		<i class="listen"></i>'
   				+'	</div>'

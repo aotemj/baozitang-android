@@ -6,13 +6,18 @@ $(function(){
   var dire;
   //获取作业列表：
   getHomeworkList({
-    'sectionId' : 7,
+    'sectionId' : 3,
     'studentId' : 3,
     'classId':1,
   },
   function(res){
     console.log(res);
+    var placeholder = "请在此书写答案~";
     for(var i = 0;i<res.data.exerciseList.length;i++){
+      var active ="";
+      if(res.data.sectionStatus=='COMPLETED'){
+        active = "active";
+      }
       $('.swiper-wrapper').append(
         '<li class="swiper-slide">'
         +'  <div class="content">'
@@ -20,13 +25,14 @@ $(function(){
         +'      <p>'+res.data.exerciseList[i].workTitle+'</p>'
         +'    </div>'
         +'    <div class="inner-content">'
-        +'      <i class=""></i>'
-        +'      <textarea placeholder="请在此书写答案~"></textarea>'
+        +'      <i class="'+active+'"></i>'
+        +'      <textarea class="input-content" placeholder="'+(res.data.exerciseList[i].answerContent||placeholder)+'"></textarea>'
         +'    </div>'
         +'  </div>'
         +'</li>'
         );
     }
+
     // 初始化作业页码
     $('.page-number .current').text(1);
 
@@ -55,11 +61,17 @@ $(function(){
         }else{
           index = swiperHere.activeIndex+1;
         }
+        //用户已经存有答案
+        if(res.data.sectionStatus=='COMPLETED'){
+          $('.swiper-wrapper .input-content').attr("disabled",true);
+          return;
+        }
         save(index);
         //swiperHere.activeIndex 为当前页面所在索引
         $('.choose-topic .page-number .current').text(swiperHere.activeIndex+1);
       }
     })
+
     //设置点击切换
     mySwiper.nextButton.on('click',function(){
       mySwiper.swipeDirection = 'next';
@@ -67,6 +79,11 @@ $(function(){
     mySwiper.prevButton.on('click',function(){
       mySwiper.swipeDirection = 'prev';
     })
+    //用户已经存有答案
+    if(res.data.sectionStatus=='COMPLETED'){
+      $('.swiper-wrapper .input-content').attr("disabled",true);
+      return;
+    }
 
     //开始写作业，隐藏icon
     $('.inner-content').find('textarea').on({
@@ -83,8 +100,16 @@ $(function(){
       }
     });
 
+
+    //用户已经存有答案
+    // if(res.data.sectionStatus=='COMPLETED'){
+    //   $('.swiper-wrapper').find('textarea').attr('disabled',true);
+    // }
     //点击保存
     $('.save').on('click',function(){
+      if(res.data.sectionStatus=='COMPLETED'){
+        return;
+      }
       index = mySwiper.activeIndex;
       save(index);
     });
@@ -125,7 +150,6 @@ $(function(){
 
     function save(index){
       // console.log(index);
-      // 打印当前获得焦点的作业
       //获取当前页面的exerciseid：
       var exerciseId = res.data.exerciseList[index].exerciseId;
       //获取courseId
@@ -134,8 +158,11 @@ $(function(){
       var classId = res.data.classId;
       //studentId
       var studentId = res.data.studentId;
+
       //获取内容
       var answerContent = $('.swiper-wrapper .swiper-slide').eq(index).find('.inner-content textarea').val();
+
+      console.log('answerContent:'+answerContent);
       if($.trim(answerContent)==""){
         mui.toast('请输入作业答案！');
         return;
@@ -149,7 +176,12 @@ $(function(){
           answerContent:answerContent,
         },
         function(res){
-          // console.log(res);
+          console.log(res);
+          if(res.code!=200){
+            mui.toast(res.msg);
+            return;
+          }
+          console.log(res);
           mui.toast(res.msg);
         });
     }
@@ -187,5 +219,5 @@ $(function(){
   jump('.mask','homework-list.html');
   //预览作业
   jump('.preview','homework-preview.html');
-})
+});
 

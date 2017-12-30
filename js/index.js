@@ -3,11 +3,11 @@
 		//安卓返回上层方法
 	  window.baozitang.close();
 	});
-	var jumpBaseUrl = 'http://192.168.11.100:3000/';
-	//封装安卓跳转方法：
-	function jump(selector,target){
+	var jumpBaseUrl = 'http://192.168.10.155:3000/';
+	//封装安卓跳转方法：jump(选择器,目标网址,所需携带参数)
+	function jump(selector,target,data){
 		$(selector).on('click',function(event){
-			window.baozitang.open(jumpBaseUrl+target,"zhaoxinlei");
+			window.baozitang.open(jumpBaseUrl+target,data);
 			//阻止事件冒泡
 			event.stopPropagation();
 		});
