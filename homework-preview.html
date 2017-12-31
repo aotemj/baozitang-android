@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title></title>
-	<link rel="stylesheet" href="./css/reset.css">
-	<!-- 当前页css -->
-	<link rel="stylesheet" href="./css/homework-preview.css">
-	<!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 当前页css -->
+    <link rel="stylesheet" href="./css/homework-preview.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
 </head>
 <body>
-	<!-- 父容器 -->
-	<div class="container">
-		<!-- 顶部头 -->
-		<div class="top clearfix">
-			<div class="back fl">返回</div>
-		</div>
-		<!-- 作业内容 -->
-		<div class="content">
-			<!-- 作业标题 -->
-			<h4>请通过对分销方式的理解并结合身边的分销案例深度分析分销的特征及要点</h4>
-			<!-- 作业列表 -->
-			<div class="homework-list">
-				<ul class="">
-					<li>
-						<div class="inner-content">
-							<!-- 题目 -->
-							<div class="title">
-								1.请结合上节课所讲知识，解释供求一体化的两种手段
-							</div>
-							<!-- 答案 -->
-							<div class="content">
-								<span>答：</span><span>营销职能要做的事情，就是立足商务活动领域，构建供求一体化关系，构建，“企业-客户”的关系。营销不是生产活动领域的活动或职能，生产活动领域只是响应商务活动领域的要求</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="inner-content">
-							<!-- 题目 -->
-							<div class="title">
-								1.请结合上节课所讲知识，解释供求一体化的两种手段
-							</div>
-							<!-- 答案 -->
-							<div class="content">
-								<span>答：</span><span>营销职能要做的事情，就是立足商务活动领域，构建供求一体化关系，构建，“企业-客户”的关系。营销不是生产活动领域1的活动或职能，生产活动领域只是响应商务活动领域的要求</span>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
+<!-- 父容器 -->
+<div class="container">
+    <!-- 顶部头 -->
+    <div class="top clearfix">
+        <div class="back fl">返回</div>
+    </div>
+    <!-- 作业内容 -->
+    <div class="content">
+        <!-- 作业标题 -->
+        <h4>请通过对分销方式的理解并结合身边的分销案例深度分析分销的特征及要点</h4>
+        <!-- 作业列表 -->
+        <div class="homework-list">
+            <ul class="">
+                <!--<li>-->
+                <!--<div class="inner-content">-->
+                <!--&lt;!&ndash; 题目 &ndash;&gt;-->
+                <!--<div class="title">-->
+                <!--1.请结合上节课所讲知识，解释供求一体化的两种手段-->
+                <!--</div>-->
+                <!--&lt;!&ndash; 答案 &ndash;&gt;-->
+                <!--<div class="content">-->
+                <!--<span>答：</span><span>营销职能要做的事情，就是立足商务活动领域，构建供求一体化关系，构建，“企业-客户”的关系。营销不是生产活动领域的活动或职能，生产活动领域只是响应商务活动领域的要求</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
 
 
-	</div>
+</div>
 
-	<!-- 移动端适配 -->
-	<script src="./js/flexible.js"></script>
-  <script src="./js/time-filter.js"></script>
-  <script src="./js/mui-3.7.2.js"></script>
-  <script src="./js/jquery.js"></script>
-  <script src="./js/ajax.js"></script>
-  <script src="./js/index.js"></script>
-	<script src="./js/homework-preview.js"></script>
+<!-- 移动端适配 -->
+<script src="./js/flexible.js"></script>
+<script src="./js/time-filter.js"></script>
+<script src="./js/mui-3.7.2.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/ajax.js"></script>
+<script src="./js/index.js"></script>
+<script>
+    var getParams = function (data) {
+        var passData = JSON.parse(data);
+        getHomeworkList(passData, function (res) {
+            //错误处理：
+            if (res.code != 200) {
+                mui.toast(res.msg);
+                return;
+            }
+            ;
+            console.log(res);
+            var data = res.data;
+            //渲染页面：
+            //作业标题
+            $(".container>.content h4").text(data.content);
+            //作业内容：
+            for (var i = 0; i < data.exerciseList.length; i++) {
+                var innerData = data.exerciseList[i];
+                console.log(innerData);
+                var li = $(
+                    '<li>'
+                    + '<div class="inner-content">'
+                    + '<div class="title"><span>' + (i + 1) + '.</span>' + innerData.workTitle + '</div>'
+                    + '<div class="content">'
+                    + '<span>答：</span><span>' + innerData.answerContent + '</span>'
+                    + '</div>'
+                    + '</div>'
+                    + '</li>'
+                );
+                $('.homework-list>ul').append(li);
+            }
+        });
+    }
+</script>
+<script src="./js/homework-preview.js"></script>
 </body>
 </html>
