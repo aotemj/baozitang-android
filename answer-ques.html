@@ -1,78 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title></title>
-	<link rel="stylesheet" href="./css/mui-3.7.2.css">
-	<link rel="stylesheet" href="./css/reset.css">
-	<!-- 当前页css -->
-	<link rel="stylesheet" href="./css/answer-ques.css">
-	<!-- <link rel="stylesheet" href="./css/animate.css"> -->
-	<style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/mui-3.7.2.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 当前页css -->
+    <link rel="stylesheet" href="./css/answer-ques.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <style>
 
-	</style>
+    </style>
 </head>
 <body>
-	<!-- 父容器 -->
-	<div class="container">
-		<!-- 顶部头 -->
-		<div class="top clearfix">
-			<div class="back fl">返回</div>
-			<div class="title fl">问问题</div>
-		</div>
-		<!-- 问题列表 -->
-		<div class="ques-list">
-			<div class="no-con-prompt">您还没有留下任何疑问...</div>
-			<ul>
-				<!-- <li>
-					<a href="#">
-						<h4>我有一个问题，管理的本质到底是什么？</h4>
-						<p>营销是营销是营销是营销是营销是营</p>
-					</a>
-					<div class="comments">
-						<span class="time">3分钟前</span>
-						<div class="fr clearfix">
-							点赞
-							<button class="fl like">36</button>
-							评论
-							<button class="fl msg">18</button>
-							<input type="text" class="content">
-						</div>
-					</div>
-				</li> -->
-			</ul>
-			<!-- 编辑框 -->
-			<div class="ask-window">
-					<input type="text" name="" id="" placeholder="疑问">
-				<!-- 提问题弹窗 -->
-				<textarea class="" placeholder="写下您的问题描述..."></textarea>
-				<!-- 操作 -->
-				<div class="todos clearfix">
-					<!-- 关闭输入框 -->
-					<div class="close fl">
-						<button></button>
-					</div>
-					<!-- 发送问题 -->
-					<div class="send fr">
-						<button></button>
-					</div>
-				</div>
-			</div>
-			<!-- 提问按钮 -->
-			<div class="answer">
-				<button class="ask-btn">还要提问</button>
-			</div>
-		</div>
-	</div>
+<!-- 父容器 -->
+<div class="container">
+    <!-- 顶部头 -->
+    <div class="top clearfix">
+        <div class="back fl">返回</div>
+        <div class="title fl">问问题</div>
+    </div>
+    <!-- 问题列表 -->
+    <div class="ques-list">
+        <div class="no-con-prompt">您还没有留下任何疑问...</div>
+        <ul>
+            <!-- <li>
+                <a href="#">
+                    <h4>我有一个问题，管理的本质到底是什么？</h4>
+                    <p>营销是营销是营销是营销是营销是营</p>
+                </a>
+                <div class="comments">
+                    <span class="time">3分钟前</span>
+                    <div class="fr clearfix">
+                        点赞
+                        <button class="fl like">36</button>
+                        评论
+                        <button class="fl msg">18</button>
+                        <input type="text" class="content">
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+        <!-- 编辑框 -->
+        <div class="ask-window">
+            <input type="text" name="" id="" placeholder="疑问">
+            <!-- 提问题弹窗 -->
+            <textarea class="" placeholder="写下您的问题描述..."></textarea>
+            <!-- 操作 -->
+            <div class="todos clearfix">
+                <!-- 关闭输入框 -->
+                <div class="close fl">
+                    <button></button>
+                </div>
+                <!-- 发送问题 -->
+                <div class="send fr">
+                    <button></button>
+                </div>
+            </div>
+        </div>
+        <!-- 提问按钮 -->
+        <div class="answer">
+            <button class="ask-btn">还要提问</button>
+        </div>
+    </div>
+</div>
 
-	<!-- 移动端适配 -->
-	<script src="./js/flexible.js"></script>
-	<script src="./js/time-filter.js"></script>
-	<script src="./js/mui-3.7.2.js"></script>
-	<script src="./js/jquery.js"></script>
-	<script src="./js/index.js"></script>
-	<script src="./js/ajax.js"></script>
-	<script src="./js/answer-ques.js"></script>
+<!-- 移动端适配 -->
+<script src="./js/flexible.js"></script>
+<script src="./js/time-filter.js"></script>
+<script src="./js/mui-3.7.2.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/ajax.js"></script>
+<script>
+    var getParams = function (data) {
+        var passData = JSON.parse(data);
+        //发送问题
+        $('.send').on('click', function () {
+            if ($.trim($('.ask-window input').val()) === "") {
+                mui.toast('请输入内容后提交！');
+                return;
+            }
+            //获取问题标题和描述
+            var title = $.trim($('.ask-window input').val());
+            var desc = $.trim($('.ask-window textarea').val());
+
+            askQues(
+                {
+                    studentId: passData.studentId,
+                    sectionId: passData.sectionId,
+                    classId: passData.classId,
+                    title: title,
+                    description: desc,
+                    category: 'section',
+                },
+                function (res) {
+                    if (res.code != 200) {
+                        mui.toast(res.msg);
+                        return;
+                    }
+                    //重新加载页面
+                    $('.ques-list ul').html('');
+                    loadAnswerList();
+                });
+            // 清空输入框
+            $('.ask-window input').val("");
+            $('.ask-window textarea').val("");
+        });
+
+        //页面初始化
+        loadAnswerList();
+        // 封装渲染页面方法
+        function loadAnswerList() {
+            //获取问题列表
+            getAnswerList(
+                //data
+                {
+                    "studentId": passData.studentId,
+                    "sectionId": passData.sectionId,
+                    "classId": passData.classId
+                },
+                //callback
+                function (res) {
+                    console.log(res);
+                    //没有问题处理
+                    if (res.data.length == 0) {
+                        $('.ques-list').addClass('active');
+                        $('.ques-list>.no-con-prompt').addClass('active');
+                        $('.answer').addClass('active').find('button').text('去提问');
+                        return;
+                    } else {
+                        $('.ques-list').removeClass('active');
+                        $('.ques-list>.no-con-prompt').removeClass('active');
+                        $('.answer').removeClass('active').find('button').text('还要提问');
+                        for (var i = 0; i < res.data.length; i++) {
+                            var data = res.data[i];
+                            //无描述处理
+                            if (data.description == undefined) {
+                                data.description = '';
+                            }
+                            //问题创建时间处理
+                            var date = timeFilter(data.createDate);
+
+                            $('.ques-list ul').append(
+                                '<li>'
+                                + '	<a href="#">'
+                                + '		<h4>' + data.title + '</h4>'
+                                + '		<p>' + data.description + '</p>'
+                                + '	</a>'
+                                + '	<div class="comments">'
+                                + '		<span class="time">' + date + '</span>'
+                                + '	</div>'
+                                + '</li>'
+                            );
+                        }
+                    }
+                });
+        }
+    }
+</script>
+<script src="./js/answer-ques.js"></script>
 </body>
 </html>

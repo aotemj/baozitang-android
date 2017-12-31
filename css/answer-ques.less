@@ -1,230 +1,230 @@
 // 激活颜色
-@activeColor:#ffd100;
+@activeColor: #ffd100;
 // 背景色:
-@bgColor:#f5f5f5;
+@bgColor: #f5f5f5;
 // 主字体颜色:
-@fontColor:#2d2d2d;
+@fontColor: #2d2d2d;
 // 弱化字体颜色：
-@secondFontColor:#b5b5b5;
+@secondFontColor: #b5b5b5;
 //内容颜色：
-@contentColor:#505050;
+@contentColor: #505050;
 //说明性文字颜色：
-@descColor:#858585;
+@descColor: #858585;
 // 边框颜色
-@borderColor:#e8e8e8;
+@borderColor: #e8e8e8;
 /* 选课 */
-body{
-	width:10rem;
-	box-sizing: border-box;
-	// overflow: hidden;
-	background-color: @bgColor;
-	/*父容器*/
-	.container{
-		width:10rem;
-		// height:20rem;
-		box-sizing: border-box;
-		font-family:"sans-serif";
-		overflow: hidden;
+body {
+  width: 10rem;
+  box-sizing: border-box;
+  // overflow: hidden;
+  background-color: @bgColor;
+  /*父容器*/
+  .container {
+    width: 10rem;
+    // height:20rem;
+    box-sizing: border-box;
+    font-family: "sans-serif";
+    overflow: hidden;
 
-		// height: 15rem;
-		/*顶部导航*/
-		.top{
-			width:10rem;
-			padding:0 40/75rem;
-			height:88/75rem;
-			box-sizing: border-box;
-			line-height: 88/75rem;
-			background-color: #fff;
-			border-bottom:1px solid @borderColor;
-			position: fixed;
-			.back,.save{
-				width:88/75rem;
-				text-align: right;
-				font-size:28/75rem;
-			}
-			.back{
-				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
-				background-size: 40/75rem 40/75rem;
-				color:transparent;
-			}
-			.save{
-				color:@activeColor;
-			}
-			.title{
-				font-size: 36/75rem;
-				width:494/75rem;
-				text-align: center;
-			}
-		}
-		/*问题列表*/
-		.ques-list{
-			box-sizing: border-box;
-			// width:100%;
-			height:1000/75rem;
-			// background-color: pink;
-			overflow: scroll;
-			margin-bottom:100/75rem;
-			&.active{
-				background:url("../images/no-questions_bj.png") no-repeat center center;
-				background-size: 300/75rem 300/75rem;
-			}
-			/*提示文字*/
-			>.no-con-prompt{
-				position: fixed;
-				top:63%;
-				width:10rem;
-				height:100/75rem;
-				// line-height: 500/75rem;
-				text-align: center;
-				font-size: 32/75rem;
-				display:none;
-				&.active{
-					display:block;
-				}
-			}
-			ul{
-				// height:2000/75rem;
-				margin-top:88/75rem;
-				overflow: hidden;
-				overflow-y: scroll;
-				// background-color: yellow;
-				li{
-					width:10rem;
-					margin-bottom:20/75rem;
-					padding:30/75rem 30/75rem 0 30/75rem;
-					box-sizing: border-box;
-					background-color: #fff;
-					a{
-						display:block;
-						h4{
-							font-size: 32/75rem;
-						}
-						p{
-							// background-color: pink;
-							margin-top:20/75rem;
-							font-size: 28/75rem;
-							color:@contentColor;
-							line-height: 50/75rem;
-							overflow:hidden;
-							text-overflow:ellipsis;
-							white-space: normal;
-							/*多行文本溢出添加省略号*/
-							display: -webkit-box;
-	            -webkit-box-orient: vertical;
-	            -webkit-line-clamp: 3;
-	            overflow: hidden;
-						}
-					}
-					/*评论、点赞*/
-					.comments{
-						width:100%;
-						height:88/75rem;
-						line-height: 88/75rem;
-						box-sizing: border-box;
-						font-size: 24/75rem;
-						color:@secondFontColor;
-						font-family: 'sans-serif';
-						div{
-							width:260/75rem;
-							height:88/75rem;
-							button{
-								height:88/75rem;
-								display:inline-block;
-								width:130/75rem;
-								font-size: 24/75rem;
-								font-family: 'sans-serif';
-								color:@secondFontColor;
-								text-align: center;
-								&:before{
-									display:inline-block;
-									content:'';
-									width:30/75rem;
-									height:30/75rem;
-									background-color: #fff;
-									margin-right:20/75rem;
-									vertical-align: top;
-								}
-							}
-						}
-					}
-				}
-			}
-			/*提问题弹窗 */
-			.ask-window{
-				position: fixed;
-				width:10rem;
-				height:1000/75rem;
-				background-color: #fff;
-				bottom:0;
-				left:0;
-				display:none;
-				padding:40/75rem;
-				box-sizing: border-box;
-				z-index: 999;
-				/*问题标题*/
-				input{
-					height:88/75rem;
-					font-size:36/75rem;
-					width:100%;
-					border:none;
-					border-radius:0;
-					// background-color: green;
-				}
-				/*问题描述*/
-				textarea{
-					width:100%;
-					font-size: 28/75rem;
-					border:none;
-					border-radius:0;
-					height:300/75rem;
-					margin:0;
-				}
-				/*操作（表情，选择章节，发送）*/
-				.todos{
-					position: absolute;
-					left:0;
-					border:1px solid @bgColor;
-					box-sizing: border-box;
-					z-index: 999;
-					// bottom:0/75rem;
-					height:96/75rem;
-					width:10rem;
-					background-color: #fff;
-					.close,.send{
-						height:96/75rem;
-						width:112/75rem;
-						background: url('../images/close_icon.png') no-repeat center center ;
-						background-size: 32/75rem 32/75rem;
-					}
-					.send{
-						background-image: url('../images/question-send_icon.png');
-					}
-				}
-			}
-			/*问问题*/
-			.answer{
-				position: fixed;
-				bottom:40/75rem;
-				width:670/75rem;
-				left:40/75rem;
-				height:100/75rem;
-				background-color: @fontColor;
-				border-radius:3px;
-				color:#fff;
-				&.active{
-					width:360/75rem;
-					left:196/75rem;
-					bottom:200/75rem;
-				}
-				button{
-					width:100%;
-					height:100/75rem;
-					color:#fff;
-					font-size: 32/75rem;
-					text-align: center;
-				}
-			}
-		}
-	}
+    // height: 15rem;
+    /*顶部导航*/
+    .top {
+      width: 10rem;
+      padding: 0 40/75rem;
+      height: 88/75rem;
+      box-sizing: border-box;
+      line-height: 88/75rem;
+      background-color: #fff;
+      border-bottom: 1px solid @borderColor;
+      position: fixed;
+      .back, .save {
+        width: 88/75rem;
+        text-align: right;
+        font-size: 28/75rem;
+      }
+      .back {
+        background: url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+        background-size: 40/75rem 40/75rem;
+        color: transparent;
+      }
+      .save {
+        color: @activeColor;
+      }
+      .title {
+        font-size: 36/75rem;
+        width: 494/75rem;
+        text-align: center;
+      }
+    }
+    /*问题列表*/
+    .ques-list {
+      box-sizing: border-box;
+      // width:100%;
+      height: 1000/75rem;
+      // background-color: pink;
+      overflow: scroll;
+      margin-bottom: 100/75rem;
+      &.active {
+        background: url("../images/no-questions_bj.png") no-repeat center center;
+        background-size: 300/75rem 300/75rem;
+      }
+      /*提示文字*/
+      > .no-con-prompt {
+        position: fixed;
+        top: 63%;
+        width: 10rem;
+        height: 100/75rem;
+        // line-height: 500/75rem;
+        text-align: center;
+        font-size: 32/75rem;
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+      ul {
+        // height:2000/75rem;
+        margin-top: 88/75rem;
+        overflow: hidden;
+        overflow-y: scroll;
+        // background-color: yellow;
+        li {
+          width: 10rem;
+          margin-bottom: 20/75rem;
+          padding: 30/75rem 30/75rem 0 30/75rem;
+          box-sizing: border-box;
+          background-color: #fff;
+          a {
+            display: block;
+            h4 {
+              font-size: 32/75rem;
+            }
+            p {
+              // background-color: pink;
+              margin-top: 20/75rem;
+              font-size: 28/75rem;
+              color: @contentColor;
+              line-height: 50/75rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: normal;
+              /*多行文本溢出添加省略号*/
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
+          /*评论、点赞*/
+          .comments {
+            width: 100%;
+            height: 88/75rem;
+            line-height: 88/75rem;
+            box-sizing: border-box;
+            font-size: 24/75rem;
+            color: @secondFontColor;
+            font-family: 'sans-serif';
+            div {
+              width: 260/75rem;
+              height: 88/75rem;
+              button {
+                height: 88/75rem;
+                display: inline-block;
+                width: 130/75rem;
+                font-size: 24/75rem;
+                font-family: 'sans-serif';
+                color: @secondFontColor;
+                text-align: center;
+                &:before {
+                  display: inline-block;
+                  content: '';
+                  width: 30/75rem;
+                  height: 30/75rem;
+                  background-color: #fff;
+                  margin-right: 20/75rem;
+                  vertical-align: top;
+                }
+              }
+            }
+          }
+        }
+      }
+      /*提问题弹窗 */
+      .ask-window {
+        position: fixed;
+        width: 10rem;
+        height: 1000/75rem;
+        background-color: #fff;
+        bottom: 0;
+        left: 0;
+        display: none;
+        padding: 40/75rem;
+        box-sizing: border-box;
+        z-index: 999;
+        /*问题标题*/
+        input {
+          height: 88/75rem;
+          font-size: 36/75rem;
+          width: 100%;
+          border: none;
+          border-radius: 0;
+          // background-color: green;
+        }
+        /*问题描述*/
+        textarea {
+          width: 100%;
+          font-size: 28/75rem;
+          border: none;
+          border-radius: 0;
+          height: 300/75rem;
+          margin: 0;
+        }
+        /*操作（表情，选择章节，发送）*/
+        .todos {
+          position: absolute;
+          left: 0;
+          border: 1px solid @bgColor;
+          box-sizing: border-box;
+          z-index: 999;
+          // bottom:0/75rem;
+          height: 96/75rem;
+          width: 10rem;
+          background-color: #fff;
+          .close, .send {
+            height: 96/75rem;
+            width: 112/75rem;
+            background: url('../images/close_icon.png') no-repeat center center;
+            background-size: 32/75rem 32/75rem;
+          }
+          .send {
+            background-image: url('../images/question-send_icon.png');
+          }
+        }
+      }
+      /*问问题*/
+      .answer {
+        position: fixed;
+        bottom: 40/75rem;
+        width: 670/75rem;
+        left: 40/75rem;
+        height: 100/75rem;
+        background-color: @fontColor;
+        border-radius: 3px;
+        color: #fff;
+        &.active {
+          width: 360/75rem;
+          left: 196/75rem;
+          bottom: 200/75rem;
+        }
+        button {
+          width: 100%;
+          height: 100/75rem;
+          color: #fff;
+          font-size: 32/75rem;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 

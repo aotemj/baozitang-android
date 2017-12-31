@@ -1,64 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title></title>
-	<link rel="stylesheet" href="./css/mui-3.7.2.css">
-	<link rel="stylesheet" href="./css/reset.css">
-	<!-- 当前页css -->
-	<link rel="stylesheet" href="./css/homework-list.css">
-	<!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/mui-3.7.2.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 当前页css -->
+    <link rel="stylesheet" href="./css/homework-list.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
 </head>
 <body>
-	<!-- 父容器 -->
-	<div class="container">
-		<!-- 顶部头 -->
-		<div class="top clearfix">
-			<div class="back fl">返回</div>
-			<div class="title fl">作业题</div>
-		</div>
-		<!-- 作业题目 -->
-		<div class="topic">
-				<h4></h4>
-				<div class="completed">
-					<!-- 完成该作业的用户头像 -->
-					<ul>
-						<!-- <li><img src="" alt=""></li> -->
-					</ul>
-					<!-- 总人数 -->
-					<span class="completedCount">0</span>人已写
-				</div>
-		</div>
-		<!-- 设置内容 -->
-		<div class="content">
-			<!-- 个人信息1 -->
-			<ul>
-			<!-- 	<li>
-				<a href="#">
-					<div class="ques-title">
-						<span>问题1</span>
-						<i></i>
-					</div>
-					问题内容
-					<div class="ques-content">
-						<p class='' href="#">请结合上节课所讲知识，解释供求一体化的两种手段，深度分析分销的特征及优点，以及厂商之间的一体化运营关系？</p>
-					</div>
-				</a>
-			</li> -->
-			</ul>
-		</div>
-	</div>
+<!-- 父容器 -->
+<div class="container">
+    <!-- 顶部头 -->
+    <div class="top clearfix">
+        <div class="back fl">返回</div>
+        <div class="title fl">作业题</div>
+    </div>
+    <!-- 作业题目 -->
+    <div class="topic">
+        <h4></h4>
+        <div class="completed">
+            <!-- 完成该作业的用户头像 -->
+            <ul>
+                <!-- <li><img src="" alt=""></li> -->
+            </ul>
+            <!-- 总人数 -->
+            <span class="completedCount">0</span>人已写
+        </div>
+    </div>
+    <!-- 设置内容 -->
+    <div class="content">
+        <!-- 个人信息1 -->
+        <ul>
+            <!-- 	<li>
+                <a href="#">
+                    <div class="ques-title">
+                        <span>问题1</span>
+                        <i></i>
+                    </div>
+                    问题内容
+                    <div class="ques-content">
+                        <p class='' href="#">请结合上节课所讲知识，解释供求一体化的两种手段，深度分析分销的特征及优点，以及厂商之间的一体化运营关系？</p>
+                    </div>
+                </a>
+            </li> -->
+        </ul>
+    </div>
+</div>
 
-	<!-- 移动端适配 -->
-	<script src="./js/flexible.js"></script>
-	<!-- <script src="./js/flexible.debug.js"></script> -->
-	<!-- <script src="./js/flexible_css.debug.js"></script> -->
-  <script src="./js/time-filter.js"></script>
-  <script src="./js/mui-3.7.2.js"></script>
- 	<script src="./js/jquery.js"></script>
-  <script src="./js/ajax.js"></script>
-  <script src="./js/index.js"></script>
-	<script src="./js/homework-list.js"></script>
+<!-- 移动端适配 -->
+<script src="./js/flexible.js"></script>
+<!-- <script src="./js/flexible.debug.js"></script> -->
+<!-- <script src="./js/flexible_css.debug.js"></script> -->
+<script src="./js/time-filter.js"></script>
+<script src="./js/mui-3.7.2.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/ajax.js"></script>
+<script src="./js/index.js"></script>
+<script>
+    var getParams = function (data) {
+//        window.baozitang.toast(data);
+        var passData = JSON.parse(data);
+
+        //请求已完成此节课程作业的学员接口
+        getCompetedStu(
+            {
+                'sectionId': passData.sectionId
+            },
+            function (res) {
+                // console.log(res);
+                for (var i = 0; i < res.data.length; i++) {
+                    // 头像
+                    $('.completed>ul').append(
+                        '<li><img src="' + res.data[i].ImgUrl + '" alt=""></li>'
+                    );
+                }
+                ;
+                //总人数：
+                $('.completedCount').text(res.data.length);
+            });
+
+        //请求作业列表
+        getHomeworkList(
+            passData,
+            function (res) {
+                console.log(res);
+                // 错误处理：
+                if (res.code != 200) {
+                    mui.toast(res.msg);
+                }
+                // console.log(res);
+                //渲染页面：
+                $('.topic h4').text(res.data.content);
+                for (var i = 0; i < res.data.exerciseList.length; i++) {
+                    var data = res.data.exerciseList[i];
+                    $('.content ul').append(
+                        '<li data-index = "' + i + '">'
+                        + '<div class="ques-title">'
+                        + '<span>问题 ' + data.exerciseId + '</span>'
+                        + '<button></button>'
+                        + '</div>'
+                        + '<!-- 问题内容 -->'
+                        + '<div class="ques-content">'
+                        + '<p class="">' + data.workTitle + '</p>'
+                        + '</div>'
+                        + '</li>'
+                    )
+                    var button = $('.content ul>li').eq(i).find('.ques-title>button');
+                    //作业已完成
+                    if (res.data.sectionStatus == 'COMPLETED') {
+                        button.css({
+                            'backgroundImage': 'url("../images/end_bj.png")'
+                        }).on('click', function () {
+                            window.baozitang.open(jumpBaseUrl + 'homework-preview.html', JSON.stringify(passData));
+                        });
+                    } else {
+                        //作业未完成
+                        button.on('click', function () {
+                            passData.index = $(this).parent().parent().attr('data-index');
+                            // window.baozitang.toast(passData.exerciseId);
+                            window.baozitang.open(jumpBaseUrl + 'doing-homework.html', JSON.stringify(passData));
+                        });
+                    }
+                }
+            });
+    }
+</script>
+<!--<script src="./js/homework-list.js"></script>-->
 </body>
 </html>
