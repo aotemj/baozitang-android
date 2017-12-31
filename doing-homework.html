@@ -1,81 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title></title>
-  <link rel="stylesheet" href="./css/mui-3.7.2.css">
-	<link rel="stylesheet" href="./css/reset.css">
-	<!-- 当前页css -->
-	<link rel="stylesheet" href="./css/swiper.css">
-  <link rel="stylesheet" href="./css/doing-homework.css">
-	<!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/mui-3.7.2.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 当前页css -->
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/doing-homework.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
 </head>
 <body>
-	<!-- 父容器 -->
-	<div class="container">
+<!-- 父容器 -->
+<div class="container">
     <!-- 顶部头 -->
     <div class="top clearfix">
-      <div class="back fl">返回</div>
-      <div class="title fl">写作业</div>
-      <button class="submit fr " disabled="true">交作业</button>
-      <button class="save"></button>
+        <div class="back fl">返回</div>
+        <div class="title fl">写作业</div>
+        <button class="submit fr " disabled="true">交作业</button>
+        <button class="save"></button>
     </div>
     <!-- 提示遮罩 -->
     <div class="mask">
-      <!-- 提交作业成功提示 -->
-      <div class="prompt">
-        <!-- 提示信息 -->
-        <div class="msg">作业提交成功！</div>
-        <!-- 预览作业，分享作业 -->
-        <div class="todos clearfix">
-          <a href="#" class= "fl preview">预览作业</a>
-          <a href="#" class= "fr share">分享作业</a>
+        <!-- 提交作业成功提示 -->
+        <div class="prompt">
+            <!-- 提示信息 -->
+            <div class="msg">作业提交成功！</div>
+            <!-- 预览作业，分享作业 -->
+            <div class="todos clearfix">
+                <a href="#" class="fl preview">预览作业</a>
+                <a href="#" class="fr share">分享作业</a>
+            </div>
         </div>
-      </div>
     </div>
-		<!--使用swiper实现的轮播图-->
+    <!--使用swiper实现的轮播图-->
     <div class="swiper-container">
-      <ul class="swiper-wrapper">
-       <!--  <li class="swiper-slide">
-                 作业内容
-                 <div class="content">
-                   作业题目
-                  <div class="title">
-                    <p>1.请结合上节课所将知识，解释供求关系一体化的两种手段，深度分析分销的特征及有点，以及厂商之间的一体化运营关系</p>
-                  </div>
-                  <div class="inner-content">
-                    <i class=""></i>
-                    <textarea placeholder="请在此书写答案~"></textarea>
-                  </div>
-                 </div>
-              </li> -->
-      </ul>
+        <ul class="swiper-wrapper">
+            <!--  <li class="swiper-slide">
+                      作业内容
+                      <div class="content">
+                        作业题目
+                       <div class="title">
+                         <p>1.请结合上节课所将知识，解释供求关系一体化的两种手段，深度分析分销的特征及有点，以及厂商之间的一体化运营关系</p>
+                       </div>
+                       <div class="inner-content">
+                         <i class=""></i>
+                         <textarea placeholder="请在此书写答案~"></textarea>
+                       </div>
+                      </div>
+                   </li> -->
+        </ul>
 
-      <div class="choose-topic">
-      	<!-- 作业页码 -->
-      	<div class="page-number">
-      		<span class="current"></span>/ <span class="total"></span>
-      	</div>
-      	<div class="choose">
-      		<div class="swiper-button-next"></div>
-      		<div class="swiper-button-prev"></div>
-      	</div>
-      </div>
+        <div class="choose-topic">
+            <!-- 作业页码 -->
+            <div class="page-number">
+                <span class="current"></span>/ <span class="total"></span>
+            </div>
+            <div class="choose">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
     </div>
 
-	</div>
+</div>
 
 
-	<!-- 移动端适配 -->
+<!-- 移动端适配 -->
 
-  <script src="./js/flexible.js"></script>
-  <script src="./js/time-filter.js"></script>
-  <script src="./js/mui-3.7.2.js"></script>
-  <script src="./js/jquery.js"></script>
-  <script src="./js/ajax.js"></script>
-  <script src="./js/index.js"></script>
-	<script src="./js/swiper.js"></script>
-	<script src="./js/doing-homework.js"></script>
+<script src="./js/flexible.js"></script>
+<script src="./js/time-filter.js"></script>
+<script src="./js/mui-3.7.2.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/ajax.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/swiper.js"></script>
+<script src="./js/doing-homework.js"></script>
+<script type="text/javascript">
+    // 获取安卓传来的参数
+    var getParams = function (data) {
+        // var passData;
+//        window.baozitang.toast(data);
+        var passData = JSON.parse(data);
+
+        getHomeworkList(passData,function(res){
+//            window.baozitang.toast(res);
+            var placeholder = "请在此书写答案~";
+            for (var i = 0; i < res.data.exerciseList.length; i++) {
+                var data = res.data.exerciseList[i];
+                var active = "";
+                if (res.data.sectionStatus == 'COMPLETED') {
+                    active = "active";
+                }
+                $('.swiper-wrapper').append(
+                    '<li data-index="' + i + '" class="swiper-slide">'
+                    + '  <div class="content">'
+                    + '    <div class="title">'
+                    + '      <p>' + data.workTitle + '</p>'
+                    + '    </div>'
+                    + '    <div class="inner-content">'
+                    + '      <i class="' + active + '"></i>'
+                    + '      <textarea class="input-content" placeholder="' + (data.answerContent || placeholder) + '"></textarea>'
+                    + '    </div>'
+                    + '  </div>'
+                    + '</li>'
+                );
+            }
+
+            //获取当前被点击的li标签
+            var initialSlide  = passData.index-0;
+
+            // 初始化作业页码
+            $('.page-number .current').text(initialSlide-0+1);
+            $('.page-number .current').text(1);
+
+            //作业索引：
+            var total = $('.swiper-wrapper li').length;
+            $('.choose-topic .page-number .total').text(total);
+
+
+            
+            // 轮播图初始化
+            mySwiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+//                initialSlide:1,
+                paginationClickable: true,
+                centeredSlides: true,
+                // autoplay: 6500,
+                autoplayDisableOnInteraction: false,
+                onSlideChangeEnd: function (swiperHere) {
+                    //自动保存
+                    dire = swiperHere.swipeDirection;
+                    //下一道题
+                    if (dire == "next") {
+                        index = swiperHere.activeIndex - 1;
+                        //上一道题
+                    } else {
+                        index = swiperHere.activeIndex + 1;
+                    }
+                    //用户已经存有答案
+                    if (res.data.sectionStatus == 'COMPLETED') {
+                        $('.swiper-wrapper .input-content').attr("disabled", true);
+                        return;
+                    }
+                    save(index);
+                    //swiperHere.activeIndex 为当前页面所在索引
+                    $('.choose-topic .page-number .current').text(swiperHere.activeIndex + 1);
+                }
+            })
+
+            
+            //设置点击切换
+            mySwiper.nextButton.on('click', function () {
+                mySwiper.swipeDirection = 'next';
+            })
+            mySwiper.prevButton.on('click', function () {
+                mySwiper.swipeDirection = 'prev';
+            })
+            //用户已经存有答案
+            if (res.data.sectionStatus == 'COMPLETED') {
+                $('.swiper-wrapper .input-content').attr("disabled", true);
+                return;
+            }
+
+            //开始写作业，隐藏icon
+            $('.inner-content').find('textarea').on({
+                focus: function () {
+                    $('.inner-content i').addClass('active');
+                },
+                blur: function () {
+                    if ($('.inner-content textarea').val() == '') {
+                        $('.inner-content i').removeClass('active');
+                    }
+                },
+                input: function () {
+                    activeSubmit();
+                }
+            });
+
+
+            //用户已经存有答案
+            // if(res.data.sectionStatus=='COMPLETED'){
+            //   $('.swiper-wrapper').find('textarea').attr('disabled',true);
+            // }
+            //点击保存
+            $('.save').on('click', function () {
+                if (res.data.sectionStatus == 'COMPLETED') {
+                    return;
+                }
+                index = mySwiper.activeIndex;
+                save(index);
+            });
+
+            //点击提交
+            $('.submit').on('click', function () {
+                //获取每一条作业的内容：
+                var answerContent = getContent();
+                // console.log(answerContent);
+                var chapterId = res.data.chapterId,
+                    studentId = res.data.studentId,
+                    courseId = res.data.courseId,
+                    classId = res.data.classId,
+                    sectionId = res.data.sectionId;
+                var data = {
+                    chapterId: chapterId,
+                    studentId: studentId,
+                    courseId: courseId,
+                    classId: classId,
+                    sectionId: sectionId
+                }
+                for (var i = 0; i < answerContent.length; i++) {
+                    data['answers[' + i + '].exerciseId'] = answerContent[i].exerciseId;
+                    data['answers[' + i + '].answerContent'] = answerContent[i].answerContent;
+                }
+                console.log(data);
+                submitHomework(data, function (res) {
+                    //错误处理
+                    if (res.code != 200) {
+                        mui.toast(res.msg);
+                        return;
+                    }
+                    $('.mask').css({
+                        'display': 'block'
+                    });
+                });
+            });
+
+            function save(index) {
+                // console.log(index);
+                //获取当前页面的exerciseid：
+                var exerciseId = res.data.exerciseList[index].exerciseId;
+                //获取courseId
+                var courseId = res.data.courseId;
+                //获取classId
+                var classId = res.data.classId;
+                //studentId
+                var studentId = res.data.studentId;
+
+                //获取内容
+                var answerContent = $('.swiper-wrapper .swiper-slide').eq(index).find('.inner-content textarea').val();
+
+                console.log('answerContent:' + answerContent);
+                if ($.trim(answerContent) == "") {
+                    mui.toast('请输入作业答案！');
+                    return;
+                }
+                // console.log(answerContent);
+                saveHomework(
+                    {
+                        studentId: studentId,
+                        exerciseId: exerciseId,
+                        classId: classId,
+                        answerContent: answerContent,
+                    },
+                    function (res) {
+                        console.log(res);
+                        if (res.code != 200) {
+                            mui.toast(res.msg);
+                            return;
+                        }
+                        console.log(res);
+                        mui.toast(res.msg);
+                    });
+            }
+
+            function activeSubmit() {
+                var listLength = $('.swiper-wrapper li').length;
+                var completedCount = 0;
+                for (var i = 0; i < listLength; i++) {
+                    var textarea = $('.swiper-wrapper li').eq(i).find('textarea');
+                    if ($.trim(textarea.val()) != "") {
+                        completedCount++;
+                        passData
+                    }
+                }
+                if (listLength === completedCount) {
+                    $('.submit').prop('disabled', false);
+                } else {
+                    $('.submit').prop('disabled', true)
+                }
+            }
+
+            //获取作业答案
+            function getContent() {
+                var listLength = $('.swiper-wrapper li').length;
+                var answerContent = [];
+                for (var i = 0; i < listLength; i++) {
+                    var obj = {};
+                    obj.exerciseId = res.data.exerciseList[i].exerciseId;
+                    obj.answerContent = $('.swiper-wrapper .swiper-slide').eq(i).find('.inner-content textarea').val();
+                    answerContent.push(obj);
+                }
+                // console.log(answerContent);
+                return answerContent;
+            }
+        });
+    }
+</script>
+
+
 </body>
 </html>

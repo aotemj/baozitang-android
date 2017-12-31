@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				background-color: #f1f1f1;
+			}
+			
+			@media screen and (max-width:320px) {
+				html {
+					font-size: 12px;
+				}
+			}
+			
+			@media screen and (min-width:321px) and (max-width:750px) {
+				html {
+					font-size: 14px;
+				}
+			}
+			
+			@media screen and (min-width:751px) {
+				html {
+					font-size: 16px;
+				}
+			}
+			
+			#input {
+				width: 90%;
+				height: 15rem;
+				display: block;
+				margin: 1.5rem auto;
+				resize: none;
+				border: none;
+				font-size: 1.4rem;
+				color: blue;
+			}
+			
+			#btn {
+				width: 90%;
+				height: 3rem;
+				line-height: 3rem;
+				font-size: 1.5rem;
+				color: #fff;
+				background-color: #ffd100;
+				border-radius: 20px;
+				text-align: center;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<textarea name="" id="input" placeholder="您的宝贵意见，就是我们进步的源泉！" autofocus="autofocus"></textarea>
+		<div id="btn">提交</div>
+	
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function()
+	{
+
+				 
+  //获取安卓传来的参数
+ passData= function getParams(data){
+    passData = data;
+     return passData;
+  }();
+		$("#btn").click (function() {
+
+			var base_url = "https://api.qingkequn.com/api/app/saveSuggest";
+			
+					var token= window.baozitang.getAuth();
+					console.log(token)
+					$.ajax({
+						type: 'POST',
+						url: base_url,
+						data: {
+							"studentId": passData.studentId,
+							"content": $("#input").val()
+						},
+						beforeSend: function(res) {
+							res.setRequestHeader("Authorization", token)
+						},
+						success: function(result) {
+							alert("提交成功！")
+						},
+						error: function(res) {
+							console.log("提交失败！" + res)
+						}
+					})
+				/*},
+				error: function(res) {
+					console.log("获取token失败" + res)
+				}
+*/
+			
+		})
+		})
+	</script>
+
+</html>

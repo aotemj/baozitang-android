@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/markdown2.css" />
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/marked.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="content">
+
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function()
+	{
+			
+		 
+  //获取安卓传来的参数
+ passData= function getParams(data){
+    passData = data;
+     return passData;
+  }();
+
+			function getToken() {
+				
+			
+				var token= window.baozitang.getAuth();
+				console.log(token)
+				$.ajax({
+					type:"get",
+					url:"https://api.qingkequn.com/api/aliyun/oss/md/20171228/"+passData.ID+".md",
+					async:true,
+					beforeSend:function(res)
+					{
+						res.setRequestHeader("Authorization",token)
+					},
+					success:function(res)
+					{
+						$("#content").html(marked(res));
+					},
+					error:function(res)
+					{
+						console.log("获取文稿失败"+res)
+					}
+				});
+				}
+				 
+
+			getToken();
+			
+			
+})
+		
+		</script>
+
+	</body>
+
+</html>
