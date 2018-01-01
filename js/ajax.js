@@ -3,12 +3,12 @@ var baseUrl = 'https://api.qingkequn.com/';
 // var baseUrl = 'http://192.168.10.15:8081/';
 
 //获取token:
-// var token = window.baozitang.getAuth();
+var token = window.baozitang.getAuth();
 // mui.toast(getToken);
 
 // token 和 userId 由android 提供
 // var token = window.baozitang.getAuth();
-var token = 'Bearer ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQ2MjYxODQwNTMsImNsaWVudCI6IndlYl9jZXNoaV9jbGllbnQiLCJleHAiOjE1MTUyMzA5ODR9.OBn6Sp9fQjiqgQrKk0uLreh5Jyv2vJjzYqoca58wEZw3X0KPFpcAk1zBpDJUBXDcYQGdk9RtQnuG1sGe70kQ4w';
+// var token = 'Bearer ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQ2MjYxODQwNTMsImNsaWVudCI6IndlYl9jZXNoaV9jbGllbnQiLCJleHAiOjE1MTUyMzA5ODR9.OBn6Sp9fQjiqgQrKk0uLreh5Jyv2vJjzYqoca58wEZw3X0KPFpcAk1zBpDJUBXDcYQGdk9RtQnuG1sGe70kQ4w';
 // var studentId = 3;
 
 //封装获取课程列表方法

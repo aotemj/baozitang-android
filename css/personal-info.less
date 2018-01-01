@@ -1,130 +1,130 @@
 // 激活颜色
-@activeColor:#ffd100;
+@activeColor: #ffd100;
 // 背景色:
-@bgColor:#f5f5f5;
+@bgColor: #f5f5f5;
 // 主字体颜色:
-@fontColor:#2d2d2d;
+@fontColor: #2d2d2d;
 // 弱化字体颜色：
-@secondFontColor:#b5b5b5;
+@secondFontColor: #b5b5b5;
 //内容颜色：
-@contentColor:#505050;
+@contentColor: #505050;
 //说明性文字颜色：
-@descColor:#858585;
+@descColor: #858585;
 // 边框颜色
-@borderColor:#e8e8e8;
+@borderColor: #e8e8e8;
 /* 选课 */
-body{
-	background-color: @bgColor;
-	/*父容器*/
-	.container{
-		width:10rem;
-		box-sizing: border-box;
+body {
+  background-color: @bgColor;
+  /*父容器*/
+  .container {
+    width: 10rem;
+    box-sizing: border-box;
 
-		// height: 15rem;
-		/*顶部导航*/
-		.top{
-			padding:0 40/75rem;
-			height:88/75rem;
-			line-height: 88/75rem;
-			background-color: #fff;
-			border-bottom:1px solid @borderColor;
-			.back,.save{
-				width:88/75rem;
-				text-align: right;
-				font-size:28/75rem;
-			}
-			.back{
-				background:url('../images/fanhui_icon.png') no-repeat -5/75rem center;
-				background-size: 40/75rem 40/75rem;
-				color:transparent;
-			}
-			.save{
-				color:@activeColor;
-			}
-			.title{
-				font-size: 36/75rem;
-				width:494/75rem;
-				text-align: center;
-			}
-		}
-		/*个人信息内容*/
-		.content{
-			/*ul*/
-			.mui-table-view{
-				/*清除mui默认样式*/
-				&:after,&:before{
-					height:0;
-				}
-				/*li*/
-				.mui-table-view-cell{
-					padding:0;
-					height:96/75rem;
-					line-height:96/75rem;
-					font-size: 32/75rem;
-					border:none;
-					&:after{
-						height:0;
-					}
-					/*列表内容*/
-					.content{
-						height:96/75rem;
-						margin-left:40/75rem;
-						padding-right:40/75rem;
-						border-bottom:1px solid @borderColor;
-						span{
-							font-size: 32/75rem;
-							/*列表项*/
-							.item{
-							}
-						}
-						/*列表项值 input*/
-						.item-content{
-							font-size: 28/75rem;
-							float: right;
-							margin-top:10/75rem;
-							background-color: transparent;
-							width:5rem;
-							line-height: 72/75rem;
-							height:72/75rem;
-							border:none;
-							border-radius:0;
-							text-align: right;
-							padding:0;
-						}
-					.inner-photo{
-						margin-top:10/75rem;
-						width:72/75rem;
-						height:72/75rem;
-						border-radius:50%;
-						background:url('../images/loading.png') no-repeat center center ;
-						background-size: 72/75rem 72/75rem;
-							-webkit-animation-name:'loading';
-						 	-webkit-animation-duration: 0.5s;
-						 	-webkit-animation-timing-function: linear;
-						 	-webkit-animation-iteration-count: infinite;
-							@keyframes loading {
-								from {
-									transform:rotate(0deg);
-								}
-								to {
-									transform:rotate(360deg);
-								}
-							}
-						img{
-							border-radius:50%;
-							width:72/75rem;
-							/*覆盖mui默认样式*/
-							&.mui-media-object{
-								max-width:72/75rem;
-								height:72/75rem;
-								border-radius:50%;
-							}
-						}
-					}
-					}
-				}
-			}
-		}
-	}
+    // height: 15rem;
+    /*顶部导航*/
+    .top {
+      padding: 0 40/75rem;
+      height: 88/75rem;
+      line-height: 88/75rem;
+      background-color: #fff;
+      border-bottom: 1px solid @borderColor;
+      .back, .save {
+        width: 88/75rem;
+        text-align: right;
+        font-size: 28/75rem;
+      }
+      .back {
+        background: url('../images/fanhui_icon.png') no-repeat -5/75rem center;
+        background-size: 40/75rem 40/75rem;
+        color: transparent;
+      }
+      .save {
+        color: @activeColor;
+      }
+      .title {
+        font-size: 36/75rem;
+        width: 494/75rem;
+        text-align: center;
+      }
+    }
+    /*个人信息内容*/
+    .content {
+      /*ul*/
+      .mui-table-view {
+        /*清除mui默认样式*/
+        &:after, &:before {
+          height: 0;
+        }
+        /*li*/
+        .mui-table-view-cell {
+          padding: 0;
+          height: 96/75rem;
+          line-height: 96/75rem;
+          font-size: 32/75rem;
+          border: none;
+          &:after {
+            height: 0;
+          }
+          /*列表内容*/
+          .content {
+            height: 96/75rem;
+            margin-left: 40/75rem;
+            padding-right: 40/75rem;
+            border-bottom: 1px solid @borderColor;
+            span {
+              font-size: 32/75rem;
+              /*列表项*/
+              .item {
+              }
+            }
+            /*列表项值 input*/
+            .item-content {
+              font-size: 28/75rem;
+              float: right;
+              margin-top: 10/75rem;
+              background-color: transparent;
+              width: 5rem;
+              line-height: 72/75rem;
+              height: 72/75rem;
+              border: none;
+              border-radius: 0;
+              text-align: right;
+              padding: 0;
+            }
+            .inner-photo {
+              margin-top: 10/75rem;
+              width: 72/75rem;
+              height: 72/75rem;
+              border-radius: 50%;
+              background: url('../images/loading.png') no-repeat center center;
+              background-size: 72/75rem 72/75rem;
+              -webkit-animation-name: 'loading';
+              -webkit-animation-duration: 0.5s;
+              -webkit-animation-timing-function: linear;
+              -webkit-animation-iteration-count: infinite;
+              @keyframes loading {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+              img {
+                border-radius: 50%;
+                width: 72/75rem;
+                /*覆盖mui默认样式*/
+                &.mui-media-object {
+                  max-width: 72/75rem;
+                  height: 72/75rem;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
