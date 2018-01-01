@@ -49,6 +49,44 @@
 <script src="./js/jquery.js"></script>
 <script src="./js/ajax.js"></script>
 <script src="./js/index.js"></script>
+<script>
+     var getParams = function(data){
+         var passData = JSON.parse(data);
+         //获取学习记录
+         getLearnRecord(
+             {
+                 'studentId': passData.studentId
+             },
+             function (res) {
+                 //获取页面高度
+                 var bodyHeight = screen.height;
+                 console.log(bodyHeight);
+                 // alert(bodyHeight);
+                 $('.container').height(bodyHeight + '/75rem');
+                 console.log(res);
+                 for (var i = 0; i < res.data.length; i++) {
+                     var data = res.data[i];
+                     $('.history-home').append(
+                         '<li>'
+                         + '	<a href="#">'
+                         + '		<div class="content">'
+                         + '			<div class="time">'
+                         + '				<span>' + timeFilter(data.modiTime) + '</span>'
+                         + '			</div>'
+                         + '			<div class="homework-desc">'
+                         + '				<div>'
+                         + '					<h4>' + data.title + '</h4>'
+                         + '					<p><span>' + data.author + '</span> | 时长<span>' + data.timeLength + '</span></p>'
+                         + '				</div>'
+                         + '			</div>'
+                         + '		</div>'
+                         + '	</a>'
+                         + '</li>'
+                     );
+                 }
+             });
+     }
+</script>
 <script src="./js/learn-record.js"></script>
 </body>
 </html>
