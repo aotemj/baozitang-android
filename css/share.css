@@ -1,0 +1,15 @@
+.top_title{
+	font-size: 1.5rem;
+	font-weight: bold;
+	width: 100%;
+	padding-top: 2rem;
+	text-align: center;
+}
+.work_title{
+	font-size: 1rem;
+	margin-top: 2rem;
+}
+.answer{
+	font-size: 1.2rem;
+	font-weight: 600;
+}

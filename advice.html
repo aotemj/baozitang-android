@@ -6,7 +6,6 @@
     <title></title>
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-
     <style>
         html,
         body {
@@ -65,14 +64,17 @@
 <div id="btn">提交</div>
 
 </body>
-<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-<script src="../js/ajax.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/ajax.js"></script>
 <script type="text/javascript">
     //获取安卓传来的参数
     var getParams = function (data) {
-        var passData = JSON.parse(data);
+        var passData = data;
+
         $("#btn").click(function () {
+
             var base_url = "https://api.qingkequn.com/api/app/saveSuggest";
+            
             $.ajax({
                 type: 'POST',
                 url: base_url,
@@ -95,8 +97,9 @@
              console.log("获取token失败" + res)
              }
              */
+
         })
-    };
+    }
 </script>
 
 </html>

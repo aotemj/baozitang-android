@@ -1,867 +1,873 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		<style>
-body {
-  
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
-}
-
-body .markdown-body
-{
-  padding: 30px;
-}
-
-
-
-.markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-.markdown-body a {
-  background: transparent;
-}
-
-.markdown-body a:active,
-.markdown-body a:hover {
-  outline: 0;
-}
-
-.markdown-body strong {
-  font-weight: bold;
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-.markdown-body img {
-  border: 0;
-}
-
-.markdown-body hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
-.markdown-body pre {
-  overflow: auto;
-}
-
-.markdown-body code,
-.markdown-body kbd,
-.markdown-body pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-.markdown-body input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body html input[disabled] {
-  cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
-}
-
-.markdown-body input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.markdown-body table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown-body td,
-.markdown-body th {
-  padding: 0;
-}
-
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
-}
-
-.markdown-body a {
-  color: #4183c4;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:focus,
-.markdown-body a:active {
-  text-decoration: underline;
-}
-
-.markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.markdown-body hr:before,
-.markdown-body hr:after {
-  display: table;
-  content: " ";
-}
-
-.markdown-body hr:after {
-  clear: both;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
-}
-
-.markdown-body h1 {
-  font-size: 30px;
-}
-
-.markdown-body h2 {
-  font-size: 21px;
-}
-
-.markdown-body h3 {
-  font-size: 16px;
-}
-
-.markdown-body h4 {
-  font-size: 14px;
-}
-
-.markdown-body h5 {
-  font-size: 12px;
-}
-
-.markdown-body h6 {
-  font-size: 11px;
-}
-
-.markdown-body blockquote {
-  margin: 0;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
-}
-
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
-}
-
-.markdown-body dd {
-  margin-left: 0;
-}
-
-.markdown-body code,
-.markdown-body pre {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
-}
-
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  display: inline-block;
-}
-
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-.markdown-body .anchor {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  padding-right: 6px;
-  padding-left: 30px;
-  margin-left: -30px;
-}
-
-.markdown-body .anchor:focus {
-  outline: none;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  position: relative;
-  margin-top: 1em;
-  margin-bottom: 16px;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-.markdown-body h1 .octicon-link,
-.markdown-body h2 .octicon-link,
-.markdown-body h3 .octicon-link,
-.markdown-body h4 .octicon-link,
-.markdown-body h5 .octicon-link,
-.markdown-body h6 .octicon-link {
-  display: none;
-  color: #000;
-  vertical-align: middle;
-}
-
-.markdown-body h1:hover .anchor,
-.markdown-body h2:hover .anchor,
-.markdown-body h3:hover .anchor,
-.markdown-body h4:hover .anchor,
-.markdown-body h5:hover .anchor,
-.markdown-body h6:hover .anchor {
-  height: 1em;
-  padding-left: 8px;
-  margin-left: -30px;
-  line-height: 1;
-  text-decoration: none;
-}
-
-.markdown-body h1:hover .anchor .octicon-link,
-.markdown-body h2:hover .anchor .octicon-link,
-.markdown-body h3:hover .anchor .octicon-link,
-.markdown-body h4:hover .anchor .octicon-link,
-.markdown-body h5:hover .anchor .octicon-link,
-.markdown-body h6:hover .anchor .octicon-link {
-  display: inline-block;
-}
-
-.markdown-body h1 {
-  padding-bottom: 0.3em;
-  font-size: 2.25em;
-  line-height: 1.2;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
-}
-
-.markdown-body h4 {
-  font-size: 1.25em;
-}
-
-.markdown-body h5 {
-  font-size: 1em;
-}
-
-.markdown-body h6 {
-  font-size: 1em;
-  color: #777;
-}
-
-.markdown-body p,
-.markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
-}
-
-.markdown-body ul ul,
-.markdown-body ul ol,
-.markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body li>p {
-  margin-top: 16px;
-}
-
-.markdown-body dl {
-  padding: 0;
-}
-
-.markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.markdown-body blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
-}
-
-.markdown-body blockquote>:first-child {
-  margin-top: 0;
-}
-
-.markdown-body blockquote>:last-child {
-  margin-bottom: 0;
-}
-
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-}
-
-.markdown-body table th {
-  font-weight: bold;
-}
-
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
-.markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.markdown-body img {
-  max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.markdown-body code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
-}
-
-.markdown-body code:before,
-.markdown-body code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
-}
-
-.markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
-}
-
-.markdown-body .highlight {
-  margin-bottom: 16px;
-}
-
-.markdown-body .highlight pre,
-.markdown-body pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px;
-}
-
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.markdown-body pre {
-  word-wrap: normal;
-}
-
-.markdown-body pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
-}
-
-.markdown-body pre code:before,
-.markdown-body pre code:after {
-  content: normal;
-}
-
-.markdown-body .highlight {
-  background: #ffffff;
-}
-
-.markdown-body .highlight .c {
-  color: #999988;
-  font-style: italic;
-}
-
-.markdown-body .highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-
-.markdown-body .highlight .k {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .o {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .cm {
-  color: #999988;
-  font-style: italic;
-}
-
-.markdown-body .highlight .cp {
-  color: #999999;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .c1 {
-  color: #999988;
-  font-style: italic;
-}
-
-.markdown-body .highlight .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-
-.markdown-body .highlight .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-
-.markdown-body .highlight .gd .x {
-  color: #000000;
-  background-color: #ffaaaa;
-}
-
-.markdown-body .highlight .ge {
-  font-style: italic;
-}
-
-.markdown-body .highlight .gr {
-  color: #aa0000;
-}
-
-.markdown-body .highlight .gh {
-  color: #999999;
-}
-
-.markdown-body .highlight .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-
-.markdown-body .highlight .gi .x {
-  color: #000000;
-  background-color: #aaffaa;
-}
-
-.markdown-body .highlight .go {
-  color: #888888;
-}
-
-.markdown-body .highlight .gp {
-  color: #555555;
-}
-
-.markdown-body .highlight .gs {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .gu {
-  color: #800080;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .gt {
-  color: #aa0000;
-}
-
-.markdown-body .highlight .kc {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .kd {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .kn {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .kp {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .kr {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .kt {
-  color: #445588;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .m {
-  color: #009999;
-}
-
-.markdown-body .highlight .s {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .n {
-  color: #333333;
-}
-
-.markdown-body .highlight .na {
-  color: teal;
-}
-
-.markdown-body .highlight .nb {
-  color: #0086b3;
-}
-
-.markdown-body .highlight .nc {
-  color: #445588;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .no {
-  color: teal;
-}
-
-.markdown-body .highlight .ni {
-  color: purple;
-}
-
-.markdown-body .highlight .ne {
-  color: #990000;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .nf {
-  color: #990000;
-  font-weight: bold;
-}
-
-.markdown-body .highlight .nn {
-  color: #555555;
-}
-
-.markdown-body .highlight .nt {
-  color: navy;
-}
-
-.markdown-body .highlight .nv {
-  color: teal;
-}
-
-.markdown-body .highlight .ow {
-  font-weight: bold;
-}
-
-.markdown-body .highlight .w {
-  color: #bbbbbb;
-}
-
-.markdown-body .highlight .mf {
-  color: #009999;
-}
-
-.markdown-body .highlight .mh {
-  color: #009999;
-}
-
-.markdown-body .highlight .mi {
-  color: #009999;
-}
-
-.markdown-body .highlight .mo {
-  color: #009999;
-}
-
-.markdown-body .highlight .sb {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .sc {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .sd {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .s2 {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .se {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .sh {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .si {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .sx {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .sr {
-  color: #009926;
-}
-
-.markdown-body .highlight .s1 {
-  color: #dd1144;
-}
-
-.markdown-body .highlight .ss {
-  color: #990073;
-}
-
-.markdown-body .highlight .bp {
-  color: #999999;
-}
-
-.markdown-body .highlight .vc {
-  color: teal;
-}
-
-.markdown-body .highlight .vg {
-  color: teal;
-}
-
-.markdown-body .highlight .vi {
-  color: teal;
-}
-
-.markdown-body .highlight .il {
-  color: #009999;
-}
-
-.markdown-body .highlight .gc {
-  color: #999;
-  background-color: #EAF2F5;
-}
-
-.markdown-body .octicon {
-  font: normal normal 16px octicons-anchor;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.markdown-body .octicon-link:before {
-  content: '\f05c';
-}
-
-.markdown-body .task-list-item {
-  list-style-type: none;
-}
-
-.markdown-body .task-list-item+.task-list-item {
-  margin-top: 3px;
-}
-
-.markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
-  vertical-align: middle;
-}
-</style>
-	</head>
-	
-	<body>
-	<article class="markdown-body"><h2>
-<a  class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>互联网大学服务条款</h2>
-
-<p>修订时间：2016 年 08 月 19 日</p>
-
-<p>本服务条款是您与河南包众网络技术有限公司（下称“包子堂”）之间的协议。互联网大学（下称“本服务”） 是由包子堂提供的互联网软件服务。在本服务创建帐号并使用之前，您必须首先同意此条款。</p>
-
-<p>此条款将在必要时进行修订，修订后的条款一旦在网页上公布即有效代替原服务条款，无须另行通知。</p>
-
-<h2>
-<a name="" class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>帐户</h2>
-
-<p>您注册的帐户由您管理和使用，但该帐户仍然归属于包子堂。请您妥善保管您的帐户名和密码。因您保管不善导致遭受盗号或密码失窃，责任由您自行承担。</p>
-
-<h2>
-<a name="" class="anchor" href="#%E5%86%85%E5%AE%B9%E4%B8%8E%E7%89%88%E6%9D%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>内容与版权</h2>
-
-<p>包子堂对您在本服务提交的内容没有所有权，这些内容的所有权仍然归您所有。但是，如果您将页面设置为公开，就意味着您允许其他人查看和共享您的内容。
-您明白包子堂对他人提供的任何内容不在任何方面负责或负有责任，包子堂没有义务预先审查此类内容。但是，包子堂有权随时决定内容是否合适和与本条款相符；如果发现此类内容违反本条款或在其他方面令人反感，包子堂可随时并有绝对酌情权预先审查、转移、拒绝、修改和/或删除内容，而不需事先通知。
-本服务的外观设计与专利归包子堂所有。未经包子堂书面许可，您不能复制、拷贝，或者重用任何部分代码和外观设计。</p>
-
-<h2>
-<a name="" class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>隐私政策</h2>
-
-<p>您在使用本服务的过程中，可能需要使用一些必要的信息。使用本服务，即表示你同意包子堂合法收集和使用有关你及你所使用本服务的技术性或诊断性信息。收集到的些信息将用于改进产品，提升我们的服务品质。
-若国家法律法规或政策有特殊规定的，您需要提供真实的身份信息。若您不提供或提供的信息不完整，则无法使用本服务或在使用过程中受到限制。
-未经您的同意，包子堂不会向包子堂以外的任何公司、组织和个人披露您的个人信息，但法律法规另有规定的除外。</p>
-
-<h2>
-<a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>信息内容规范</h2>
-
-<p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p>
-
-<ul>
-<li>发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</li>
-<li>发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</li>
-<li>虚构事实、隐瞒真相以误导、欺骗他人；</li>
-<li>发表、传送、传播广告信息及垃圾信息；</li>
-<li>从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</li>
-</ul><h2>
-<a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>用户注意事项</h2>
-
-<ul>
-<li>您理解并同意您在本软件中获得的收入，您需自行向国家相关部门申报并缴纳个人所得税。</li>
-<li>您理解并同意为了向您提供有效的服务，本软件会利用您移动通讯终端的处理器和带宽等资源。本软件使用过程中可能产生数据流量的费用，您需自行向运营商了解相关资费信息，并自行承担相关费用。</li>
-<li>您理解并同意您必须为自己使用本软件及服务下的一切行为负责。包子堂不对您使用本软件及服务所查询的结果的安全性、正确性、及时性、完整性、实用性等作出任何保证，您应对您使用本软件及服务中的内容或所查询的结果自行加以判断，并承担因使用内容而引起的所有风险。包子堂无法且不会对因前述风险而导致的任何损失或损害承担责任。</li>
-<li>
-<p>您理解并同意包子堂将会尽其商业上的合理努力保障您在本软件及服务中的数据存储安全，但是，包子堂并不能就此提供完全保证，包括但不限于以下情形：</p>
-
-<ul>
-<li>包子堂不对您在本软件及服务中相关数据的删除或储存失败负责；</li>
-<li>包子堂有权根据实际情况自行决定单个用户在本软件及服务中数据的最长储存期限，并在服务器上为其分配数据最大存储空间等。您可根据自己的需要自行备份本软件及服务中的相关数据；</li>
-<li>如果您停止使用本软件及服务或服务被终止或取消，包子堂可以从服务器上永久地删除您的数据。服务停止、终止或取消后，包子堂没有义务向您返还任何数据。</li>
-</ul>
-</li>
-<li><p>您理解并同意您必须为自己使用本服务时的一切超出本协议的行为或由其他不可抗拒因素引起的异常自行承担责任。</p></li>
-</ul><h2>
-<a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>其他</h2>
-
-<ul>
-<li>您的下载、安装、使用本软件即视为您已阅读并同意受本协议的约束。包子堂有权在必要时修改本协议条款。您可以在本软件的最新版本中查阅相关协议条款。本协议条款变更后，如果您继续使用本软件，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本软件。</li>
-<li>本协议签订地为中华人民共和国河南省惠济区。</li>
-<li>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</li>
-<li>若您和包子堂之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</li>
-<li>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。（正文完）</li>
-</ul><p>河南包众网络科技有限公司</p></article>
-	
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <style>
+        body {
+
+            border: 1px solid #ddd;
+            outline: 1300px solid #fff;
+            margin: 16px auto;
+        }
+
+        body .markdown-body {
+            padding: 30px;
+        }
+
+        .markdown-body {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            color: #333333;
+            overflow: hidden;
+            font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .markdown-body a {
+            background: transparent;
+        }
+
+        .markdown-body a:active,
+        .markdown-body a:hover {
+            outline: 0;
+        }
+
+        .markdown-body strong {
+            font-weight: bold;
+        }
+
+        .markdown-body h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        .markdown-body img {
+            border: 0;
+        }
+
+        .markdown-body hr {
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            height: 0;
+        }
+
+        .markdown-body pre {
+            overflow: auto;
+        }
+
+        .markdown-body code,
+        .markdown-body kbd,
+        .markdown-body pre {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        .markdown-body input {
+            color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .markdown-body html input[disabled] {
+            cursor: default;
+        }
+
+        .markdown-body input {
+            line-height: normal;
+        }
+
+        .markdown-body input[type="checkbox"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .markdown-body table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .markdown-body td,
+        .markdown-body th {
+            padding: 0;
+        }
+
+        .markdown-body * {
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .markdown-body input {
+            font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.4;
+        }
+
+        .markdown-body a {
+            color: #4183c4;
+            text-decoration: none;
+        }
+
+        .markdown-body a:hover,
+        .markdown-body a:focus,
+        .markdown-body a:active {
+            text-decoration: underline;
+        }
+
+        .markdown-body hr {
+            height: 0;
+            margin: 15px 0;
+            overflow: hidden;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .markdown-body hr:before,
+        .markdown-body hr:after {
+            display: table;
+            content: " ";
+        }
+
+        .markdown-body hr:after {
+            clear: both;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .markdown-body h1 {
+            font-size: 30px;
+        }
+
+        .markdown-body h2 {
+            font-size: 21px;
+        }
+
+        .markdown-body h3 {
+            font-size: 16px;
+        }
+
+        .markdown-body h4 {
+            font-size: 14px;
+        }
+
+        .markdown-body h5 {
+            font-size: 12px;
+        }
+
+        .markdown-body h6 {
+            font-size: 11px;
+        }
+
+        .markdown-body blockquote {
+            margin: 0;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body ol ol,
+        .markdown-body ul ol {
+            list-style-type: lower-roman;
+        }
+
+        .markdown-body ul ul ol,
+        .markdown-body ul ol ol,
+        .markdown-body ol ul ol,
+        .markdown-body ol ol ol {
+            list-style-type: lower-alpha;
+        }
+
+        .markdown-body dd {
+            margin-left: 0;
+        }
+
+        .markdown-body code,
+        .markdown-body pre {
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 12px;
+        }
+
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body kbd {
+            background-color: #e7e7e7;
+            background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+            background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+            background-image: linear-gradient(#fefefe, #e7e7e7);
+            background-repeat: repeat-x;
+            border-radius: 2px;
+            border: 1px solid #cfcfcf;
+            color: #000;
+            padding: 3px 5px;
+            line-height: 10px;
+            font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            display: inline-block;
+        }
+
+        .markdown-body > *:first-child {
+            margin-top: 0 !important;
+        }
+
+        .markdown-body > *:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .markdown-body .anchor {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            padding-right: 6px;
+            padding-left: 30px;
+            margin-left: -30px;
+        }
+
+        .markdown-body .anchor:focus {
+            outline: none;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            position: relative;
+            margin-top: 1em;
+            margin-bottom: 16px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .markdown-body h1 .octicon-link,
+        .markdown-body h2 .octicon-link,
+        .markdown-body h3 .octicon-link,
+        .markdown-body h4 .octicon-link,
+        .markdown-body h5 .octicon-link,
+        .markdown-body h6 .octicon-link {
+            display: none;
+            color: #000;
+            vertical-align: middle;
+        }
+
+        .markdown-body h1:hover .anchor,
+        .markdown-body h2:hover .anchor,
+        .markdown-body h3:hover .anchor,
+        .markdown-body h4:hover .anchor,
+        .markdown-body h5:hover .anchor,
+        .markdown-body h6:hover .anchor {
+            height: 1em;
+            padding-left: 8px;
+            margin-left: -30px;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .markdown-body h1:hover .anchor .octicon-link,
+        .markdown-body h2:hover .anchor .octicon-link,
+        .markdown-body h3:hover .anchor .octicon-link,
+        .markdown-body h4:hover .anchor .octicon-link,
+        .markdown-body h5:hover .anchor .octicon-link,
+        .markdown-body h6:hover .anchor .octicon-link {
+            display: inline-block;
+        }
+
+        .markdown-body h1 {
+            padding-bottom: 0.3em;
+            font-size: 2.25em;
+            line-height: 1.2;
+            border-bottom: 1px solid #eee;
+        }
+
+        .markdown-body h2 {
+            padding-bottom: 0.3em;
+            font-size: 1.75em;
+            line-height: 1.225;
+            border-bottom: 1px solid #eee;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.5em;
+            line-height: 1.43;
+        }
+
+        .markdown-body h4 {
+            font-size: 1.25em;
+        }
+
+        .markdown-body h5 {
+            font-size: 1em;
+        }
+
+        .markdown-body h6 {
+            font-size: 1em;
+            color: #777;
+        }
+
+        .markdown-body p,
+        .markdown-body blockquote,
+        .markdown-body ul,
+        .markdown-body ol,
+        .markdown-body dl,
+        .markdown-body table,
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body hr {
+            height: 4px;
+            padding: 0;
+            margin: 16px 0;
+            background-color: #e7e7e7;
+            border: 0 none;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding-left: 2em;
+        }
+
+        .markdown-body ul ul,
+        .markdown-body ul ol,
+        .markdown-body ol ol,
+        .markdown-body ol ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body li > p {
+            margin-top: 16px;
+        }
+
+        .markdown-body dl {
+            padding: 0;
+        }
+
+        .markdown-body dl dt {
+            padding: 0;
+            margin-top: 16px;
+            font-size: 1em;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .markdown-body dl dd {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body blockquote {
+            padding: 0 15px;
+            color: #777;
+            border-left: 4px solid #ddd;
+        }
+
+        .markdown-body blockquote > :first-child {
+            margin-top: 0;
+        }
+
+        .markdown-body blockquote > :last-child {
+            margin-bottom: 0;
+        }
+
+        .markdown-body table {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            word-break: normal;
+            word-break: keep-all;
+        }
+
+        .markdown-body table th {
+            font-weight: bold;
+        }
+
+        .markdown-body table th,
+        .markdown-body table td {
+            padding: 6px 13px;
+            border: 1px solid #ddd;
+        }
+
+        .markdown-body table tr {
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        .markdown-body table tr:nth-child(2n) {
+            background-color: #f8f8f8;
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .markdown-body code {
+            padding: 0;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(0, 0, 0, 0.04);
+            border-radius: 3px;
+        }
+
+        .markdown-body code:before,
+        .markdown-body code:after {
+            letter-spacing: -0.2em;
+            content: "\00a0";
+        }
+
+        .markdown-body pre > code {
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            background: transparent;
+            border: 0;
+        }
+
+        .markdown-body .highlight {
+            margin-bottom: 16px;
+        }
+
+        .markdown-body .highlight pre,
+        .markdown-body pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border-radius: 3px;
+        }
+
+        .markdown-body .highlight pre {
+            margin-bottom: 0;
+            word-break: normal;
+        }
+
+        .markdown-body pre {
+            word-wrap: normal;
+        }
+
+        .markdown-body pre code {
+            display: inline;
+            max-width: initial;
+            padding: 0;
+            margin: 0;
+            overflow: initial;
+            line-height: inherit;
+            word-wrap: normal;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .markdown-body pre code:before,
+        .markdown-body pre code:after {
+            content: normal;
+        }
+
+        .markdown-body .highlight {
+            background: #ffffff;
+        }
+
+        .markdown-body .highlight .c {
+            color: #999988;
+            font-style: italic;
+        }
+
+        .markdown-body .highlight .err {
+            color: #a61717;
+            background-color: #e3d2d2;
+        }
+
+        .markdown-body .highlight .k {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .o {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .cm {
+            color: #999988;
+            font-style: italic;
+        }
+
+        .markdown-body .highlight .cp {
+            color: #999999;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .c1 {
+            color: #999988;
+            font-style: italic;
+        }
+
+        .markdown-body .highlight .cs {
+            color: #999999;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .markdown-body .highlight .gd {
+            color: #000000;
+            background-color: #ffdddd;
+        }
+
+        .markdown-body .highlight .gd .x {
+            color: #000000;
+            background-color: #ffaaaa;
+        }
+
+        .markdown-body .highlight .ge {
+            font-style: italic;
+        }
+
+        .markdown-body .highlight .gr {
+            color: #aa0000;
+        }
+
+        .markdown-body .highlight .gh {
+            color: #999999;
+        }
+
+        .markdown-body .highlight .gi {
+            color: #000000;
+            background-color: #ddffdd;
+        }
+
+        .markdown-body .highlight .gi .x {
+            color: #000000;
+            background-color: #aaffaa;
+        }
+
+        .markdown-body .highlight .go {
+            color: #888888;
+        }
+
+        .markdown-body .highlight .gp {
+            color: #555555;
+        }
+
+        .markdown-body .highlight .gs {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .gu {
+            color: #800080;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .gt {
+            color: #aa0000;
+        }
+
+        .markdown-body .highlight .kc {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .kd {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .kn {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .kp {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .kr {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .kt {
+            color: #445588;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .m {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .s {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .n {
+            color: #333333;
+        }
+
+        .markdown-body .highlight .na {
+            color: teal;
+        }
+
+        .markdown-body .highlight .nb {
+            color: #0086b3;
+        }
+
+        .markdown-body .highlight .nc {
+            color: #445588;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .no {
+            color: teal;
+        }
+
+        .markdown-body .highlight .ni {
+            color: purple;
+        }
+
+        .markdown-body .highlight .ne {
+            color: #990000;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .nf {
+            color: #990000;
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .nn {
+            color: #555555;
+        }
+
+        .markdown-body .highlight .nt {
+            color: navy;
+        }
+
+        .markdown-body .highlight .nv {
+            color: teal;
+        }
+
+        .markdown-body .highlight .ow {
+            font-weight: bold;
+        }
+
+        .markdown-body .highlight .w {
+            color: #bbbbbb;
+        }
+
+        .markdown-body .highlight .mf {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .mh {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .mi {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .mo {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .sb {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .sc {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .sd {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .s2 {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .se {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .sh {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .si {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .sx {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .sr {
+            color: #009926;
+        }
+
+        .markdown-body .highlight .s1 {
+            color: #dd1144;
+        }
+
+        .markdown-body .highlight .ss {
+            color: #990073;
+        }
+
+        .markdown-body .highlight .bp {
+            color: #999999;
+        }
+
+        .markdown-body .highlight .vc {
+            color: teal;
+        }
+
+        .markdown-body .highlight .vg {
+            color: teal;
+        }
+
+        .markdown-body .highlight .vi {
+            color: teal;
+        }
+
+        .markdown-body .highlight .il {
+            color: #009999;
+        }
+
+        .markdown-body .highlight .gc {
+            color: #999;
+            background-color: #EAF2F5;
+        }
+
+        .markdown-body .octicon {
+            font: normal normal 16px octicons-anchor;
+            line-height: 1;
+            display: inline-block;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .markdown-body .octicon-link:before {
+            content: '\f05c';
+        }
+
+        .markdown-body .task-list-item {
+            list-style-type: none;
+        }
+
+        .markdown-body .task-list-item + .task-list-item {
+            margin-top: 3px;
+        }
+
+        .markdown-body .task-list-item input {
+            margin: 0 4px 0.25em -20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+<article class="markdown-body"><h2>
+    <a class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>互联网大学服务条款</h2>
+
+    <p>修订时间：2016 年 08 月 19 日</p>
+
+    <p>本服务条款是您与河南包众网络技术有限公司（下称“包子堂”）之间的协议。互联网大学（下称“本服务”） 是由包子堂提供的互联网软件服务。在本服务创建帐号并使用之前，您必须首先同意此条款。</p>
+
+    <p>此条款将在必要时进行修订，修订后的条款一旦在网页上公布即有效代替原服务条款，无须另行通知。</p>
+
+    <h2>
+        <a name="" class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>帐户</h2>
+
+    <p>您注册的帐户由您管理和使用，但该帐户仍然归属于包子堂。请您妥善保管您的帐户名和密码。因您保管不善导致遭受盗号或密码失窃，责任由您自行承担。</p>
+
+    <h2>
+        <a name="" class="anchor" href="#%E5%86%85%E5%AE%B9%E4%B8%8E%E7%89%88%E6%9D%83" aria-hidden="true"><span
+                class="octicon octicon-link"></span></a>内容与版权</h2>
+
+    <p>包子堂对您在本服务提交的内容没有所有权，这些内容的所有权仍然归您所有。但是，如果您将页面设置为公开，就意味着您允许其他人查看和共享您的内容。
+        您明白包子堂对他人提供的任何内容不在任何方面负责或负有责任，包子堂没有义务预先审查此类内容。但是，包子堂有权随时决定内容是否合适和与本条款相符；如果发现此类内容违反本条款或在其他方面令人反感，包子堂可随时并有绝对酌情权预先审查、转移、拒绝、修改和/或删除内容，而不需事先通知。
+        本服务的外观设计与专利归包子堂所有。未经包子堂书面许可，您不能复制、拷贝，或者重用任何部分代码和外观设计。</p>
+
+    <h2>
+        <a name="" class="anchor" href="" aria-hidden="true"><span class="octicon octicon-link"></span></a>隐私政策</h2>
+
+    <p>您在使用本服务的过程中，可能需要使用一些必要的信息。使用本服务，即表示你同意包子堂合法收集和使用有关你及你所使用本服务的技术性或诊断性信息。收集到的些信息将用于改进产品，提升我们的服务品质。
+        若国家法律法规或政策有特殊规定的，您需要提供真实的身份信息。若您不提供或提供的信息不完整，则无法使用本服务或在使用过程中受到限制。
+        未经您的同意，包子堂不会向包子堂以外的任何公司、组织和个人披露您的个人信息，但法律法规另有规定的除外。</p>
+
+    <h2>
+        <a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>信息内容规范</h2>
+
+    <p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p>
+
+    <ul>
+        <li>发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</li>
+        <li>发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</li>
+        <li>虚构事实、隐瞒真相以误导、欺骗他人；</li>
+        <li>发表、传送、传播广告信息及垃圾信息；</li>
+        <li>从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</li>
+    </ul>
+    <h2>
+        <a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>用户注意事项</h2>
+
+    <ul>
+        <li>您理解并同意您在本软件中获得的收入，您需自行向国家相关部门申报并缴纳个人所得税。</li>
+        <li>您理解并同意为了向您提供有效的服务，本软件会利用您移动通讯终端的处理器和带宽等资源。本软件使用过程中可能产生数据流量的费用，您需自行向运营商了解相关资费信息，并自行承担相关费用。</li>
+        <li>
+            您理解并同意您必须为自己使用本软件及服务下的一切行为负责。包子堂不对您使用本软件及服务所查询的结果的安全性、正确性、及时性、完整性、实用性等作出任何保证，您应对您使用本软件及服务中的内容或所查询的结果自行加以判断，并承担因使用内容而引起的所有风险。包子堂无法且不会对因前述风险而导致的任何损失或损害承担责任。
+        </li>
+        <li>
+            <p>您理解并同意包子堂将会尽其商业上的合理努力保障您在本软件及服务中的数据存储安全，但是，包子堂并不能就此提供完全保证，包括但不限于以下情形：</p>
+
+            <ul>
+                <li>包子堂不对您在本软件及服务中相关数据的删除或储存失败负责；</li>
+                <li>包子堂有权根据实际情况自行决定单个用户在本软件及服务中数据的最长储存期限，并在服务器上为其分配数据最大存储空间等。您可根据自己的需要自行备份本软件及服务中的相关数据；</li>
+                <li>如果您停止使用本软件及服务或服务被终止或取消，包子堂可以从服务器上永久地删除您的数据。服务停止、终止或取消后，包子堂没有义务向您返还任何数据。</li>
+            </ul>
+        </li>
+        <li><p>您理解并同意您必须为自己使用本服务时的一切超出本协议的行为或由其他不可抗拒因素引起的异常自行承担责任。</p></li>
+    </ul>
+    <h2>
+        <a name="" class="anchor" href="" aria-hidden="true"><span class="octicon "></span></a>其他</h2>
+
+    <ul>
+        <li>
+            您的下载、安装、使用本软件即视为您已阅读并同意受本协议的约束。包子堂有权在必要时修改本协议条款。您可以在本软件的最新版本中查阅相关协议条款。本协议条款变更后，如果您继续使用本软件，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本软件。
+        </li>
+        <li>本协议签订地为中华人民共和国河南省惠济区。</li>
+        <li>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</li>
+        <li>若您和包子堂之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</li>
+        <li>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。（正文完）</li>
+    </ul>
+    <p>河南包众网络科技有限公司</p></article>
+
+</body>
 </html>

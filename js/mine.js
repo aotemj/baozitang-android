@@ -37,7 +37,7 @@ getPersonInfo(
         jump('.msg', 'msg.html');
 
 //设置页面跳转
-        jump('.setting', 'setting.html', "");
+        jump('.setting', 'setting.html', JSON.stringify(passData));
 
 //编辑个人信息跳转
         jump('.edit', 'personal-info.html', JSON.stringify(passData));

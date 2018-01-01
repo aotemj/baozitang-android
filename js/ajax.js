@@ -265,3 +265,20 @@ function getLearnRecord(data, callback) {
         }
     });
 }
+
+//封装 获取文稿方法：
+function getMarkdown(data,callback){
+    var url = 'https://api.qingkequn.com/api/aliyun/oss/md/20171228/'+data.ID+'.md';
+    $.ajax({
+        type:'get',
+        dataType:'json',
+        url:url,
+        beforeSend:function(res){
+            res.setRequestHeader('Authorization',token)
+        },
+        success:function(res){
+            callback(res);
+        }
+    });
+
+}
