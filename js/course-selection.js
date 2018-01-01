@@ -16,9 +16,7 @@ $(function () {
 
     $('.content').on('touchmove', function () {
         page++;
-        // setTimeout(function(){
         randerCourseList();
-        // },250);
     });
 
     function randerCourseList() {
@@ -37,7 +35,7 @@ $(function () {
                     '<li data-course-id="' + course.courseId + '" data-class-id="' + course.classId + '" data-progress ="' + course.progress + '" data-course-name="' + course.name + '" data-img-url="' + course.image + '" >'
                     + '<a href="javascript:;">'
                     + '  <div class="img">'
-                    + '    <img src="http://img1.imgtn.bdimg.com/it/u=3056542012,1156986207&fm=27&gp=0.jpg" alt="">'
+                    + '    <img src="'+course.image+'" alt="">'
                     + '    <i class="play"></i>'
                     + '    <i class="listen"></i>'
                     + '  </div>'

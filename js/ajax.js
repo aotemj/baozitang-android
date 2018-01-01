@@ -3,12 +3,12 @@ var baseUrl = 'https://api.qingkequn.com/';
 // var baseUrl = 'http://192.168.10.15:8081/';
 
 //获取token:
-var token = window.baozitang.getAuth();
+// var token = window.baozitang.getAuth();
 // mui.toast(getToken);
 
 // token 和 userId 由android 提供
 // var token = window.baozitang.getAuth();
-// var token = 'Bearer ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODYyNTUxMjk4MiIsImNyZWF0ZWQiOjE1MTQ2MjYxODQwNTMsImNsaWVudCI6IndlYl9jZXNoaV9jbGllbnQiLCJleHAiOjE1MTUyMzA5ODR9.OBn6Sp9fQjiqgQrKk0uLreh5Jyv2vJjzYqoca58wEZw3X0KPFpcAk1zBpDJUBXDcYQGdk9RtQnuG1sGe70kQ4w';
+var token = 'Bearer ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzYzOTc1Mzk4MSIsImNyZWF0ZWQiOjE1MTQ3OTEwODMwMTcsImNsaWVudCI6IjExMTExMSIsImV4cCI6MTUxNTM5NTg4M30.OkzfdNFVLZH8h5vHOqt9pgSCn4lw6Dq4X79Uw5ms3WR2gWFESr4TE5H3YbeG_yagq1TZCm3mS-XvPh3fOabqXw';
 // var studentId = 3;
 
 //封装获取课程列表方法
@@ -267,18 +267,35 @@ function getLearnRecord(data, callback) {
 }
 
 //封装 获取文稿方法：
-function getMarkdown(data,callback){
-    var url = 'https://api.qingkequn.com/api/aliyun/oss/md/20171228/'+data.ID+'.md';
+function getMarkdown(data, callback) {
+    var url = 'https://api.qingkequn.com/api/aliyun/oss/md/20171228/' + data.ID + '.md';
     $.ajax({
-        type:'get',
-        dataType:'json',
-        url:url,
-        beforeSend:function(res){
-            res.setRequestHeader('Authorization',token)
+        type: 'get',
+        dataType: 'json',
+        url: url,
+        beforeSend: function (res) {
+            res.setRequestHeader('Authorization', token)
         },
-        success:function(res){
+        success: function (res) {
             callback(res);
         }
     });
 
+}
+
+//封装分享作业方法：
+function shareHomework(data, callback) {
+    var url = baseUrl + 'api/app/shareMyWork';
+    $.ajax({
+        data: data,
+        type: 'post',
+        dataType: 'json',
+        url: url,
+        beforeSend: function (res) {
+            res.setRequestHeader('Authorization', token);
+        },
+        success: function (res) {
+            callback(res);
+        }
+    });
 }

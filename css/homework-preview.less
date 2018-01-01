@@ -1,87 +1,92 @@
 // 激活颜色
-@activeColor:#ffd100;
+@activeColor: #ffd100;
 // 背景色:
-@bgColor:#f5f5f5;
+@bgColor: #f5f5f5;
 // 主字体颜色:
-@fontColor:#2d2d2d;
+@fontColor: #2d2d2d;
 // 弱化字体颜色：
-@secondFontColor:#b5b5b5;
+@secondFontColor: #b5b5b5;
 //内容颜色：
-@contentColor:#505050;
+@contentColor: #505050;
 //说明性文字颜色：
-@descColor:#858585;
+@descColor: #858585;
 // 边框颜色
-@borderColor:#e8e8e8;
+@borderColor: #e8e8e8;
 /* 选课 */
-body{
-	// background-color: @bgColor;
-	/*父容器*/
-	.container{
-		width:10rem;
-		box-sizing: border-box;
-		font-family:"sans-serif";
-		overflow: hidden;
-		// height: 15rem;
-		/*顶部导航*/
-		.top{
-			padding:0 40/75rem;
-			height:88/75rem;
-			line-height: 88/75rem;
-			background-color: #fff;
-			border-bottom:1px solid @borderColor;
-			.back,.save{
-				width:88/75rem;
-				text-align: right;
-				font-size:28/75rem;
-			}
-			.back{
-				background:url('../images/close_icon.png') no-repeat left center;
-				background-size: 40/75rem 40/75rem;
-				color:transparent;
-			}
-		}
-		/*作业内容*/
-		>.content{
-			width:100%;
-			box-sizing: border-box;
-			padding:40/75rem;
-			background-color: #fff;
-			/*作业标题*/
-			h4{
-				font-size: 36/75rem;
-			}
-			/*作业列表*/
-			.homework-list{
-				margin-top:20/75rem;
-				width:100%;
-				// padding:30/75rem;
-				box-sizing: border-box;
-				ul{
-					li{
-						margin-bottom:50/75rem;
-						.inner-content{
-							width:100%;
-							// background-color: pink;
-							// box-sizing: border-box;
-							/*题目*/
-							.title{
-								width:100%;
-								padding:20/75rem;
-								box-sizing: border-box;
-								background-color: #f5f5f5;
-								font-size: 32/75rem;
-								border-left:10/75rem solid #B5B5B5;
-							}
-							/*答案*/
-							.content{
-								margin-top:30/75rem;
-								font-size: 32/75rem;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+body {
+  // background-color: @bgColor;
+  /*父容器*/
+  .container {
+    width: 10rem;
+    box-sizing: border-box;
+    font-family: "sans-serif";
+    overflow: hidden;
+    // height: 15rem;
+    /*顶部导航*/
+    .top {
+      padding: 0 40/75rem;
+      height: 88/75rem;
+      line-height: 88/75rem;
+      background-color: #fff;
+      border-bottom: 1px solid @borderColor;
+      .back, .save {
+        width: 88/75rem;
+        text-align: right;
+        font-size: 28/75rem;
+      }
+      .back {
+        background: url('../images/close_icon.png') no-repeat left center;
+        background-size: 40/75rem 40/75rem;
+        color: transparent;
+      }
+      .right {
+        .share{
+          font-size:32/75rem;
+        }
+      }
+    }
+    /*作业内容*/
+    > .content {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 40/75rem;
+      background-color: #fff;
+      /*作业标题*/
+      h4 {
+        font-size: 36/75rem;
+      }
+      /*作业列表*/
+      .homework-list {
+        margin-top: 20/75rem;
+        width: 100%;
+        // padding:30/75rem;
+        box-sizing: border-box;
+        ul {
+          li {
+            margin-bottom: 50/75rem;
+            .inner-content {
+              width: 100%;
+              // background-color: pink;
+              // box-sizing: border-box;
+              /*题目*/
+              .title {
+                width: 100%;
+                padding: 20/75rem;
+                box-sizing: border-box;
+                background-color: #f5f5f5;
+                font-size: 32/75rem;
+                border-left: 10/75rem solid #B5B5B5;
+              }
+              /*答案*/
+              .content {
+                margin-top: 30/75rem;
+                font-size: 32/75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 

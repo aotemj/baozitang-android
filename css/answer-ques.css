@@ -30,7 +30,7 @@ body .container .top .save {
   font-size: 0.37333333rem;
 }
 body .container .top .back {
-  background: url('../images/fanhui_icon.png') no-repeat -0.06666667rem center;
+  background: url('https://api.qingkequn.com/images/fanhui_icon.png') no-repeat -0.06666667rem center;
   background-size: 0.53333333rem 0.53333333rem;
   color: transparent;
 }
@@ -52,7 +52,7 @@ body .container .ques-list {
   /*问问题*/
 }
 body .container .ques-list.active {
-  background: url("../images/no-questions_bj.png") no-repeat center center;
+  background: url("https://api.qingkequn.com/images/no-questions_bj.png") no-repeat center center;
   background-size: 4rem 4rem;
 }
 body .container .ques-list > .no-con-prompt {
@@ -178,7 +178,7 @@ body .container .ques-list .ask-window .todos .send {
   background-size: 0.42666667rem 0.42666667rem;
 }
 body .container .ques-list .ask-window .todos .send {
-  background-image: url('../images/question-send_icon.png');
+  background-image: url('https://api.qingkequn.com/images/question-send_icon.png');
 }
 body .container .ques-list .answer {
   position: fixed;

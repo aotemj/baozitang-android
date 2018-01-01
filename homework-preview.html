@@ -16,6 +16,9 @@
     <!-- 顶部头 -->
     <div class="top clearfix">
         <div class="back fl">返回</div>
+        <div class="right fr">
+            <button class="share">分享</button>
+        </div>
     </div>
     <!-- 作业内容 -->
     <div class="content">
@@ -51,7 +54,7 @@
 <script src="./js/ajax.js"></script>
 <script src="./js/index.js"></script>
 <script>
-    var getParams = function (data) {
+    function getParams(data) {
         var passData = JSON.parse(data);
         getHomeworkList(passData, function (res) {
             //错误处理：
@@ -82,7 +85,23 @@
                 $('.homework-list>ul').append(li);
             }
         });
+        
+        //分享按钮调取接口
+        $('.share').on('click', function () {
+//            window.baozitang.toast("1");
+            shareHomework(
+                {
+                    studentId: passData.studentId,
+                    sectionId: passData.sectionId,
+                    classId: passData.classId
+
+                }, function (res) {
+                    console.log(res);
+                })
+        })
     }
+
+
 </script>
 <script src="./js/homework-preview.js"></script>
 </body>
